@@ -27,6 +27,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
+## Acknowledgment
+
+The ['MIMIC WFDB Tutorials' book](https://github.com/wfdb/mimic_wfdb_tutorials) was used as a template for this book. Many thanks to [all those who contributed](https://github.com/wfdb/mimic_wfdb_tutorials#contributors-) to this original resource.
+
 ## Development
 
 This website was created with [JupyterBook](https://jupyterbook.org/). To set up a local development environment, follow the steps below:
