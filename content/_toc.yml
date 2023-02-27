@@ -5,7 +5,6 @@
 - file: workshop
   sections:
     - file: workshop/aims
-    - file: workshop/synopsis
     - file: workshop/schedule
     - file: workshop/prep
 - file: mimic-database

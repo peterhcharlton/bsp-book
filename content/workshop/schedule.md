@@ -5,9 +5,10 @@ The workshop will last 3.5 hours.
 | Time | Content |
 | :--- | :--- |
 | 5 mins | [Welcome and overview](../workshop) |
-| 20 mins | [Introduction to the MIMIC Waveform Database](../workshop) |
-| 5 mins | [Overview of case study](../case-study) |
-| 45 mins | [Interactive Tutorials](../tutorials) |
-| 2 hours | [Case Study](../case-study) |
-| 15 mins | Group presentations |
+| 15 mins | [Introduction to wearables](../workshop) |
+| 40 mins | [Interactive Tutorials](../tutorials) |
+| 5 mins | [Overview of case studies](../case-study) |
+| 45 mins | [Group work](../case-study) |
+| 5 mins | Group feedback |
+| 5 mins | Summary |
 

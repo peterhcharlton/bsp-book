@@ -1,8 +1,9 @@
 # Aims
 
-This interactive workshop provides key knowledge, skills, and tools for conducting open research in the field of biomedical signal processing.
+The aim of this workshop is to equip attendees with knowledge and skills to apply best practices to process wearable data, benefiting researchers in academia, device designers in industry, and ultimately the millions of people who use wearables to monitor their health and fitness.
 
-Broadly, the workshop:
-1. Introduces publicly accessible datasets of physiological signals, focusing on those on _PhysioNet_ ([https://www.physionet.org](https://www.physionet.org)).
-2. Teaches essential skills for conducting high quality research using open source software.
-3. Offers an opportunity to work in groups on a cuffless blood pressure estimation case study.
+The Learning objectives are:
+
+- To understand the different types of signals acquired by wearables.
+- To learn fundamental techniques for processing wearable signals.
+- To gain hands-on experience of signal processing and machine learning with wearable data.
