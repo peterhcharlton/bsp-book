@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: MIMIC WFDB Tutorials
+title: Signal Processing and Learning for Wearables
 author: Peter H Charlton
-copyright: "2022"
+copyright: "2023"
 logo: icon.png
 exclude_patterns: [README.md]
 
@@ -15,7 +15,7 @@ execute:
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
-    targetname: mimic_wfdb_tutorials.tex
+    targetname: bsp-book.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
@@ -23,7 +23,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/wfdb/mimic_wfdb_tutorials  # Online location of your book
+  url: https://github.com/peterhcharlton/bsp-book  # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
   path_to_book: content
 
@@ -33,11 +33,10 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
-  
+
 # Add launch buttons
 # See https://jupyterbook.org/en/stable/interactive/launchbuttons.html
 launch_buttons:
 # Google Colab links will only work for pages that have the .ipynb extension.
-  colab_url: "https://colab.research.google.com" 
-  binderhub_url: "https://mybinder.org" 
-
+  colab_url: "https://colab.research.google.com"
+  binderhub_url: "https://mybinder.org"
