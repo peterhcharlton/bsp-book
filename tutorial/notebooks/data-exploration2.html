@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Exploration &#8212; Signal Processing and Learning for Wearables</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Signal Processing and Learning for Wearables</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../overview.html">
+   Overview
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../overview/aims.html">
+     Aims
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../overview/workshop-2023-03.html">
+     Workshop - March 2023
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../background.html">
+   Background
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/wearables.html">
+     Wearable Devices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/signals.html">
+     Signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/physiology.html">
+     Physiology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/applications.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../resources.html">
+   Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/data.html">
+     Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/code.html">
+     Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-exploration.html">
+     Data Exploration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-extraction.html">
+     Data Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-visualisation.html">
+     Data Visualisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="signal-filtering.html">
+     Filtering Signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="differentiation.html">
+     Differentiating the PPG signal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="beat-detection.html">
+     Beat detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pulse-wave-analysis.html">
+     Pulse Wave Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extracting-reference-bp.html">
+     Extracting BP values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../case-studies.html">
+   Case Studies
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../case-studies/bp-estimation.html">
+     Cuffless Blood Pressure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../summary.html">
+   Summary
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../closing/additional-resources.html">
+     Additional Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/about-contributing.html">
+     Contributing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/about-maintenance.html">
+     Maintenance
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../about/future-tutorials.html">
+     Future Tutorials
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="qrs-detection.html">
+       QRS peak detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../signal-quality-assessment.html">
+       Signal Quality Assessment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-modelling.html">
+       Data modelling
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-analysis.html">
+       Data analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-interpretation.html">
+       Data interpretation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/acknowledgment.html">
+     Acknowledgment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/tutorial/notebooks/data-exploration2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/peterhcharlton/bsp-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Ftutorial/notebooks/data-exploration2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/tutorial/notebooks/data-exploration2.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/tutorial/notebooks/data-exploration2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/tutorial/notebooks/data-exploration2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-required-python-packages">
+     Specify the required Python packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-a-particular-version-of-the-wfdb-toolbox">
+     Specify a particular version of the WFDB Toolbox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-name-of-the-database">
+     Specify the name of the Database
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-the-records-in-the-database">
+   Identify the records in the database
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-list-of-records">
+     Get a list of records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#look-at-the-records">
+     Look at the records
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-metadata-for-a-record">
+   Extract metadata for a record
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-online-directory-containing-a-record-s-data">
+     Specify the online directory containing a record’s data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-the-metadata-for-this-record">
+     Load the metadata for this record
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect-details-of-physiological-signals-recorded-in-this-record">
+   Inspect details of physiological signals recorded in this record
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-out-how-long-each-signal-lasts">
+     Find out how long each signal lasts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-records-suitable-for-analysis">
+   Identify records suitable for analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-requirements">
+     Specify requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-out-how-many-records-meet-the-requirements">
+     Find out how many records meet the requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-exploration">
+<h1>Data Exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">¶</a></h1>
+<p>Let’s begin by exploring data in the MIMIC Waveform Database.</p>
+<p>Our <strong>objectives</strong> are to:</p>
+<ul class="simple">
+<li><p>Review the structure of the MIMIC Waveform Database (considering subjects, studies, records, and segments).</p></li>
+<li><p>Load waveforms using the WFDB toolbox.</p></li>
+<li><p>Find out which signals are present in selected records and segments, and how long the signals last.</p></li>
+<li><p>Search for records that contain signals of interest.</p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the MIMIC Waveform Database <a href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>.</p>
+</div><hr class="docutils" />
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="specify-the-required-python-packages">
+<h3>Specify the required Python packages<a class="headerlink" href="#specify-the-required-python-packages" title="Permalink to this headline">¶</a></h3>
+<p>We’ll import the following:</p>
+<ul class="simple">
+<li><p><em>sys</em>: an essential python package</p></li>
+<li><p><em>pathlib</em> (well a particular function from <em>pathlib</em>, called <em>Path</em>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="specify-a-particular-version-of-the-wfdb-toolbox">
+<h3>Specify a particular version of the WFDB Toolbox<a class="headerlink" href="#specify-a-particular-version-of-the-wfdb-toolbox" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>wfdb</em>: For this workshop we will be using version 4 of the WaveForm DataBase (WFDB) Toolbox package. The package contains tools for processing waveform data such as those found in MIMIC:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">wfdb</span><span class="o">==</span><span class="m">4</span>.0.0
+<span class="kn">import</span> <span class="nn">wfdb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wfdb==4.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (4.0.0)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (2.25.1)
+Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.20.1)
+Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (3.3.4)
+Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (0.10.3.post1)
+Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.2.4)
+Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.6.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (8.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.8.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.4.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.3.1)
+Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.15.0)
+Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.0.0) (2021.1)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2022.12.7)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (1.26.4)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (4.0.0)
+Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (1.14.5)
+Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (2.20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the WFDB package <a href="https://physionet.org/content/wfdb-python/3.4.1/">here</a>.</p>
+</div><p>Now that we have imported these packages (<em>i.e.</em> toolboxes) we have a set of tools (functions) ready to use.</p>
+</div>
+<div class="section" id="specify-the-name-of-the-database">
+<h3>Specify the name of the Database<a class="headerlink" href="#specify-the-name-of-the-database" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Specify the name of the database on Physionet, which comes from the URL: <a class="reference external" href="https://physionet.org/content/pulse-transit-time-ppg/1.1.0/">https://physionet.org/content/pulse-transit-time-ppg/1.1.0/</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;pulse-transit-time-ppg/1.1.0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="identify-the-records-in-the-database">
+<h2>Identify the records in the database<a class="headerlink" href="#identify-the-records-in-the-database" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-records">
+<h3>Get a list of records<a class="headerlink" href="#get-a-list-of-records" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.get_record_list"><code class="docutils literal notranslate"><span class="pre">get_record_list</span></code></a> function from the WFDB toolbox to get a list of records in the database.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># each subject may be associated with multiple records</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database contains data from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span><span class="si">}</span><span class="s2"> subjects&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The &#39;pulse-transit-time-ppg/1.1.0&#39; database contains data from 66 subjects
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterate the subjects to get a list of records</span>
+<span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_records_to_load</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># set max number of records to load</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
+    <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+    <span class="c1"># stop if we&#39;ve loaded enough records</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_records_to_load</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached maximum required number of records.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 66 records from the &#39;pulse-transit-time-ppg/1.1.0&#39; database.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="look-at-the-records">
+<h3>Look at the records<a class="headerlink" href="#look-at-the-records" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Display the first few records</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format and print first six records</span>
+<span class="n">no_records</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">first_records</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">no_records</span><span class="p">]]</span>
+<span class="n">first_records</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_records</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First records: </span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">first_records</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Note the formatting of these records:</span>
+<span class="s2"> - subject (&#39;s1&#39; in this case)</span>
+<span class="s2"> - activity (e.g. &#39;run&#39;)</span>
+<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First records: 
+ - s1_walk
+ - s1_run
+ - s1_sit
+ - s2_walk
+ - s2_run
+ - s2_sit
+
+Note the formatting of these records:
+ - subject (&#39;s1&#39; in this case)
+ - activity (e.g. &#39;run&#39;)
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Can you print the names of the last five records? <br> <b>Hint:</b> in Python, the last five elements can be specified using '[-5:]'</p>
+</div></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="extract-metadata-for-a-record">
+<h2>Extract metadata for a record<a class="headerlink" href="#extract-metadata-for-a-record" title="Permalink to this headline">¶</a></h2>
+<p>Each record contains metadata stored in a header file, named “<code class="docutils literal notranslate"><span class="pre">&lt;record</span> <span class="pre">name&gt;.hea</span></code>”</p>
+<div class="section" id="specify-the-online-directory-containing-a-record-s-data">
+<h3>Specify the online directory containing a record’s data<a class="headerlink" href="#specify-the-online-directory-containing-a-record-s-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the 4th record (note, in Python indexing begins at 0)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">record</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">record_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PhysioNet directory specified for record: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PhysioNet directory specified for record: pulse-transit-time-ppg/1.1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-the-metadata-for-this-record">
+<h3>Load the metadata for this record<a class="headerlink" href="#load-the-metadata-for-this-record" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.rdheader"><code class="docutils literal notranslate"><span class="pre">rdheader</span></code></a> function from the WFDB toolbox to load metadata from the record header file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">,</span> <span class="n">rd_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">remote_url</span> <span class="o">=</span> <span class="s2">&quot;https://physionet.org/content/&quot;</span> <span class="o">+</span> <span class="n">record_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">record</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.hea&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done: metadata loaded for record &#39;</span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; from the header file at:</span><span class="se">\n</span><span class="si">{</span><span class="n">remote_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done: metadata loaded for record &#39;s2_walk&#39; from the header file at:
+https://physionet.org/content/pulse-transit-time-ppg/1.1.0/s2_walk.hea
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="inspect-details-of-physiological-signals-recorded-in-this-record">
+<h2>Inspect details of physiological signals recorded in this record<a class="headerlink" href="#inspect-details-of-physiological-signals-recorded-in-this-record" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Printing a few details of the signals from the extracted metadata</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Number of signals: </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">n_sig</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Duration: </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="n">record_data</span><span class="o">.</span><span class="n">fs</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Base sampling frequency: </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">fs</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">This record contains the following signals: </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">sig_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The signals are measured in units of: </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Number of signals: 18
+- Duration: 8.2 minutes
+- Base sampling frequency: 500 Hz
+
+This record contains the following signals: [&#39;ecg&#39;, &#39;pleth_1&#39;, &#39;pleth_2&#39;, &#39;pleth_3&#39;, &#39;pleth_4&#39;, &#39;pleth_5&#39;, &#39;pleth_6&#39;, &#39;lc_1&#39;, &#39;lc_2&#39;, &#39;temp_1&#39;, &#39;temp_2&#39;, &#39;temp_3&#39;, &#39;a_x&#39;, &#39;a_y&#39;, &#39;a_z&#39;, &#39;g_x&#39;, &#39;g_y&#39;, &#39;g_z&#39;]
+
+The signals are measured in units of: [&#39;mV&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;NU&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;g&#39;, &#39;g&#39;, &#39;g&#39;, &#39;deg/s&#39;, &#39;deg/s&#39;, &#39;deg/s&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>See <a class="reference external" href="https://archive.physionet.org/mimic2/mimic2_waveform_overview.shtml#signals-125-samplessecond">here</a> for definitions of signal abbreviations.</p>
+<div class="section" id="find-out-how-long-each-signal-lasts">
+<h3>Find out how long each signal lasts<a class="headerlink" href="#find-out-how-long-each-signal-lasts" title="Permalink to this headline">¶</a></h3>
+<p>All signals in a segment are time-aligned, measured at the same sampling frequency, and last the same duration:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The signals have a base sampling frequency of </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">fs</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;and they last for </span><span class="si">{</span><span class="n">record_data</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="n">record_data</span><span class="o">.</span><span class="n">fs</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The signals have a base sampling frequency of 500.0 Hz
+and they last for 8.2 minutes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identify-records-suitable-for-analysis">
+<h2>Identify records suitable for analysis<a class="headerlink" href="#identify-records-suitable-for-analysis" title="Permalink to this headline">¶</a></h2>
+<p><em>I didn’t modify this - it still corresponds to the MIMIC database tutorial</em></p>
+<ul class="simple">
+<li><p>The signals and their durations vary from one record (and segment) to the next.</p></li>
+<li><p>Since most studies require specific types of signals (e.g. blood pressure and photoplethysmography signals), we need to be able to identify which records (or segments) contain the required signals and duration.</p></li>
+</ul>
+<div class="section" id="id1">
+<h3>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Earlier, we loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Earlier, we loaded 200 records from the &#39;mimic4wdb/0.1.0&#39; database.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="specify-requirements">
+<h3>Specify requirements<a class="headerlink" href="#specify-requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Required signals</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_sigs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ABP&#39;</span><span class="p">,</span> <span class="s1">&#39;Pleth&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Required duration</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert from minutes to seconds</span>
+<span class="n">req_seg_duration</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">60</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="find-out-how-many-records-meet-the-requirements">
+<h3>Find out how many records meet the requirements<a class="headerlink" href="#find-out-how-many-records-meet-the-requirements" title="Permalink to this headline">¶</a></h3>
+<p><em>NB: This step may take a while. The results are copied below to save running it yourself.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matching_recs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dir&#39;</span><span class="p">:[],</span> <span class="s1">&#39;seg_name&#39;</span><span class="p">:[],</span> <span class="s1">&#39;length&#39;</span><span class="p">:[]}</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Record: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">record_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">record_name</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">name</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (reading data)&#39;</span><span class="p">)</span>
+    <span class="n">record_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="p">,</span>
+                                <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">,</span>
+                                <span class="n">rd_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Check whether the required signals are present in the record</span>
+    <span class="n">sigs_present</span> <span class="o">=</span> <span class="n">record_data</span><span class="o">.</span><span class="n">sig_name</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">sigs_present</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">required_sigs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   (missing signals)&#39;</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># Get the segments for the record</span>
+    <span class="n">segments</span> <span class="o">=</span> <span class="n">record_data</span><span class="o">.</span><span class="n">seg_name</span>
+
+    <span class="c1"># Check to see if the segment is 10 min long</span>
+    <span class="c1"># If not, move to the next one</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">segment</span> <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span> <span class="k">if</span> <span class="n">segment</span> <span class="o">!=</span> <span class="s1">&#39;~&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - Segment: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">segment</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">segment_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">segment</span><span class="p">,</span>
+                                         <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">)</span>
+        <span class="n">seg_length</span> <span class="o">=</span> <span class="n">segment_metadata</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="n">segment_metadata</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">seg_length</span> <span class="o">&lt;</span> <span class="n">req_seg_duration</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; (too short at </span><span class="si">{</span><span class="n">seg_length</span><span class="o">/</span><span class="mi">60</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> mins)&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Next check that all required signals are present in the segment</span>
+        <span class="n">sigs_present</span> <span class="o">=</span> <span class="n">segment_metadata</span><span class="o">.</span><span class="n">sig_name</span>
+        
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">sigs_present</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">required_sigs</span><span class="p">):</span>
+            <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record_dir</span><span class="p">)</span>
+            <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;seg_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+            <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg_length</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (met requirements)&#39;</span><span class="p">)</span>
+            <span class="c1"># Since we only need one segment per record break out of loop</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (long enough, but missing signal(s))&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> records met the requirements:&quot;</span><span class="p">)</span>
+
+<span class="c1">#df_matching_recs = pd.DataFrame(data=matching_recs)</span>
+<span class="c1">#df_matching_recs.to_csv(&#39;matching_records.csv&#39;, index=False)</span>
+<span class="c1">#p=1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records met the requirements.&quot;</span><span class="p">)</span>
+
+<span class="n">relevant_segments_names</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;seg_name&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The relevant segment names are:</span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">relevant_segments_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">relevant_dirs</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The corresponding directories are: </span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">relevant_dirs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 52 out of 200 records met the requirements.
+
+The relevant segment names are:
+ - 83404654_0005
+ - 82924339_0007
+ - 84248019_0005
+ - 82439920_0004
+ - 82800131_0002
+ - 84304393_0001
+ - 89464742_0001
+ - 88958796_0004
+ - 88995377_0001
+ - 85230771_0004
+ - 86643930_0004
+ - 81250824_0005
+ - 87706224_0003
+ - 83058614_0005
+ - 82803505_0017
+ - 88574629_0001
+ - 87867111_0012
+ - 84560969_0001
+ - 87562386_0001
+ - 88685937_0001
+ - 86120311_0001
+ - 89866183_0014
+ - 89068160_0002
+ - 86380383_0001
+ - 85078610_0008
+ - 87702634_0007
+ - 84686667_0002
+ - 84802706_0002
+ - 81811182_0004
+ - 84421559_0005
+ - 88221516_0007
+ - 80057524_0005
+ - 84209926_0018
+ - 83959636_0010
+ - 89989722_0016
+ - 89225487_0007
+ - 84391267_0001
+ - 80889556_0002
+ - 85250558_0011
+ - 84567505_0005
+ - 85814172_0007
+ - 88884866_0005
+ - 80497954_0012
+ - 80666640_0014
+ - 84939605_0004
+ - 82141753_0018
+ - 86874920_0014
+ - 84505262_0010
+ - 86288257_0001
+ - 89699401_0001
+ - 88537698_0013
+ - 83958172_0001
+
+The corresponding directories are: 
+ - mimic4wdb/0.1.0/waves/p100/p10020306/83404654
+ - mimic4wdb/0.1.0/waves/p101/p10126957/82924339
+ - mimic4wdb/0.1.0/waves/p102/p10209410/84248019
+ - mimic4wdb/0.1.0/waves/p109/p10952189/82439920
+ - mimic4wdb/0.1.0/waves/p111/p11109975/82800131
+ - mimic4wdb/0.1.0/waves/p113/p11392990/84304393
+ - mimic4wdb/0.1.0/waves/p121/p12168037/89464742
+ - mimic4wdb/0.1.0/waves/p121/p12173569/88958796
+ - mimic4wdb/0.1.0/waves/p121/p12188288/88995377
+ - mimic4wdb/0.1.0/waves/p128/p12872596/85230771
+ - mimic4wdb/0.1.0/waves/p129/p12933208/86643930
+ - mimic4wdb/0.1.0/waves/p130/p13016481/81250824
+ - mimic4wdb/0.1.0/waves/p132/p13240081/87706224
+ - mimic4wdb/0.1.0/waves/p136/p13624686/83058614
+ - mimic4wdb/0.1.0/waves/p137/p13791821/82803505
+ - mimic4wdb/0.1.0/waves/p141/p14191565/88574629
+ - mimic4wdb/0.1.0/waves/p142/p14285792/87867111
+ - mimic4wdb/0.1.0/waves/p143/p14356077/84560969
+ - mimic4wdb/0.1.0/waves/p143/p14363499/87562386
+ - mimic4wdb/0.1.0/waves/p146/p14695840/88685937
+ - mimic4wdb/0.1.0/waves/p149/p14931547/86120311
+ - mimic4wdb/0.1.0/waves/p151/p15174162/89866183
+ - mimic4wdb/0.1.0/waves/p153/p15312343/89068160
+ - mimic4wdb/0.1.0/waves/p153/p15342703/86380383
+ - mimic4wdb/0.1.0/waves/p155/p15552902/85078610
+ - mimic4wdb/0.1.0/waves/p156/p15649186/87702634
+ - mimic4wdb/0.1.0/waves/p158/p15857793/84686667
+ - mimic4wdb/0.1.0/waves/p158/p15865327/84802706
+ - mimic4wdb/0.1.0/waves/p158/p15896656/81811182
+ - mimic4wdb/0.1.0/waves/p159/p15920699/84421559
+ - mimic4wdb/0.1.0/waves/p160/p16034243/88221516
+ - mimic4wdb/0.1.0/waves/p165/p16566444/80057524
+ - mimic4wdb/0.1.0/waves/p166/p16644640/84209926
+ - mimic4wdb/0.1.0/waves/p167/p16709726/83959636
+ - mimic4wdb/0.1.0/waves/p167/p16715341/89989722
+ - mimic4wdb/0.1.0/waves/p168/p16818396/89225487
+ - mimic4wdb/0.1.0/waves/p170/p17032851/84391267
+ - mimic4wdb/0.1.0/waves/p172/p17229504/80889556
+ - mimic4wdb/0.1.0/waves/p173/p17301721/85250558
+ - mimic4wdb/0.1.0/waves/p173/p17325001/84567505
+ - mimic4wdb/0.1.0/waves/p174/p17490822/85814172
+ - mimic4wdb/0.1.0/waves/p177/p17738824/88884866
+ - mimic4wdb/0.1.0/waves/p177/p17744715/80497954
+ - mimic4wdb/0.1.0/waves/p179/p17957832/80666640
+ - mimic4wdb/0.1.0/waves/p180/p18080257/84939605
+ - mimic4wdb/0.1.0/waves/p181/p18109577/82141753
+ - mimic4wdb/0.1.0/waves/p183/p18324626/86874920
+ - mimic4wdb/0.1.0/waves/p187/p18742074/84505262
+ - mimic4wdb/0.1.0/waves/p188/p18824975/86288257
+ - mimic4wdb/0.1.0/waves/p191/p19126489/89699401
+ - mimic4wdb/0.1.0/waves/p193/p19313794/88537698
+ - mimic4wdb/0.1.0/waves/p196/p19619764/83958172
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Question:</b> Is this enough data for a study? Consider different types of studies, e.g. assessing the performance of a previously proposed algorithm to estimate BP from the PPG signal, vs. developing a deep learning approach to estimate BP from the PPG.</p>
+</div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorial/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Peter H Charlton and [the team](https://github.com/peterhcharlton/bsp-book#contributors-)<br/>
+        
+            &copy; Copyright 2023.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+    
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+
+    
+  </body>
+</html>
