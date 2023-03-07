@@ -1,6 +1,7 @@
-About this Book
+About
 =======================
 
-- [Contributors](https://github.com/wfdb/mimic_wfdb_tutorials#contributors-)
+- [Contributors](https://github.com/peterhcharlton/bsp-book#contributors-)
 - [How to contribute](./about/about-contributing)
+- [Future tutorials](./about/future-tutorials)
 - [Maintenance](./about/about-maintenance)

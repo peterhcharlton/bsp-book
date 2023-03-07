@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Signal Processing and Learning for Wearables
-author: Peter H Charlton
+author: Peter H Charlton and [the team](https://github.com/peterhcharlton/bsp-book#contributors-)
 copyright: "2023"
 logo: icon.png
 exclude_patterns: [README.md]
@@ -10,7 +10,7 @@ exclude_patterns: [README.md]
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: 'off'
 
 # Define the name of the latex output file for PDF builds
 latex:

@@ -2,18 +2,20 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: intro
-- file: workshop
+- file: overview
   sections:
-    - file: workshop/aims
-    - file: workshop/schedule
-    - file: workshop/prep
-- file: mimic-database
+    - file: overview/aims
+    - file: overview/workshop-2023-03
+- file: background
   sections:
-    - file: mimic/physionet
-    - file: mimic/context
-    - file: mimic/structure
-    - file: mimic/formatting
-    - file: mimic/wfdb-toolbox
+    - file: background/wearables
+    - file: background/signals
+    - file: background/physiology
+    - file: background/applications
+- file: resources
+  sections:
+    - file: resources/data
+    - file: resources/code
 - file: tutorials
   sections:
     - file: tutorial/notebooks/data-exploration
@@ -24,16 +26,21 @@
     - file: tutorial/notebooks/beat-detection
     - file: tutorial/notebooks/pulse-wave-analysis
     - file: tutorial/notebooks/extracting-reference-bp
-- file: case-study
-- file: additional-resources
+- file: case-studies
+  sections:
+    - file: case-studies/bp-estimation
+- file: summary
+  sections:
+    - file: closing/additional-resources
 - file: about
   sections:
     - file: about/about-contributing
     - file: about/about-maintenance
-- file: tutorials-for-the-future
-  sections:
-    - file: tutorial/notebooks/qrs-detection
-    - file: tutorial/signal-quality-assessment
-    - file: tutorial/data-modelling
-    - file: tutorial/data-analysis
-    - file: tutorial/data-interpretation
+    - file: about/future-tutorials
+      sections:
+        - file: tutorial/notebooks/qrs-detection
+        - file: tutorial/signal-quality-assessment
+        - file: tutorial/data-modelling
+        - file: tutorial/data-analysis
+        - file: tutorial/data-interpretation
+    - file: about/acknowledgment
