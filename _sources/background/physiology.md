@@ -34,7 +34,10 @@ width: 80%
 
 ## Blood pressure estimation
 
-Changes in blood pressure influence arterial stiffness and consequently the speed at which the arterial pulse wave travels from the heart to the periphery. This provides opportunity to estimate blood pressure from ECG and PPG signals in three ways, as illustrated in {numref}`estimating-bp`:
+Broadly, there are three approaches for cuffless blood pressure estimation, as illustrated in {numref}`estimating-bp`. These are based on the observation that the speed with which the pulse wave propagates increases with blood pressure (linked via arterial stiffness):
+   - measuring the pulse transit time (PTT) between two arterial pulse waves (one closer to the heart and one further away).
+   - measuring the pulse arrival time (PAT) between a marker of ventricular contraction, and the arrival of a pulse wave (preferably at a peripheral site)
+   - estimating BP from the shape of a pulse wave (such as a photoplethysmography, PPG, pulse wave), since changes in pulse wave velocity and BP influence the shapes of pulse waves.
 
 ```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg
 ---
@@ -45,18 +48,6 @@ width: 100%
 ```
 
 The three approaches to estimate blood pressure from ECG and PPG signals are now described.
-
-### Pulse wave shape
-
-Blood pressure can be estimated from the shape of a PPG pulse wave. The shape of the pulse wave changes with blood pressure as demonstrated in {numref}`ppg-classes`. The higher classes are associated with higher blood pressures. An individual's baseline pulse wave shape is strongly influenced by not only blood pressure, but also their age.
-
-```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png
----
-name: ppg-classes
-width: 100%
----
-**Classes of PPG pulse wave shape.** _Source: PH Charlton, [Classes of photoplethysmogram (PPG) pulse wave shape](https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
-```
 
 ### Pulse transit time
 
@@ -79,4 +70,14 @@ Blood pressure can be estimated from the pulse arrival time, the time delay betw
 
 The pre-ejection period can vary both between subjects, and also over time for an individual subject. Consequently, the use of pulse arrival time introduces additional uncertainty into blood pressure estimation beyond that of using pulse transit time.
 
+### Pulse wave shape
 
+Blood pressure can be estimated from the shape of a PPG pulse wave. The shape of the pulse wave changes with blood pressure as demonstrated in {numref}`ppg-classes`. The higher classes are associated with higher blood pressures. An individual's baseline pulse wave shape is strongly influenced by not only blood pressure, but also their age.
+
+```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png
+---
+name: ppg-classes
+width: 100%
+---
+**Classes of PPG pulse wave shape.** _Source: PH Charlton, [Classes of photoplethysmogram (PPG) pulse wave shape](https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
+```

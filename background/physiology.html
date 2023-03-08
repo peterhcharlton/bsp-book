@@ -428,11 +428,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pulse-wave-shape">
-     Pulse wave shape
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pulse-transit-time">
      Pulse transit time
     </a>
@@ -440,6 +435,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pulse-arrival-time">
      Pulse arrival time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulse-wave-shape">
+     Pulse wave shape
     </a>
    </li>
   </ul>
@@ -481,20 +481,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="blood-pressure-estimation">
 <h2>Blood pressure estimation<a class="headerlink" href="#blood-pressure-estimation" title="Permalink to this headline">¶</a></h2>
-<p>Changes in blood pressure influence arterial stiffness and consequently the speed at which the arterial pulse wave travels from the heart to the periphery. This provides opportunity to estimate blood pressure from ECG and PPG signals in three ways, as illustrated in <a class="reference internal" href="#estimating-bp"><span class="std std-numref">Fig. 15</span></a>:</p>
+<p>Broadly, there are three approaches for cuffless blood pressure estimation, as illustrated in <a class="reference internal" href="#estimating-bp"><span class="std std-numref">Fig. 15</span></a>. These are based on the observation that the speed with which the pulse wave propagates increases with blood pressure (linked via arterial stiffness):</p>
+<ul class="simple">
+<li><p>measuring the pulse transit time (PTT) between two arterial pulse waves (one closer to the heart and one further away).</p></li>
+<li><p>measuring the pulse arrival time (PAT) between a marker of ventricular contraction, and the arrival of a pulse wave (preferably at a peripheral site)</p></li>
+<li><p>estimating BP from the shape of a pulse wave (such as a photoplethysmography, PPG, pulse wave), since changes in pulse wave velocity and BP influence the shapes of pulse waves.</p></li>
+</ul>
 <div class="figure align-default" id="estimating-bp">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text"><strong>Three approaches to estimate blood pressure from ECG and PPG signals.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Estimating_blood_pressure_from_the_photoplethysmogram.pdf">Estimating blood pressure from the photoplethysmogram</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#estimating-bp" title="Permalink to this image">¶</a></p>
 </div>
 <p>The three approaches to estimate blood pressure from ECG and PPG signals are now described.</p>
-<div class="section" id="pulse-wave-shape">
-<h3>Pulse wave shape<a class="headerlink" href="#pulse-wave-shape" title="Permalink to this headline">¶</a></h3>
-<p>Blood pressure can be estimated from the shape of a PPG pulse wave. The shape of the pulse wave changes with blood pressure as demonstrated in <a class="reference internal" href="#ppg-classes"><span class="std std-numref">Fig. 16</span></a>. The higher classes are associated with higher blood pressures. An individual’s baseline pulse wave shape is strongly influenced by not only blood pressure, but also their age.</p>
-<div class="figure align-default" id="ppg-classes">
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text"><strong>Classes of PPG pulse wave shape.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg">Classes of photoplethysmogram (PPG) pulse wave shape</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#ppg-classes" title="Permalink to this image">¶</a></p>
-</div>
-</div>
 <div class="section" id="pulse-transit-time">
 <h3>Pulse transit time<a class="headerlink" href="#pulse-transit-time" title="Permalink to this headline">¶</a></h3>
 <p>Blood pressure can be estimated from the pulse transit time, the time delay between two PPG pulse waves, where one is measured closer to the heart, and one further away. This pulse transit time is related to pulse wave velocity:</p>
@@ -508,6 +505,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight" id="equation-pat">
 <span class="eqno">(2)<a class="headerlink" href="#equation-pat" title="Permalink to this equation">¶</a></span>\[\mathrm{pulse} \, \mathrm{arrival} \, \mathrm{time} = \mathrm{pulse} \, \mathrm{transit} \, \mathrm{time} + \mathrm{pre} \, \mathrm{ejection} \, \mathrm{period}\]</div>
 <p>The pre-ejection period can vary both between subjects, and also over time for an individual subject. Consequently, the use of pulse arrival time introduces additional uncertainty into blood pressure estimation beyond that of using pulse transit time.</p>
+</div>
+<div class="section" id="pulse-wave-shape">
+<h3>Pulse wave shape<a class="headerlink" href="#pulse-wave-shape" title="Permalink to this headline">¶</a></h3>
+<p>Blood pressure can be estimated from the shape of a PPG pulse wave. The shape of the pulse wave changes with blood pressure as demonstrated in <a class="reference internal" href="#ppg-classes"><span class="std std-numref">Fig. 16</span></a>. The higher classes are associated with higher blood pressures. An individual’s baseline pulse wave shape is strongly influenced by not only blood pressure, but also their age.</p>
+<div class="figure align-default" id="ppg-classes">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text"><strong>Classes of PPG pulse wave shape.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg">Classes of photoplethysmogram (PPG) pulse wave shape</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#ppg-classes" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
