@@ -9,6 +9,7 @@ First, wearables provide opportunity to monitor health unobtrusively. Traditiona
 ```{figure} https://cdn10.picryl.com/photo/1986/12/31/a-technician-performs-an-electrocardiogram-ekg-on-a-patient-at-the-fitzsimons-163356-640.jpg
 ---
 width: 80%
+name: 12-lead-ecg
 ---
 **Measuring a 12-lead ECG (electrocardiogram).** _Source: [NARA & DVIDS Public Domain Archive](https://nara.getarchive.net/media/a-technician-performs-an-electrocardiogram-ekg-on-a-patient-at-the-fitzsimons-163356)_
 ```
