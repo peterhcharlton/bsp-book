@@ -44,7 +44,7 @@ width: 80%
 **Physiological parameters measured by wearables.** _Generated using [WordCloud Generator](https://monkeylearn.com/word-cloud/)._
 ```
 
-Consequently, they may be useful for a range of health and fitness applications:
+Consequently, they may be useful for a range of health and fitness applications, including detecting undiagnosed diseases, identifying the early signs of illness, and wellbeing applications:
 
 ```{figure} ../images/wearable_applications.png
 ---

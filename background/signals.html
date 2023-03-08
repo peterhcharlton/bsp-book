@@ -48,6 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -406,6 +408,16 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acceleration">
+   Acceleration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#electrocardiogram">
+   Electrocardiogram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#photoplethysmogram">
    Photoplethysmogram
   </a>
@@ -423,6 +435,50 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="section" id="signals">
 <h1>Signals<a class="headerlink" href="#signals" title="Permalink to this headline">¶</a></h1>
+<p>This book will consider three principal signals acquired by many wearables: acceleration, electrocardiogram, and photoplethysmogram signals.</p>
+<div class="section" id="acceleration">
+<h2>Acceleration<a class="headerlink" href="#acceleration" title="Permalink to this headline">¶</a></h2>
+<p>An accelerometer is used to measure acceleration - the rate of change in velocity.</p>
+<p>Tri-axial accelerometers measure acceleration in three orthogonal directions (often seen as the x-, y-, and z-axes on a graph). <a class="reference internal" href="#tri-axial-accel"><span class="std std-numref">Fig. 7</span></a> shows a 10-second excerpt of tri-axial accelerometer signals during walking. Note that the signal with a mean value of -9.87m/s<span class="math notranslate nohighlight">\(^2\)</span>: exhibits twice as many cycles as the other signals. The axis of this signal is approximately vertical (as shown by a mean value of approximately 1 g-force), and it captures the vertical accelerations which occur with each stride.</p>
+<div class="figure align-default" id="tri-axial-accel">
+<img alt="../_images/accel_pulseon_walk_tri.png" src="../_images/accel_pulseon_walk_tri.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text"><strong>Tri-axial accelerometer signals during walking.</strong> <em>Measured using a PulseOn OHR Tracker.</em></span><a class="headerlink" href="#tri-axial-accel" title="Permalink to this image">¶</a></p>
+</div>
+<p>In some applications, a single accelerometer signal is calculated from the tri-axial signals as the magnitude of the resultant acceleration vector, <span class="math notranslate nohighlight">\(r_i = \sqrt{x_i^2 + y_i^2 + z_i^2}\)</span>:</p>
+<div class="figure align-default" id="resultant-accel">
+<img alt="../_images/accel_pulseon_walk.png" src="../_images/accel_pulseon_walk.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><strong>Resultant accelerometer signal.</strong> <em>Measured using a PulseOn OHR Tracker.</em></span><a class="headerlink" href="#resultant-accel" title="Permalink to this image">¶</a></p>
+</div>
+<p>A simple application of the accelerometer signal is to classify physical activities. To do so, the ‘mean amplitude deviation’ can be calculated, with increasing values indicating increasing intensity levels (see <a class="reference external" href="https://doi.org/10.1111/cpf.12127">here</a> for details). The mean amplitude deviation is the mean difference between the resultant acceleration vector and its mean value, <span class="math notranslate nohighlight">\(MAD = \frac{1}{n}\sum_{i=1}^n \left| r_i - \overline{r} \right|\)</span>.</p>
+<p>For instance, in the example above the MAD is 1.93m/s<span class="math notranslate nohighlight">\(^2\)</span>, which corresponds to approximately 197mg<span class="math notranslate nohighlight">\(_0\)</span> (milligravitational units). Using the look-up table below, we can see that this corresponds to normal walking:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>MAD (mg<span class="math notranslate nohighlight">\(_0\)</span>)</p></th>
+<th class="text-align:right head"><p>Activity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>0 - 16.7</p></td>
+<td class="text-align:right"><p>Sedentary</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>16.7 - 157.4</p></td>
+<td class="text-align:right"><p>Slow walking</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>157.4 - 331.2</p></td>
+<td class="text-align:right"><p>Normal walking</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>331.2 - 599.3</p></td>
+<td class="text-align:right"><p>Brisk walking</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>&gt; 599.3</p></td>
+<td class="text-align:right"><p>Jogging and running</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="electrocardiogram">
+<h2>Electrocardiogram<a class="headerlink" href="#electrocardiogram" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="photoplethysmogram">
 <h2>Photoplethysmogram<a class="headerlink" href="#photoplethysmogram" title="Permalink to this headline">¶</a></h2>
 <p><img alt="PPG signals at rest and during exercise" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Photoplethysmogram_signals_at_rest_and_during_exercise.svg" /></p>
