@@ -517,6 +517,11 @@ const thebe_selector_output = ".output, .cell_output"
      Inspect signals
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-frequency-spectra-of-signals">
+     Plot frequency spectra of signals
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -574,34 +579,26 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wfdb==4.1.0
-  Downloading wfdb-4.1.0-py3-none-any.whl (159 kB)
-     |████████████████████████████████| 159 kB 4.0 MB/s eta 0:00:01
-?25hRequirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.2.4)
-Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (3.3.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wfdb==4.1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (4.1.0)
+Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.2.4)
 Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (2.25.1)
+Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.20.1)
+Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (3.3.4)
 Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.6.2)
 Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (0.10.3.post1)
-Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.20.1)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (0.10.0)
 Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.8.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (0.10.0)
 Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.4.7)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.3.1)
 Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (8.2.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.3.1)
 Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.15.0)
 Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.1.0) (2021.1)
 Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (4.0.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (1.26.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2022.12.7)
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2022.12.7)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (1.26.4)
 Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (1.14.5)
 Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (2.20)
-Installing collected packages: wfdb
-  Attempting uninstall: wfdb
-    Found existing installation: wfdb 4.0.0
-    Uninstalling wfdb-4.0.0:
-      Successfully uninstalled wfdb-4.0.0
-Successfully installed wfdb-4.1.0
 </pre></div>
 </div>
 </div>
@@ -635,24 +632,12 @@ Successfully installed wfdb-4.1.0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_list</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database contains </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span><span class="si">}</span><span class="s2"> records&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database contains </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">record_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> records&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The &#39;pulse-transit-time-ppg/1.1.0&#39; database contains 66 records
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_list</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;s1_walk&#39;, &#39;s1_run&#39;, &#39;s1_sit&#39;, &#39;s2_walk&#39;, &#39;s2_run&#39;, &#39;s2_sit&#39;, &#39;s3_sit&#39;, &#39;s3_walk&#39;, &#39;s3_run&#39;, &#39;s4_sit&#39;, &#39;s4_run&#39;, &#39;s4_walk&#39;, &#39;s5_walk&#39;, &#39;s5_run&#39;, &#39;s5_sit&#39;, &#39;s6_run&#39;, &#39;s6_sit&#39;, &#39;s6_walk&#39;, &#39;s7_walk&#39;, &#39;s7_run&#39;, &#39;s7_sit&#39;, &#39;s8_sit&#39;, &#39;s8_run&#39;, &#39;s8_walk&#39;, &#39;s9_walk&#39;, &#39;s9_sit&#39;, &#39;s9_run&#39;, &#39;s10_run&#39;, &#39;s10_walk&#39;, &#39;s10_sit&#39;, &#39;s11_sit&#39;, &#39;s11_walk&#39;, &#39;s11_run&#39;, &#39;s12_walk&#39;, &#39;s12_run&#39;, &#39;s12_sit&#39;, &#39;s13_walk&#39;, &#39;s13_sit&#39;, &#39;s13_run&#39;, &#39;s14_run&#39;, &#39;s14_walk&#39;, &#39;s14_sit&#39;, &#39;s15_walk&#39;, &#39;s15_sit&#39;, &#39;s15_run&#39;, &#39;s16_sit&#39;, &#39;s16_run&#39;, &#39;s16_walk&#39;, &#39;s17_run&#39;, &#39;s17_walk&#39;, &#39;s17_sit&#39;, &#39;s18_run&#39;, &#39;s18_walk&#39;, &#39;s18_sit&#39;, &#39;s19_walk&#39;, &#39;s19_sit&#39;, &#39;s19_run&#39;, &#39;s20_run&#39;, &#39;s20_walk&#39;, &#39;s20_sit&#39;, &#39;s21_walk&#39;, &#39;s21_sit&#39;, &#39;s21_run&#39;, &#39;s22_walk&#39;, &#39;s22_run&#39;, &#39;s22_sit&#39;]
 </pre></div>
 </div>
 </div>
@@ -714,7 +699,7 @@ Note the formatting of the record names:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">record</span> <span class="o">=</span> <span class="n">record_list</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 <span class="n">record_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">database_name</span><span class="p">)</span>
-<span class="n">remote_url</span> <span class="o">=</span> <span class="s2">&quot;https://physionet.org/content/&quot;</span> <span class="o">+</span> <span class="n">record_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">record</span> <span class="o">+</span> <span class="s2">&quot;.hea&quot;</span>
+<span class="n">remote_url</span> <span class="o">=</span> <span class="s2">&quot;https://physionet.org/content/&quot;</span> <span class="o">+</span> <span class="n">database_name</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">record</span> <span class="o">+</span> <span class="s2">&quot;.hea&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done: metadata loaded for record &#39;</span><span class="si">{</span><span class="n">record</span><span class="si">}</span><span class="s2">&#39; from the header file at:</span><span class="se">\n</span><span class="si">{</span><span class="n">remote_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -818,18 +803,16 @@ and they last for 8.2 minutes
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matching_recs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dir&#39;</span><span class="p">:[],</span> <span class="s1">&#39;name&#39;</span><span class="p">:[],</span> <span class="s1">&#39;length&#39;</span><span class="p">:[],</span> <span class="s1">&#39;start_sbp&#39;</span><span class="p">:[],</span> <span class="s1">&#39;end_sbp&#39;</span><span class="p">:[],</span> <span class="s1">&#39;delta_sbp&#39;</span><span class="p">:[]}</span>
 
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">record_list</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Record: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">record_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="n">record_name</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">name</span>
     
     <span class="c1"># check whether this record corresponds to a suitable activity</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">req_activity</span> <span class="ow">in</span> <span class="n">record_name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">req_activity</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   (not required activity)&#39;</span><span class="p">)</span>
         <span class="k">continue</span>
 
-    <span class="n">record_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="p">,</span>
-                                <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">,</span>
+    <span class="n">record_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record</span><span class="p">,</span>
+                                <span class="n">pn_dir</span><span class="o">=</span><span class="n">database_name</span><span class="p">,</span>
                                 <span class="n">rd_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Check whether the required signals are present in the record</span>
@@ -847,7 +830,7 @@ and they last for 8.2 minutes
     <span class="c1"># This record does meet the requirements, so extract information and data from it</span>
     
     <span class="c1"># Information</span>
-    <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record_dir</span><span class="p">)</span>
+    <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
     <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record_data</span><span class="o">.</span><span class="n">record_name</span><span class="p">)</span>
     <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg_length</span><span class="p">)</span>
     
@@ -870,7 +853,7 @@ and they last for 8.2 minutes
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   (met requirements)&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records met the requirements.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">record_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> records met the requirements.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -981,7 +964,7 @@ A total of 22 out of 66 records met the requirements.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/data-exploration2_48_1.png" src="../../_images/data-exploration2_48_1.png" />
+<img alt="../../_images/data-exploration2_47_1.png" src="../../_images/data-exploration2_47_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -997,7 +980,7 @@ A total of 22 out of 66 records met the requirements.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/data-exploration2_49_1.png" src="../../_images/data-exploration2_49_1.png" />
+<img alt="../../_images/data-exploration2_48_1.png" src="../../_images/data-exploration2_48_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1009,7 +992,7 @@ A total of 22 out of 66 records met the requirements.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_seconds</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">n_seconds_to_load</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_seconds_to_load</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">rec_no</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">record_name</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">record_dir</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -1031,7 +1014,7 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 seconds of data extracted from segment: s1_sit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60 seconds of data extracted from segment: s1_sit
 </pre></div>
 </div>
 </div>
@@ -1058,11 +1041,176 @@ A total of 22 out of 66 records met the requirements.
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;ECG&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ppg</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PPG&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ecg</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;ECG&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/data-exploration2_53_0.png" src="../../_images/data-exploration2_53_0.png" />
+<img alt="../../_images/data-exploration2_52_0.png" src="../../_images/data-exploration2_52_0.png" />
+<img alt="../../_images/data-exploration2_52_1.png" src="../../_images/data-exploration2_52_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="plot-frequency-spectra-of-signals">
+<h3>Plot frequency spectra of signals<a class="headerlink" href="#plot-frequency-spectra-of-signals" title="Permalink to this headline">¶</a></h3>
+<p>Now we’re going to plot the frequency spectrum of the PPG signal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>First, let’s filter the signal to eliminate very low frequencies which would otherwise dominate the power spectrum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify cutoffs in Hertz</span>
+<span class="n">hpf_cutoff</span> <span class="o">=</span> <span class="mf">0.5</span> 
+
+<span class="c1"># create high-pass filter</span>
+<span class="n">sos_ppg</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>
+                    <span class="n">hpf_cutoff</span><span class="p">,</span>
+                    <span class="n">btype</span> <span class="o">=</span> <span class="s1">&#39;highpass&#39;</span><span class="p">,</span>
+                    <span class="n">analog</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;sos&#39;</span><span class="p">,</span>
+                    <span class="n">fs</span> <span class="o">=</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+
+<span class="c1">#  high-pass filter</span>
+<span class="n">ppg_filt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos_ppg</span><span class="p">,</span> <span class="n">ppg</span><span class="p">)</span>
+
+<span class="c1"># plot results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">400</span><span class="o">+</span><span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">ppg</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ppg_filt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filterd&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">ppg</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ppg_filt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filterd&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faa795c9070&gt;
+</pre></div>
+</div>
+<img alt="../../_images/data-exploration2_57_1.png" src="../../_images/data-exploration2_57_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Let’s plot the frequency spectrum</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Pxx</span><span class="p">,</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">ppg_filt</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data-exploration2_59_0.png" src="../../_images/data-exploration2_59_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Now let’s focus on the lower, physiological frequencies, by downsampling the signal to a lower sampling frequency.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_fs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">ppg_ds</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">decimate</span><span class="p">(</span><span class="n">ppg_filt</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">fs</span><span class="o">/</span><span class="n">ds_fs</span><span class="p">))</span>
+<span class="n">Pxx</span><span class="p">,</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">ppg_ds</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">ds_fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data-exploration2_61_0.png" src="../../_images/data-exploration2_61_0.png" />
+</div>
+</div>
+<p>Note that this could also be done using scipy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">Pxx_spec</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">ppg_ds</span><span class="p">,</span> <span class="n">ds_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Pxx_spec</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;frequency [Hz]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PSD [V**2/Hz]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data-exploration2_63_0.png" src="../../_images/data-exploration2_63_0.png" />
+</div>
+</div>
+<p>Most of the frequency content is below 7.5 Hz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_Pxx_spec</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Pxx_spec</span><span class="p">)</span>
+<span class="n">freq_no</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">curr_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">curr_sum</span> <span class="o">&lt;</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">total_Pxx_spec</span><span class="p">:</span>
+    <span class="n">curr_sum</span> <span class="o">=</span> <span class="n">curr_sum</span><span class="o">+</span><span class="n">Pxx_spec</span><span class="p">[</span><span class="n">freq_no</span><span class="p">]</span>
+    <span class="n">freq_no</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99</span><span class="si">% o</span><span class="s1">f the frequency content is below </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">freq_no</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99% of the frequency content is below 7.32421875 Hz
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Let’s repeat for the ECG:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ecg_filt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos_ppg</span><span class="p">,</span> <span class="n">ecg</span><span class="p">)</span>
+<span class="n">ds_fs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ecg_ds</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">decimate</span><span class="p">(</span><span class="n">ecg_filt</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">fs</span><span class="o">/</span><span class="n">ds_fs</span><span class="p">))</span>
+<span class="n">Pxx</span><span class="p">,</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">ecg_ds</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">ds_fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data-exploration2_67_0.png" src="../../_images/data-exploration2_67_0.png" />
+</div>
+</div>
+<p>For the ECG, most of the frequency content is below 35 Hz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">Pxx_spec</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">ecg_ds</span><span class="p">,</span> <span class="n">ds_fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="n">total_Pxx_spec</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Pxx_spec</span><span class="p">)</span>
+<span class="n">freq_no</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">curr_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">curr_sum</span> <span class="o">&lt;</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">total_Pxx_spec</span><span class="p">:</span>
+    <span class="n">curr_sum</span> <span class="o">=</span> <span class="n">curr_sum</span><span class="o">+</span><span class="n">Pxx_spec</span><span class="p">[</span><span class="n">freq_no</span><span class="p">]</span>
+    <span class="n">freq_no</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99</span><span class="si">% o</span><span class="s1">f the frequency content is below </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">freq_no</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99% of the frequency content is below 33.984375 Hz
+</pre></div>
+</div>
 </div>
 </div>
 </div>
