@@ -21,7 +21,6 @@
     - file: tutorial/notebooks/data-exploration2
     - file: tutorial/notebooks/data-exploration
     - file: tutorial/notebooks/signal-filtering
-    - file: tutorial/notebooks/differentiation
     - file: tutorial/notebooks/beat-detection
     - file: tutorial/notebooks/pulse-wave-analysis
     - file: tutorial/notebooks/extracting-reference-bp
