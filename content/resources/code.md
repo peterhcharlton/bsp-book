@@ -1,29 +1,19 @@
 # Code
 
+In this book the wearable data analysis will be performed using Python code. We will use a few existing Python toolboxes in the analysis, which are now described.
+
 ## WFDB Toolbox
 
-The Waveform Database (WFDB) is a set of file standards designed for reading and storing physiologic signal data, and associated annotations. See the [WFDB Spec repository](https://github.com/wfdb/wfdb-spec/) for the specification details.
+Waveform Database (WFDB) is a set of file standards designed for reading and storing physiologic signal data, and associated annotations. Data on [PhysioNet](https://physionet.org/) are stored in WFDB format.
 
-Example signal types include ECG and EEG. Example annotation types include automated machine-labelled heart-beats, and clinician comments regarding specific signal artifacts.
+The WFDB Toolbox is a set of openly-licensed tools for reading, writing, and analysing WFDB data. It is available in [C](https://doi.org/10.13026/gjvw-1m31), [Matlab](https://archive.physionet.org/physiotools/matlab/wfdb-swig-matlab/new_version.shtml), and [Python](https://wfdb.readthedocs.io/en/stable/).
 
-There are several available software packages that implement the WFDB specifications. Consider using one of them if you want to conduct research or build algorithms using physiologic data.
+In this book we will use the [WFDB Python Package](https://wfdb.readthedocs.io/en/stable/), a library of tools for reading, writing, and processing physiological signals and annotations. 
 
-### Software Packages
+_Sources: adapted from [https://wfdb.io/](https://wfdb.io/) and the WFDB Python Package [Readme](https://github.com/MIT-LCP/wfdb-python/blob/main/README.md)._
 
-The WFDB specification is openly-licensed, so anyone can implement and modify software according to the spec. Here are the main packages and implementations:
+## Neurokit
 
-- [WFDB Software Package](https://doi.org/10.13026/gjvw-1m31): The original software package written in C. Contains the core library, command line tools, and WAVE. See also the PhysioNet publication. Associated documents:
-- [WFDB Python Package](https://wfdb.readthedocs.io/en/stable/): A native Python implementation of WFDB.
-- [WFDB Toolbox for Matlab](https://archive.physionet.org/physiotools/matlab/wfdb-swig-matlab/new_version.shtml): A set of Java, GUI, and m-code wrapper functions, which make system calls to WFDB Software Package and other applications.
+[Neurokit](https://neuropsychology.github.io/NeuroKit/) is a 'Python Toolbox for Neurophysiological Signal Processing'. It includes functions for analysing ECG and PPG signals, such as algorithms for detecting beats in these signals.
 
-### WFDB-Python
-
-For the purposes of this workshop, we will be using the [WFDB Python Package](https://wfdb.readthedocs.io/en/stable/), a library of tools for reading, writing, and processing physiological signals and annotations. 
-
-The distribution is hosted on PyPI, the package manager for Python. The software can be installed directly from PyPI using the following command:
-
-```python
-$ pip install wfdb
-```
-
-
+_Source: adapted from [https://neuropsychology.github.io/NeuroKit/](https://neuropsychology.github.io/NeuroKit/) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._

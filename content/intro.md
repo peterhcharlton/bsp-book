@@ -5,10 +5,13 @@ This book presents an introduction to processing wearable sensor data using sign
 ```{note}
 These resources are currently being developed.
 ```
-
-![A wearable sensor](http://peterhcharlton.github.io/talk/multimodal-signal-processing-and-learning-for-wearables/featured.jpg)
-
-_Photo by [Luke Chesser](https://unsplash.com/fr/@lukechesser?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/rCOWMC8qf8A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+```{figure} https://peterhcharlton.github.io/talk/multimodal-signal-processing-and-learning-for-wearables/featured.jpg
+:name: wearable-device
+---
+width: 100%
+---
+**A wearable device.** _Photo by [Luke Chesser](https://unsplash.com/fr/@lukechesser?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/rCOWMC8qf8A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+```
 
 The book includes:
 
