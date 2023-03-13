@@ -182,6 +182,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/data-exploration3.html">
+     Exploring MIMIC-III
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/signal-filtering.html">
      Filtering Signals
     </a>
@@ -405,6 +410,11 @@ const thebe_selector_output = ".output, .cell_output"
    Neurokit
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-toolboxes">
+   Additional toolboxes
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -424,12 +434,35 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Waveform Database (WFDB) is a set of file standards designed for reading and storing physiologic signal data, and associated annotations. Data on <a class="reference external" href="https://physionet.org/">PhysioNet</a> are stored in WFDB format.</p>
 <p>The WFDB Toolbox is a set of openly-licensed tools for reading, writing, and analysing WFDB data. It is available in <a class="reference external" href="https://doi.org/10.13026/gjvw-1m31">C</a>, <a class="reference external" href="https://archive.physionet.org/physiotools/matlab/wfdb-swig-matlab/new_version.shtml">Matlab</a>, and <a class="reference external" href="https://wfdb.readthedocs.io/en/stable/">Python</a>.</p>
 <p>In this book we will use the <a class="reference external" href="https://wfdb.readthedocs.io/en/stable/">WFDB Python Package</a>, a library of tools for reading, writing, and processing physiological signals and annotations.</p>
+<p>The WFDB Python Package can be installed using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>$ pip install wfdb
+</pre></div>
+</div>
+<p>It will be imported using: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">wfdb</span></code></p>
 <p><em>Sources: adapted from <a class="reference external" href="https://wfdb.io/">https://wfdb.io/</a> and the WFDB Python Package <a class="reference external" href="https://github.com/MIT-LCP/wfdb-python/blob/main/README.md">Readme</a>.</em></p>
 </div>
 <div class="section" id="neurokit">
 <h2>Neurokit<a class="headerlink" href="#neurokit" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://neuropsychology.github.io/NeuroKit/">Neurokit</a> is a ‘Python Toolbox for Neurophysiological Signal Processing’. It includes functions for analysing ECG and PPG signals, such as algorithms for detecting beats in these signals.</p>
+<p>Neurokit can be installed using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>$ pip install neurokit2
+</pre></div>
+</div>
+<p>It will be imported using: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">neurokit2</span> <span class="pre">as</span> <span class="pre">nk</span></code></p>
 <p><em>Source: adapted from <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/">https://neuropsychology.github.io/NeuroKit/</a> under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></p>
+</div>
+<div class="section" id="additional-toolboxes">
+<h2>Additional toolboxes<a class="headerlink" href="#additional-toolboxes" title="Permalink to this headline">¶</a></h2>
+<p>The following toolboxes are also used in this book:</p>
+<ul class="simple">
+<li><p><strong><em>sys</em></strong>: an essential python package, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sys</span></code></p></li>
+<li><p><strong><em>scipy</em></strong>: the SciPy signal processing package, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">scipy.signal</span> <span class="pre">as</span> <span class="pre">sp</span></code></p></li>
+<li><p><strong><em>matplotlib</em></strong>: a plotting package, imported using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">matplotlib</span> <span class="pre">import</span> <span class="pre">pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code></p></li>
+<li><p><strong><em>numpy</em></strong>: a package for scientific computing, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p></li>
+<li><p><strong><em>pandas</em></strong>: a package for data analysis, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code></p></li>
+<li><p><strong><em>pprint</em></strong>: for printing Python data structures, imported using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pprint</span> <span class="pre">import</span> <span class="pre">pprint</span></code></p></li>
+<li><p><strong><em>copy</em></strong>: to copy Python variables, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">copy</span></code></p></li>
+</ul>
 </div>
 </div>
 

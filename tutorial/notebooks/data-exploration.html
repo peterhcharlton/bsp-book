@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exploring MIMIC &#8212; Signal Processing and Learning for Wearables</title>
+    <title>Exploring MIMIC-IV &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Filtering Signals" href="signal-filtering.html" />
+    <link rel="next" title="Exploring MIMIC-III" href="data-exploration3.html" />
     <link rel="prev" title="Exploring PTT-PPG" href="data-exploration2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -178,7 +178,12 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Exploring MIMIC
+     Exploring MIMIC-IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-exploration3.html">
+     Exploring MIMIC-III
     </a>
    </li>
    <li class="toctree-l2">
@@ -575,12 +580,12 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="exploring-mimic">
-<h1>Exploring MIMIC<a class="headerlink" href="#exploring-mimic" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="exploring-mimic-iv">
+<h1>Exploring MIMIC-IV<a class="headerlink" href="#exploring-mimic-iv" title="Permalink to this headline">¶</a></h1>
 <p>Let’s begin by exploring data in the MIMIC Waveform Database.</p>
 <p>Our <strong>objectives</strong> are to:</p>
 <ul class="simple">
-<li><p>Review the structure of the MIMIC Waveform Database (considering subjects, studies, records, and segments).</p></li>
+<li><p>Become familiar with the file structure of the database.</p></li>
 <li><p>Find out which signals are present in selected records and segments, and how long the signals last.</p></li>
 <li><p>Search for records that contain signals of interest.</p></li>
 <li><p>Load waveforms using the WFDB toolbox.</p></li>
@@ -1552,9 +1557,7 @@ Record: waves/p167/p16709726/83959636/83959636 (reading data)
 Record: waves/p167/p16715341/89989722/89989722 (reading data)
  - Segment: 89989722_0000 (too short at 0.0 mins)
  - Segment: 89989722_0001 (too short at 0.1 mins)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> - Segment: 89989722_0002 (too short at 2.3 mins)
+ - Segment: 89989722_0002 (too short at 2.3 mins)
  - Segment: 89989722_0003 (too short at 2.0 mins)
  - Segment: 89989722_0004 (too short at 9.6 mins)
  - Segment: 89989722_0005 (too short at 0.9 mins)
@@ -1875,9 +1878,7 @@ Record: waves/p187/p18700695/81937383/81937383 (reading data)
  - Segment: 81937383_0027 (long enough, but missing signal(s))
  - Segment: 81937383_0028 (long enough, but missing signal(s))
  - Segment: 81937383_0029 (long enough, but missing signal(s))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> - Segment: 81937383_0030 (too short at 1.5 mins)
+ - Segment: 81937383_0030 (too short at 1.5 mins)
  - Segment: 81937383_0031 (too short at 1.0 mins)
  - Segment: 81937383_0032 (too short at 4.9 mins)
  - Segment: 81937383_0033 (too short at 0.6 mins)
@@ -2451,10 +2452,10 @@ They last for 52.4 minutes
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="signal-filtering.html" title="next page">
+        <a class="right-next" href="data-exploration3.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Filtering Signals</p>
+                <p class="prevnext-title">Exploring MIMIC-III</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

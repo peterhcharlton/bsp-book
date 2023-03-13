@@ -1,0 +1,1378 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploring MIMIC-III &#8212; Signal Processing and Learning for Wearables</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Filtering Signals" href="signal-filtering.html" />
+    <link rel="prev" title="Exploring MIMIC-IV" href="data-exploration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Signal Processing and Learning for Wearables</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../overview.html">
+   Overview
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../overview/workshop-2023-03.html">
+     Workshop - March 2023
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../background.html">
+   Background
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/wearables.html">
+     Wearable Devices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/signals.html">
+     Signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/physiology.html">
+     Physiology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../background/applications.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../resources.html">
+   Resources
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/data.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/code.html">
+     Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../tutorials.html">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-exploration2.html">
+     Exploring PTT-PPG
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-exploration.html">
+     Exploring MIMIC-IV
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exploring MIMIC-III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="signal-filtering.html">
+     Filtering Signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="beat-detection.html">
+     Beat detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pulse-arrival-time.html">
+     Pulse Arrival Time
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pulse-wave-analysis.html">
+     Pulse Wave Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extracting-reference-bp.html">
+     Extracting BP values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../case-studies.html">
+   Case Studies
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../case-studies/bp-estimation.html">
+     Cuffless Blood Pressure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../summary.html">
+   Summary
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../closing/additional-resources.html">
+     Additional Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/about-contributing.html">
+     Contributing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/about-maintenance.html">
+     Maintenance
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../about/future-tutorials.html">
+     Future Tutorials
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="qrs-detection.html">
+       QRS peak detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../signal-quality-assessment.html">
+       Signal Quality Assessment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-modelling.html">
+       Data modelling
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-analysis.html">
+       Data analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../data-interpretation.html">
+       Data interpretation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/acknowledgment.html">
+     Acknowledgment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/tutorial/notebooks/data-exploration3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/peterhcharlton/bsp-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Ftutorial/notebooks/data-exploration3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/tutorial/notebooks/data-exploration3.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/tutorial/notebooks/data-exploration3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/tutorial/notebooks/data-exploration3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-required-python-packages">
+     Specify the required Python packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-a-particular-version-of-the-wfdb-toolbox">
+     Specify a particular version of the WFDB Toolbox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-name-of-the-mimic-waveform-database">
+     Specify the name of the MIMIC Waveform Database
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-the-records-in-the-database">
+   Identify the records in the database
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-a-list-of-records">
+     Get a list of records
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#look-at-the-records">
+     Look at the records
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-records-suitable-for-analysis">
+   Identify records suitable for analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-requirements">
+     Specify requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-out-how-many-records-meet-the-requirements">
+     Find out how many records meet the requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-data-for-a-segment">
+   Extract data for a segment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualise-the-signals">
+   Visualise the signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#select-a-segment">
+     Select a segment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-one-minute-of-data-from-this-segment">
+     Extract one minute of data from this segment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-extracted-signals">
+     Plot the extracted signals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-this-to-pulse-waves-from-the-literature">
+     Compare this to pulse waves from the literature
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exploring-mimic-iii">
+<h1>Exploring MIMIC-III<a class="headerlink" href="#exploring-mimic-iii" title="Permalink to this headline">¶</a></h1>
+<p>Let’s begin by exploring data in the MIMIC-III Waveform Database.</p>
+<p>Our <strong>objectives</strong> are to:</p>
+<ul class="simple">
+<li><p>Become familiar with the file structure</p></li>
+<li><p>Find out which signals are present in selected records and segments, and how long the signals last.</p></li>
+<li><p>Search for records that contain signals of interest.</p></li>
+<li><p>Load waveforms using the WFDB toolbox.</p></li>
+<li><p>Plot one minute of signals from a segment of data</p></li>
+<li><p>Look more closely at the shape of the PPG pulse waves</p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the MIMIC-III Waveform Database <a href="https://physionet.org/content/mimic3wdb/1.0/">here</a>.</p>
+</div><hr class="docutils" />
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="specify-the-required-python-packages">
+<h3>Specify the required Python packages<a class="headerlink" href="#specify-the-required-python-packages" title="Permalink to this headline">¶</a></h3>
+<p>We’ll import the following:</p>
+<ul class="simple">
+<li><p><em>sys</em>: an essential python package</p></li>
+<li><p><em>pathlib</em> (well a particular function from <em>pathlib</em>, called <em>Path</em>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="specify-a-particular-version-of-the-wfdb-toolbox">
+<h3>Specify a particular version of the WFDB Toolbox<a class="headerlink" href="#specify-a-particular-version-of-the-wfdb-toolbox" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>wfdb</em>: For this workshop we will be using version 4 of the WaveForm DataBase (WFDB) Toolbox package. The package contains tools for processing waveform data such as those found in MIMIC:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">wfdb</span><span class="o">==</span><span class="m">4</span>.1.0
+<span class="kn">import</span> <span class="nn">wfdb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the WFDB package <a href="https://physionet.org/content/wfdb-python/3.4.1/">here</a>.</p>
+</div><p>Now that we have imported these packages (<em>i.e.</em> toolboxes) we have a set of tools (functions) ready to use.</p>
+</div>
+<div class="section" id="specify-the-name-of-the-mimic-waveform-database">
+<h3>Specify the name of the MIMIC Waveform Database<a class="headerlink" href="#specify-the-name-of-the-mimic-waveform-database" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Specify the name of the MIMIC-III Matched Waveform Database on Physionet, which comes from the URL: <a class="reference external" href="https://physionet.org/content/mimic3wdb-matched/1.0/">https://physionet.org/content/mimic3wdb-matched/1.0/</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;mimic3wdb-matched/1.0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="identify-the-records-in-the-database">
+<h2>Identify the records in the database<a class="headerlink" href="#identify-the-records-in-the-database" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-records">
+<h3>Get a list of records<a class="headerlink" href="#get-a-list-of-records" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.get_record_list"><code class="docutils literal notranslate"><span class="pre">get_record_list</span></code></a> function from the WFDB toolbox to get a list of records in the database.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">icustay_records</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done: Loaded list of </span><span class="si">{}</span><span class="s2"> ICU stays for &#39;</span><span class="si">{}</span><span class="s2">&#39; database&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">icustay_records</span><span class="p">),</span> <span class="n">database_name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done: Loaded list of 10282 ICU stays for &#39;mimic3wdb-matched/1.0&#39; database
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Display the first few records</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First five ICU stays: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">icustay_records</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First five ICU stays: [&#39;p00/p000020/&#39;, &#39;p00/p000030/&#39;, &#39;p00/p000033/&#39;, &#39;p00/p000052/&#39;, &#39;p00/p000079/&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note the formatting of these records: each starts with an intermediate directory (“p00” in this case), followed by a record directory.</p>
+<div class="alert alert-block alert-info"> <b>Q:</b> Can you print the names of the last five ICU stays? <br> <b>Hint:</b> in Python, the last five elements can be specified using '[-5:]' </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterate the subjects to get a list of records</span>
+<span class="n">max_records_to_load</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">icustay_records</span><span class="p">:</span>
+    <span class="c1"># stop if we&#39;ve loaded enough records</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_records_to_load</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached maximum required number of records.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">studies</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">study</span> <span class="ow">in</span> <span class="n">studies</span><span class="p">:</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subject</span><span class="si">}{</span><span class="n">study</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reached maximum required number of records.
+Loaded 106 records from the &#39;mimic3wdb-matched/1.0&#39; database.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="look-at-the-records">
+<h3>Look at the records<a class="headerlink" href="#look-at-the-records" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Display the first few records</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format and print first five records</span>
+<span class="n">first_five_records</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">records</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]]</span>  <span class="c1"># ignored the first two which are numerics</span>
+<span class="n">first_five_records</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_five_records</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First five records: </span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">first_five_records</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Note the formatting of these records:</span>
+<span class="s2"> - intermediate directory (&#39;p00&#39; in this case)</span>
+<span class="s2"> - icu stay identifier (e.g. &#39;p000020&#39;)</span>
+<span class="s2"> - segment identifier (e.g. &#39;3544749_0001&#39;), consisting of the record (e.g. &#39;3544749&#39;), followed by the segment number (e.g. &#39;0001&#39;).</span>
+<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First five records: 
+ - p00/p000020/3544749_0001
+ - p00/p000020/3544749_0002
+ - p00/p000020/3544749_0003
+ - p00/p000020/3544749_0004
+ - p00/p000020/3544749_0005
+
+Note the formatting of these records:
+ - intermediate directory (&#39;p00&#39; in this case)
+ - icu stay identifier (e.g. &#39;p000020&#39;)
+ - segment identifier (e.g. &#39;3544749_0001&#39;), consisting of the record (e.g. &#39;3544749&#39;), followed by the segment number (e.g. &#39;0001&#39;).
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Can you print the names of the last five records? <br> <b>Hint:</b> in Python, the last five elements can be specified using '[-5:]'</p>
+</div></div>
+</div>
+<div class="section" id="identify-records-suitable-for-analysis">
+<h2>Identify records suitable for analysis<a class="headerlink" href="#identify-records-suitable-for-analysis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The signals and their durations vary from one record (and segment) to the next.</p></li>
+<li><p>Since most studies require specific types of signals (e.g. blood pressure and photoplethysmography signals), we need to be able to identify which records (or segments) contain the required signals and duration.</p></li>
+</ul>
+<div class="section" id="id1">
+<h3>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Earlier, we loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">icustay_records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Earlier, we loaded 10282 records from the &#39;mimic3wdb-matched/1.0&#39; database.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="specify-requirements">
+<h3>Specify requirements<a class="headerlink" href="#specify-requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Required signals</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_sigs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ABP&#39;</span><span class="p">,</span> <span class="s1">&#39;PLETH&#39;</span><span class="p">,</span> <span class="s1">&#39;II&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Definitions:</em></p>
+<ul class="simple">
+<li><p>ABP - arterial blood presure (i.e. blood pressure signal)</p></li>
+<li><p>PLETH - photoplethysmogram (PPG) signal</p></li>
+<li><p>II - lead II electrocardiogram (ECG) signal</p></li>
+</ul>
+<ul class="simple">
+<li><p>Required duration</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert from minutes to seconds</span>
+<span class="n">req_seg_duration</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">60</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="find-out-how-many-records-meet-the-requirements">
+<h3>Find out how many records meet the requirements<a class="headerlink" href="#find-out-how-many-records-meet-the-requirements" title="Permalink to this headline">¶</a></h3>
+<p><em>NB: This step may take a while. The results are copied below to save running it yourself.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span> <span class="c1"># to read online text file</span>
+
+<span class="n">no_recs_req</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">matching_recs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dir&#39;</span><span class="p">:[],</span> <span class="s1">&#39;seg_name&#39;</span><span class="p">:[],</span> <span class="s1">&#39;length&#39;</span><span class="p">:[]}</span>
+
+<span class="k">for</span> <span class="n">icustay_record</span> <span class="ow">in</span> <span class="n">icustay_records</span><span class="p">:</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;seg_name&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="n">no_recs_req</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Record: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">icustay_record</span><span class="p">))</span> <span class="c1">#, end=&quot;&quot;, flush=True)</span>
+    <span class="n">icustay_record_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">icustay_record</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">icustay_record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="n">icustay_record_name</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Identifying segments: &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+    <span class="n">target_url</span> <span class="o">=</span> <span class="s2">&quot;https://physionet.org/files/&quot;</span> <span class="o">+</span> <span class="n">icustay_record_dir</span> <span class="o">+</span> <span class="s2">&quot;RECORDS&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">target_url</span><span class="p">)</span>
+    
+    <span class="n">segs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">curr_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="s2">&quot;p&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr_line</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">curr_line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">segs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1"># check to see whether there are any waveform files (as opposed to just numerics)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(no waveforms)&#39;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    
+    <span class="c1"># check to see whether the required signals are present in this recording</span>
+    <span class="n">rec_header</span> <span class="o">=</span> <span class="n">segs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_layout&quot;</span>
+    <span class="n">rec_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">rec_header</span><span class="p">,</span>
+                                <span class="n">pn_dir</span><span class="o">=</span><span class="n">icustay_record_dir</span><span class="p">,</span>
+                                <span class="n">rd_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sigs_present</span> <span class="o">=</span> <span class="n">rec_metadata</span><span class="o">.</span><span class="n">sig_name</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">sigs_present</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">required_sigs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (missing signals)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rec_header</span><span class="p">))</span>
+        <span class="k">continue</span>
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Reading data: &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">segs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">seg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">seg_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">seg</span><span class="p">,</span>
+                                <span class="n">pn_dir</span><span class="o">=</span><span class="n">icustay_record_dir</span><span class="p">,</span>
+                                <span class="n">rd_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Check whether the required signals are present in this segment</span>
+        <span class="n">sigs_present</span> <span class="o">=</span> <span class="n">seg_metadata</span><span class="o">.</span><span class="n">sig_name</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">sigs_present</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">required_sigs</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   (missing signals)&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Check whether the segment is of the required duration</span>
+        <span class="n">seg_length</span> <span class="o">=</span> <span class="n">seg_metadata</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="n">seg_metadata</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+
+        <span class="n">req_seg_duration</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">10</span>
+        <span class="k">if</span> <span class="n">seg_length</span> <span class="o">&lt;</span> <span class="n">req_seg_duration</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; (too short at </span><span class="si">{</span><span class="n">seg_length</span><span class="o">/</span><span class="mi">60</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> mins)&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">icustay_record_dir</span><span class="p">)</span>
+        <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;seg_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+        <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg_length</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (met requirements)&#39;</span><span class="p">)</span>
+        <span class="c1"># Since we only need one segment per record break out of loop</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> records met the requirements:&quot;</span><span class="p">)</span>
+
+<span class="c1">#df_matching_recs = pd.DataFrame(data=matching_recs)</span>
+<span class="c1">#df_matching_recs.to_csv(&#39;matching_records.csv&#39;, index=False)</span>
+<span class="c1">#p=1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> records were identified that met the requirements (although the search was limited to </span><span class="si">{</span><span class="n">no_recs_req</span><span class="si">}</span><span class="s2"> records).&quot;</span><span class="p">)</span>
+
+<span class="n">relevant_segments_names</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;seg_name&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The relevant segment names are:</span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">relevant_segments_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">relevant_dirs</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The corresponding directories are: </span><span class="se">\n</span><span class="s2"> - </span><span class="si">{</span><span class="n">relevant_dirs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 100 records were identified that met the requirements (although the search was limited to 100 records).
+
+The relevant segment names are:
+ - 3531764_0003
+ - 3285727_0007
+ - 3092245_0007
+ - 3047369_0003
+ - 3481389_0008
+ - 3189254_0006
+ - 3054941_0001
+ - 3462211_0001
+ - 3755731_0015
+ - 3988865_0012
+ - 3747397_0005
+ - 3016830_0019
+ - 3429844_0002
+ - 3395556_0005
+ - 3046879_0003
+ - 3376064_0010
+ - 3205611_0013
+ - 3126291_0001
+ - 3622493_0043
+ - 3410222_0004
+ - 3021418_0002
+ - 3832863_0007
+ - 3757068_0002
+ - 3090785_0011
+ - 3929725_0001
+ - 3031688_0022
+ - 3040472_0001
+ - 3289928_0011
+ - 3068462_0004
+ - 3873015_0004
+ - 3089709_0002
+ - 3883443_0015
+ - 3447276_0006
+ - 3216751_0009
+ - 3377083_0005
+ - 3831833_0006
+ - 3203448_0022
+ - 3729471_0009
+ - 3000714_0001
+ - 3019875_0004
+ - 3113048_0001
+ - 3678945_0003
+ - 3358389_0004
+ - 3124300_0001
+ - 3145678_0005
+ - 3383991_0003
+ - 3147138_0008
+ - 3068585_0032
+ - 3545143_0009
+ - 3062663_0002
+ - 3548704_0010
+ - 3947427_0006
+ - 3763138_0005
+ - 3263629_0001
+ - 3081334_0026
+ - 3251540_0009
+ - 3195697_0001
+ - 3973217_0001
+ - 3942161_0001
+ - 3696733_0005
+ - 3176657_0041
+ - 3310335_0019
+ - 3132214_0015
+ - 3228071_0003
+ - 3195753_0006
+ - 3573743_0005
+ - 3266729_0003
+ - 3760919_0010
+ - 3958352_0006
+ - 3300295_0003
+ - 3028261_0046
+ - 3912316_0020
+ - 3341288_0003
+ - 3306238_0001
+ - 3217364_0003
+ - 3872162_0001
+ - 3133443_0001
+ - 3457114_0003
+ - 3020774_0012
+ - 3820075_0003
+ - 3573275_0029
+ - 3145453_0019
+ - 3528521_0005
+ - 3119460_0009
+ - 3511654_0003
+ - 3061470_0003
+ - 3083615_0012
+ - 3145814_0005
+ - 3426164_0003
+ - 3688103_0007
+ - 3228082_0010
+ - 3028253_0056
+ - 3523904_0009
+ - 3576649_0004
+ - 3794019_0005
+ - 3013677_0009
+ - 3025436_0007
+ - 3879187_0012
+ - 3195265_0024
+ - 3163704_0001
+
+The corresponding directories are: 
+ - mimic3wdb-matched/1.0/p00/p000160/
+ - mimic3wdb-matched/1.0/p00/p000188/
+ - mimic3wdb-matched/1.0/p00/p000333/
+ - mimic3wdb-matched/1.0/p00/p000543/
+ - mimic3wdb-matched/1.0/p00/p000618/
+ - mimic3wdb-matched/1.0/p00/p000735/
+ - mimic3wdb-matched/1.0/p00/p000801/
+ - mimic3wdb-matched/1.0/p00/p000946/
+ - mimic3wdb-matched/1.0/p00/p001038/
+ - mimic3wdb-matched/1.0/p00/p001049/
+ - mimic3wdb-matched/1.0/p00/p001457/
+ - mimic3wdb-matched/1.0/p00/p001501/
+ - mimic3wdb-matched/1.0/p00/p001606/
+ - mimic3wdb-matched/1.0/p00/p001791/
+ - mimic3wdb-matched/1.0/p00/p001840/
+ - mimic3wdb-matched/1.0/p00/p001855/
+ - mimic3wdb-matched/1.0/p00/p001949/
+ - mimic3wdb-matched/1.0/p00/p002063/
+ - mimic3wdb-matched/1.0/p00/p002343/
+ - mimic3wdb-matched/1.0/p00/p002369/
+ - mimic3wdb-matched/1.0/p00/p002458/
+ - mimic3wdb-matched/1.0/p00/p002577/
+ - mimic3wdb-matched/1.0/p00/p002586/
+ - mimic3wdb-matched/1.0/p00/p002639/
+ - mimic3wdb-matched/1.0/p00/p002703/
+ - mimic3wdb-matched/1.0/p00/p002858/
+ - mimic3wdb-matched/1.0/p00/p002906/
+ - mimic3wdb-matched/1.0/p00/p002974/
+ - mimic3wdb-matched/1.0/p00/p002981/
+ - mimic3wdb-matched/1.0/p00/p003039/
+ - mimic3wdb-matched/1.0/p00/p003386/
+ - mimic3wdb-matched/1.0/p00/p003617/
+ - mimic3wdb-matched/1.0/p00/p003744/
+ - mimic3wdb-matched/1.0/p00/p003866/
+ - mimic3wdb-matched/1.0/p00/p003949/
+ - mimic3wdb-matched/1.0/p00/p004053/
+ - mimic3wdb-matched/1.0/p00/p004115/
+ - mimic3wdb-matched/1.0/p00/p004313/
+ - mimic3wdb-matched/1.0/p00/p004324/
+ - mimic3wdb-matched/1.0/p00/p004331/
+ - mimic3wdb-matched/1.0/p00/p004405/
+ - mimic3wdb-matched/1.0/p00/p004588/
+ - mimic3wdb-matched/1.0/p00/p004679/
+ - mimic3wdb-matched/1.0/p00/p004802/
+ - mimic3wdb-matched/1.0/p00/p004804/
+ - mimic3wdb-matched/1.0/p00/p004833/
+ - mimic3wdb-matched/1.0/p00/p004837/
+ - mimic3wdb-matched/1.0/p00/p004904/
+ - mimic3wdb-matched/1.0/p00/p004906/
+ - mimic3wdb-matched/1.0/p00/p004966/
+ - mimic3wdb-matched/1.0/p00/p005030/
+ - mimic3wdb-matched/1.0/p00/p005071/
+ - mimic3wdb-matched/1.0/p00/p005193/
+ - mimic3wdb-matched/1.0/p00/p005345/
+ - mimic3wdb-matched/1.0/p00/p005453/
+ - mimic3wdb-matched/1.0/p00/p005742/
+ - mimic3wdb-matched/1.0/p00/p005885/
+ - mimic3wdb-matched/1.0/p00/p005913/
+ - mimic3wdb-matched/1.0/p00/p005937/
+ - mimic3wdb-matched/1.0/p00/p006116/
+ - mimic3wdb-matched/1.0/p00/p006381/
+ - mimic3wdb-matched/1.0/p00/p006533/
+ - mimic3wdb-matched/1.0/p00/p006539/
+ - mimic3wdb-matched/1.0/p00/p006621/
+ - mimic3wdb-matched/1.0/p00/p006692/
+ - mimic3wdb-matched/1.0/p00/p006702/
+ - mimic3wdb-matched/1.0/p00/p006728/
+ - mimic3wdb-matched/1.0/p00/p006875/
+ - mimic3wdb-matched/1.0/p00/p007107/
+ - mimic3wdb-matched/1.0/p00/p007184/
+ - mimic3wdb-matched/1.0/p00/p007251/
+ - mimic3wdb-matched/1.0/p00/p007445/
+ - mimic3wdb-matched/1.0/p00/p007477/
+ - mimic3wdb-matched/1.0/p00/p007529/
+ - mimic3wdb-matched/1.0/p00/p007533/
+ - mimic3wdb-matched/1.0/p00/p007614/
+ - mimic3wdb-matched/1.0/p00/p007629/
+ - mimic3wdb-matched/1.0/p00/p007644/
+ - mimic3wdb-matched/1.0/p00/p007654/
+ - mimic3wdb-matched/1.0/p00/p007866/
+ - mimic3wdb-matched/1.0/p00/p007966/
+ - mimic3wdb-matched/1.0/p00/p008061/
+ - mimic3wdb-matched/1.0/p00/p008142/
+ - mimic3wdb-matched/1.0/p00/p008167/
+ - mimic3wdb-matched/1.0/p00/p008318/
+ - mimic3wdb-matched/1.0/p00/p008396/
+ - mimic3wdb-matched/1.0/p00/p008723/
+ - mimic3wdb-matched/1.0/p00/p008735/
+ - mimic3wdb-matched/1.0/p00/p008748/
+ - mimic3wdb-matched/1.0/p00/p008780/
+ - mimic3wdb-matched/1.0/p00/p008795/
+ - mimic3wdb-matched/1.0/p00/p008799/
+ - mimic3wdb-matched/1.0/p00/p008896/
+ - mimic3wdb-matched/1.0/p00/p009124/
+ - mimic3wdb-matched/1.0/p00/p009128/
+ - mimic3wdb-matched/1.0/p00/p009258/
+ - mimic3wdb-matched/1.0/p00/p009460/
+ - mimic3wdb-matched/1.0/p00/p009473/
+ - mimic3wdb-matched/1.0/p00/p009798/
+ - mimic3wdb-matched/1.0/p00/p009993/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Question:</b> Is this enough data for a study? Consider different types of studies, e.g. assessing the performance of a previously proposed algorithm to estimate BP from the PPG signal, vs. developing a deep learning approach to estimate BP from the PPG.</p>
+</div></div>
+</div>
+<div class="section" id="extract-data-for-a-segment">
+<h2>Extract data for a segment<a class="headerlink" href="#extract-data-for-a-segment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Provide a list of segments which meet the requirements for the study</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;3531764_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3285727_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;3092245_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;3047369_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3481389_0008&#39;</span><span class="p">,</span> <span class="s1">&#39;3189254_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3054941_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3462211_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3755731_0015&#39;</span><span class="p">,</span> <span class="s1">&#39;3988865_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;3747397_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3016830_0019&#39;</span><span class="p">,</span> <span class="s1">&#39;3429844_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;3395556_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3046879_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3376064_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;3205611_0013&#39;</span><span class="p">,</span> <span class="s1">&#39;3126291_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3622493_0043&#39;</span><span class="p">,</span> <span class="s1">&#39;3410222_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3021418_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;3832863_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;3757068_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;3090785_0011&#39;</span><span class="p">,</span> <span class="s1">&#39;3929725_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3031688_0022&#39;</span><span class="p">,</span> <span class="s1">&#39;3040472_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3289928_0011&#39;</span><span class="p">,</span> <span class="s1">&#39;3068462_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3873015_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3089709_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;3883443_0015&#39;</span><span class="p">,</span> <span class="s1">&#39;3447276_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3216751_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3377083_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3831833_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3203448_0022&#39;</span><span class="p">,</span> <span class="s1">&#39;3729471_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3000714_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3019875_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3113048_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3678945_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3358389_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3124300_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3145678_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3383991_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3147138_0008&#39;</span><span class="p">,</span> <span class="s1">&#39;3068585_0032&#39;</span><span class="p">,</span> <span class="s1">&#39;3545143_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3062663_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;3548704_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;3947427_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3763138_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3263629_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3081334_0026&#39;</span><span class="p">,</span> <span class="s1">&#39;3251540_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3195697_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3973217_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3942161_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3696733_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3176657_0041&#39;</span><span class="p">,</span> <span class="s1">&#39;3310335_0019&#39;</span><span class="p">,</span> <span class="s1">&#39;3132214_0015&#39;</span><span class="p">,</span> <span class="s1">&#39;3228071_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3195753_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3573743_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3266729_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3760919_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;3958352_0006&#39;</span><span class="p">,</span> <span class="s1">&#39;3300295_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3028261_0046&#39;</span><span class="p">,</span> <span class="s1">&#39;3912316_0020&#39;</span><span class="p">,</span> <span class="s1">&#39;3341288_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3306238_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3217364_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3872162_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3133443_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;3457114_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3020774_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;3820075_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3573275_0029&#39;</span><span class="p">,</span> <span class="s1">&#39;3145453_0019&#39;</span><span class="p">,</span> <span class="s1">&#39;3528521_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3119460_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3511654_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3061470_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3083615_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;3145814_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3426164_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;3688103_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;3228082_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;3028253_0056&#39;</span><span class="p">,</span> <span class="s1">&#39;3523904_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3576649_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;3794019_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;3013677_0009&#39;</span><span class="p">,</span> <span class="s1">&#39;3025436_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;3879187_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;3195265_0024&#39;</span><span class="p">,</span> <span class="s1">&#39;3163704_0001&#39;</span><span class="p">]</span>
+<span class="n">segment_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000160/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000188/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000333/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000543/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000618/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000735/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000801/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p000946/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001038/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001049/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001457/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001501/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001606/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001791/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001840/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001855/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p001949/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002063/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002343/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002369/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002458/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002577/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002586/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002639/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002703/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002858/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002906/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002974/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p002981/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003039/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003386/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003617/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003744/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003866/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p003949/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004053/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004115/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004313/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004324/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004331/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004405/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004588/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004679/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004802/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004804/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004833/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004837/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004904/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004906/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p004966/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005030/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005071/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005193/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005345/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005453/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005742/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005885/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005913/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p005937/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006116/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006381/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006533/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006539/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006621/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006692/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006702/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006728/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p006875/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007107/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007184/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007251/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007445/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007477/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007529/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007533/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007614/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007629/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007644/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007654/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007866/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p007966/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008061/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008142/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008167/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008318/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008396/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008723/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008735/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008748/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008780/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008795/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008799/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p008896/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009124/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009128/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009258/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009460/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009473/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009798/&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic3wdb-matched/1.0/p00/p009993/&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Specify a segment from which to extract data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_segment_no</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rel_segment_name</span> <span class="o">=</span> <span class="n">segment_names</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
+<span class="n">rel_segment_dir</span> <span class="o">=</span> <span class="n">segment_dirs</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specified segment &#39;</span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&#39; in directory: &#39;</span><span class="si">{</span><span class="n">rel_segment_dir</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specified segment &#39;3531764_0003&#39; in directory: &#39;mimic3wdb-matched/1.0/p00/p000160/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Extension:</b> Have a look at the files which make up this record <a href="https://physionet.org/content/mimic3wdb-matched/1.0/p00/p000160/#files-panel">here</a> (NB: you will need to scroll to the bottom of the page).</p>
+</div><ul class="simple">
+<li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.rdrecord"><code class="docutils literal notranslate"><span class="pre">rdrecord</span></code></a> function from the WFDB toolbox to read the data for this segment.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">rel_segment_name</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">rel_segment_dir</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data loaded from segment: </span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data loaded from segment: 3531764_0003
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Look at class type of the object in which the data are stored:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data stored in class of type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data stored in class of type: &lt;class &#39;wfdb.io.record.Record&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the class representing single segment WFDB records <a href="https://wfdb.readthedocs.io/en/stable/io.html?highlight=class#wfdb.io.Record">here</a>.</p>
+</div><ul class="simple">
+<li><p>Find out about the signals which have been extracted</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This segment contains waveform data for the following </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">n_sig</span><span class="si">}</span><span class="s2"> signals: </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The signals are sampled at </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;They last for </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This segment contains waveform data for the following 6 signals: [&#39;RESP&#39;, &#39;PLETH&#39;, &#39;II&#39;, &#39;V&#39;, &#39;AVR&#39;, &#39;ABP&#39;]
+The signals are sampled at 125 Hz
+They last for 179.8 minutes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualise-the-signals">
+<h2>Visualise the signals<a class="headerlink" href="#visualise-the-signals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="select-a-segment">
+<h3>Select a segment<a class="headerlink" href="#select-a-segment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Specify a segment from which to extract data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_segment_n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">rel_segment_name</span> <span class="o">=</span> <span class="n">segment_names</span><span class="p">[</span><span class="n">rel_segment_n</span><span class="p">]</span>
+<span class="n">rel_segment_dir</span> <span class="o">=</span> <span class="n">segment_dirs</span><span class="p">[</span><span class="n">rel_segment_n</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specified segment &#39;</span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&#39; in directory: &#39;</span><span class="si">{</span><span class="n">rel_segment_dir</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specified segment &#39;3285727_0007&#39; in directory: &#39;mimic3wdb-matched/1.0/p00/p000188/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extract-one-minute-of-data-from-this-segment">
+<h3>Extract one minute of data from this segment<a class="headerlink" href="#extract-one-minute-of-data-from-this-segment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Specify the timings of the data to be extracted</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># time since the start of the segment at which to begin extracting data</span>
+<span class="n">start_seconds</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">n_seconds_to_load</span> <span class="o">=</span> <span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find out the sampling frequency of the waveform data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">rel_segment_name</span><span class="p">,</span>
+                                 <span class="n">pn_dir</span><span class="o">=</span><span class="n">rel_segment_dir</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Metadata loaded from segment: </span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">segment_metadata</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Metadata loaded from segment: 3285727_0007
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Extract the specified data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampfrom</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">*</span> <span class="n">start_seconds</span>
+<span class="n">sampto</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">*</span> <span class="p">(</span><span class="n">start_seconds</span> <span class="o">+</span> <span class="n">n_seconds_to_load</span><span class="p">)</span>
+
+<span class="n">segment_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">rel_segment_name</span><span class="p">,</span>
+                             <span class="n">sampfrom</span><span class="o">=</span><span class="n">sampfrom</span><span class="p">,</span>
+                             <span class="n">sampto</span><span class="o">=</span><span class="n">sampto</span><span class="p">,</span>
+                             <span class="n">pn_dir</span><span class="o">=</span><span class="n">rel_segment_dir</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_seconds_to_load</span><span class="si">}</span><span class="s2"> seconds of data extracted from segment </span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60 seconds of data extracted from segment 3285727_0007
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-extracted-signals">
+<h3>Plot the extracted signals<a class="headerlink" href="#plot-the-extracted-signals" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Plot the extracted signals using the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/plot.html#wfdb.plot.plot_wfdb">plot_wfdb</a> function from the WFDB Toolbox.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Segment </span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">wfdb</span><span class="o">.</span><span class="n">plot_wfdb</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="n">segment_data</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="n">title_text</span><span class="p">,</span>
+               <span class="n">time_units</span><span class="o">=</span><span class="s1">&#39;seconds&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data-exploration3_68_0.png" src="../../_images/data-exploration3_68_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Extract the PPG signal to loook at it more closely</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sig_no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="s2">&quot;PLETH&quot;</span> <span class="ow">in</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="p">[</span><span class="n">sig_no</span><span class="p">]:</span>
+        <span class="k">break</span>
+
+<span class="n">ppg</span> <span class="o">=</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">p_signal</span><span class="p">[:,</span> <span class="n">sig_no</span><span class="p">]</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted the PPG signal from column </span><span class="si">{</span><span class="n">sig_no</span><span class="si">}</span><span class="s2"> of the matrix of waveform data.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracted the PPG signal from column 0 of the matrix of waveform data.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning"><p><b>Note:</b> the name given to PPG signals in the database is 'PLETH'.</p></div><ul class="simple">
+<li><p>Plot to look at the shape of the PPG pulse wave more closely</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ppg</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span><span class="p">),</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ppg</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PPG&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50.0, 55.0)
+</pre></div>
+</div>
+<img alt="../../_images/data-exploration3_73_1.png" src="../../_images/data-exploration3_73_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="compare-this-to-pulse-waves-from-the-literature">
+<h3>Compare this to pulse waves from the literature<a class="headerlink" href="#compare-this-to-pulse-waves-from-the-literature" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Compare the pulse waves above to the different shapes of pulse waves shown here:</p></li>
+</ul>
+<p><img alt="PPG pulse waves" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg" /></p>
+<p>Source: <em>Charlton PH et al., ‘Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet’, <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">https://doi.org/10.1152/ajpheart.00392.2021</a> (CC BY 4.0)</em></p>
+<p>These pulse waves are the typical shapes for young (class 1) to old (class 4) subjects.</p>
+<div class="alert alert-block alert-info"><p><b>Question:</b> How do these pulse waves compare to those extracted from the MIMIC Database? Which is most similar?</p></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorial/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="data-exploration.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Exploring MIMIC-IV</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="signal-filtering.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Filtering Signals</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://peterhcharlton.github.io/">Peter H Charlton</a> and the <a href="https://github.com/peterhcharlton/bsp-book#contributors-">Team</a>. Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.<br/>
+        
+            &copy; Copyright 2023.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+    
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+
+    
+  </body>
+</html>
