@@ -1,3 +1,0 @@
-# Cuffless Blood Pressure
-
-temp

@@ -2,9 +2,6 @@
 
 This book presents an introduction to processing wearable sensor data using signal processing techniques and machine learning.
 
-```{note}
-These resources are currently being developed.
-```
 ```{figure} https://peterhcharlton.github.io/talk/multimodal-signal-processing-and-learning-for-wearables/featured.jpg
 :name: wearable-device
 ---
