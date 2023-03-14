@@ -230,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../case-studies/bp-estimation-example.html">
-     Import Libraries and Database
+     Cuffless BP - example
     </a>
    </li>
   </ul>
@@ -527,23 +527,23 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wfdb==4.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (4.0.0)
-Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.2.4)
-Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.20.1)
-Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (0.10.3.post1)
 Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (2.25.1)
 Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (3.3.4)
+Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.2.4)
 Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.6.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.3.1)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (0.10.0)
+Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (1.20.1)
+Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.0.0) (0.10.3.post1)
 Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (8.2.0)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.8.1)
 Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.4.7)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (0.10.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.3.1)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.8.1)
 Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.15.0)
 Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.0.0) (2021.1)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (4.0.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (1.26.4)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2.10)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2022.12.7)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2.10)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (4.0.0)
 Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (1.14.5)
 Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (2.20)
 </pre></div>
@@ -682,7 +682,7 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 <img alt="../../_images/signal-filtering_18_0.png" src="../../_images/signal-filtering_18_0.png" />
 </div>
 </div>
-<div class="alert alert-block alert-info"><p><b>Question:</b> What does this plot tell us about the filter characteristics? What types of noise does the filter attenuate?</p></div><div class="alert alert-block alert-warning"><p><b>Explanation:</b> This function generates the co-efficients for a Butterworth filter. The filter-type is specified as 'bp' - a bandpass filtter. The filter frequencies are specified in Hz (because the sampling frequency, fs, has also been specified): a high-pass frequency of 0.7 Hz, and a low-pass frequency of 10 Hz.</p></div><div class="alert alert-block alert-info"><p><b>Extension 1:</b> How could we re-design the filter to retain frequency content of up to 20 Hz, but eliminate mains frequencies?</p></div><div class="alert alert-block alert-info"><p><b>Extension 2:</b> What would be appropriate cut-off frequencies when using the PPG for different purposes, e.g. heart rate monitoring, or blood pressure estimation? See <a href="http://peterhcharlton.github.io/publication/wearable_ppg_chapter/">this book chapter</a> (Sections 2.2.4 to 2.2.5 on Sampling Frequency and Bandwidth) for details.</p></div></div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> What does this plot tell us about the filter characteristics? What types of noise does the filter attenuate?</p></div><div class="alert alert-block alert-warning"><p><b>Explanation:</b> This function generates the co-efficients for a Butterworth filter. The filter-type is specified as 'bp' - a bandpass filtter. The filter frequencies are specified in Hz (because the sampling frequency, fs, has also been specified): a high-pass frequency of 0.7 Hz, and a low-pass frequency of 10 Hz.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> The filter designed here has an order of 10. What would be the impact of reducing the order, to say 4?</p></div><div class="alert alert-block alert-info"><p><b>Extension 1:</b> How could we re-design the filter to retain frequency content of up to 20 Hz, but eliminate mains frequencies?</p></div><div class="alert alert-block alert-info"><p><b>Extension 2:</b> What would be appropriate cut-off frequencies when using the PPG for different purposes, e.g. heart rate monitoring, or blood pressure estimation? See <a href="http://peterhcharlton.github.io/publication/wearable_ppg_chapter/">this book chapter</a> (Sections 2.2.4 to 2.2.5 on Sampling Frequency and Bandwidth) for details.</p></div></div>
 <hr class="docutils" />
 <div class="section" id="filter-the-ppg-signal">
 <h2>Filter the PPG signal<a class="headerlink" href="#filter-the-ppg-signal" title="Permalink to this headline">¶</a></h2>
@@ -725,7 +725,7 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/signal-filtering_27_0.png" src="../../_images/signal-filtering_27_0.png" />
+<img alt="../../_images/signal-filtering_28_0.png" src="../../_images/signal-filtering_28_0.png" />
 </div>
 </div>
 <div class="alert alert-block alert-warning"><p><b>Note:</b> The PPG signals in MIMIC have already been filtered somewhat by the clinical monitors used to record them.</p></div><div class="alert alert-block alert-info"><p><b>Further work:</b> Several different types of filters have been used to filter the PPG signal (e.g. Chebyshev filter, Butterworth filter). Have a look at <a href="https://doi.org/10.1038/sdata.2018.76">this article</a> for examples of several filter types (on pp.8-9). Which type of filter do the authors recommend? Can you re-design the filter above to use this type of filter?</p></div></div>
@@ -839,7 +839,7 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/signal-filtering_45_0.png" src="../../_images/signal-filtering_45_0.png" />
+<img alt="../../_images/signal-filtering_46_0.png" src="../../_images/signal-filtering_46_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -891,7 +891,7 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/signal-filtering_54_0.png" src="../../_images/signal-filtering_54_0.png" />
+<img alt="../../_images/signal-filtering_55_0.png" src="../../_images/signal-filtering_55_0.png" />
 </div>
 </div>
 <div class="alert alert-block alert-info"><p><b>Question:</b> How would the derivatives have looked different if the PPG signal hadn't been filtered before differentiation? <br> <b>Hint:</b> In the differentiation step above, try replacing 'ppg_filt' with 'ppg'.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> How would the derivatives have been different if the PPG signal had been filtered using different co-efficients?
