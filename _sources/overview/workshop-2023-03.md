@@ -50,6 +50,10 @@ Whilst no preparation is required for the workshop, attendees are encouraged to:
 1. Familiarise yourself with these resources.
 2. Ensure that you can run the tutorials and case study in Google Colab.
 
+## Introductory presentation
+
+The slides from the introductory presentation are available [here](https://doi.org/10.5281/zenodo.7734870).
+
 ## Acknowledgment
 
 Thanks to the Institute of Physics and Engineering in Medicine, who helped publicise this event.
