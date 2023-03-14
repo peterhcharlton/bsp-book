@@ -25,7 +25,7 @@ The workshop will use pre-prepared teaching materials consisting of online Jupyt
 
 ## Schedule
 
-The workshop will last 3.5 hours.
+The workshop will last 2 hours.
 
 | Time | Content |
 | :--- | :--- |

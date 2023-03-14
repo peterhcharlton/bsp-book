@@ -1,4 +1,4 @@
-# Cuffless BP
+# Cuffless Blood Pressure
 
 In the tutorials we have explored different steps which would commonly be encountered when developing techniques for cuffless blood pressure estimation.
 
