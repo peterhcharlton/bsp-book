@@ -20,4 +20,7 @@ A minimum working example is provided for each case study as a starting point. W
 
 ### Sharing experiences
 
-We will ask groups to share their experiences towards the end of the session.
+We will ask groups to share their experiences towards the end of the session. You might report back on your experience of:
+- Considering potential use cases,
+- Developing and testing a data analysis algorithm, and
+- Designing algorithm assessment methodology.

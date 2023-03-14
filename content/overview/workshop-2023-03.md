@@ -8,9 +8,14 @@ Welcome to this workshop, which will provide an introduction to the fundamentals
 
 This workshop is co-organised by:
 - The [Department of Public Health and Primary Care](https://www.phpc.cam.ac.uk/) at the University of Cambridge
-- [Turing's meta-learning for multimodal data interest group](https://www.turing.ac.uk/research/interest-groups/meta-learning-multimodal-data)
+- [The Alan Turing Institute's 'Meta-learning for multimodal data' Interest Group](https://www.turing.ac.uk/research/interest-groups/meta-learning-multimodal-data)
 
-The workshop was designed and run by researchers from several universities across Europe. You can find details of the individuals who have contributed [here](https://github.com/peterhcharlton/bsp-book#contributors-).
+The workshop was designed and run by researchers from several universities across Europe:
+- Kelly Ding, University of Cambridge
+- Elisa Mejia-Mejia, City, University of London
+- Serena Zanelli, University Sorbonne Paris Nord
+- Marton Goda, Technion - Israel Institute of Technology
+- Peter Charlton, University of Cambridge
 
 ### Outline
 
@@ -44,3 +49,7 @@ You must register for the workshop [here](https://turing-uk.zoom.us/meeting/regi
 Whilst no preparation is required for the workshop, attendees are encouraged to:
 1. Familiarise yourself with these resources.
 2. Ensure that you can run the tutorials and case study in Google Colab.
+
+## Acknowledgment
+
+Thanks to the Institute of Physics and Engineering in Medicine, who helped publicise this event.

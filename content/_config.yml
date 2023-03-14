@@ -4,7 +4,7 @@
 title: Signal Processing and Learning for Wearables
 author: <a href="https://peterhcharlton.github.io/">Peter H Charlton</a> and the <a href="https://github.com/peterhcharlton/bsp-book#contributors-">Team</a>. Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.
 copyright: "2023"
-logo: icon.png
+logo: icon.jpg
 exclude_patterns: [README.md]
 
 # Force re-execution of notebooks on each build.
