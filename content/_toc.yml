@@ -27,7 +27,8 @@
     - file: tutorial/notebooks/extracting-reference-bp
 - file: case-studies
   sections:
-    - file: case-studies/bp-estimation
+    - file: case-studies/bp-estimation-intro
+    - file: case-studies/bp-estimation-example
 - file: summary
   sections:
     - file: closing/additional-resources
