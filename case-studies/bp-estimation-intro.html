@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Import Libraries and Database" href="bp-estimation-example.html" />
+    <link rel="next" title="Cuffless BP - example" href="bp-estimation-example.html" />
     <link rel="prev" title="Case Studies" href="../case-studies.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -230,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="bp-estimation-example.html">
-     Import Libraries and Database
+     Cuffless BP - example
     </a>
    </li>
   </ul>
@@ -489,6 +489,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The assessment of algorithm performance could be improved as follows:</p>
 <ul class="simple">
 <li><p><strong>Developing assessment methodology:</strong> <em>[suitable for all, particularly clinicians and health researchers]</em> There is currently much interest in the question of how the performance of cuffless blood pressure devices should be assessed. It would be interesting to design experimental methodology to assess the performance of the algorithm, in line with recent suggestions (see <a class="reference external" href="https://doi.org/10.1161/HYPERTENSIONAHA.121.17747">this helpful article</a> and <a class="reference external" href="https://doi.org/10.1109/IEEESTD.2014.6882122">the IEEE standard</a> which was <a class="reference external" href="https://doi.org/10.1109/IEEESTD.2019.8859685">updated in 2019</a>).</p></li>
+<li><p><strong>Designing potential use cases:</strong> <em>[suitable for all, particularly clinicians and health researchers]</em> BP is widely used in routine clinical practice for diagnosis and prognosis. Several potential use cases for cuffless BP have been proposed, including (as detailed <a class="reference external" href="https://doi.org/10.1146/annurev-bioeng-110220-014644">here</a>): (i) identifying undiagnosed hypertension; (ii) long-term hypertension control; (iii) providing greater insight into BP through continuous monitoring in day and night; (iv) hypotension surveillance. There may be other potential use cases, such as identifying early signs of pre-eclasmpsia. It might be interesting to consider what use cases cuffless BP would be most suited to, what is required of cuffless BP devices for these use cases, and how individuals would use such devices in these use cases.</p></li>
 <li><p><strong>Using a larger dataset:</strong> <em>[suitable for coders]</em> The current example uses data from MIMIC-IV, which is limited to a sample size of 52 recordings. It might be interesting to import data from MIMIC-III which has many more recordings available for analysis (following <a class="reference internal" href="../tutorial/notebooks/data-exploration3.html"><span class="doc std std-doc">this tutorial</span></a>).</p></li>
 <li><p><strong>Tracking changes in BP:</strong> <em>[suitable for coders]</em> The example currently assesses the algorithm’s ability to estimate absolute BP from a PPG signal segment, with no prior knowledge of the patient. In contrast, often cuffless blood pressure devices require calibration with a reference blood pressure measurement for each patient. Therefore, it might be interesting to assess the ability of the model to track changes in BP within a recording, rather than estimating absolute BP.</p></li>
 </ul>
@@ -559,7 +560,7 @@ const thebe_selector_output = ".output, .cell_output"
         <a class="right-next" href="bp-estimation-example.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Import Libraries and Database</p>
+                <p class="prevnext-title">Cuffless BP - example</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
