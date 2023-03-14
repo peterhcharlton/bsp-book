@@ -8,7 +8,7 @@ Digital wearable devices have great potential to improve health and wellbeing by
 
 ## Aims
 
-The aim of this book is to equip attendees with knowledge and skills to apply best practices to process wearable data, benefiting researchers in academia, device designers in industry, and ultimately the millions of people who use wearables to monitor their health and fitness.
+The aim of this book is to equip attendees with knowledge and skills to apply best practices to process wearable data, benefiting researchers in academia, device designers in industry, clinicians, and ultimately the millions of people who use wearables to monitor their health and fitness.
 
 The Learning objectives are:
 
