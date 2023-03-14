@@ -52,6 +52,8 @@ Whilst no preparation is required for the workshop, attendees are encouraged to:
 
 ## Introductory presentation
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MANsp-qoCgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 The slides from the introductory presentation are available [here](https://doi.org/10.5281/zenodo.7734870).
 
 ## Acknowledgment
