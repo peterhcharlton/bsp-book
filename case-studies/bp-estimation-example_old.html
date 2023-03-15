@@ -51,8 +51,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Summary" href="../summary.html" />
-    <link rel="prev" title="Cuffless BP - Intro" href="bp-estimation-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +87,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../overview.html">
    Overview
@@ -213,23 +211,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../case-studies.html">
    Case Studies
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="bp-estimation-intro.html">
      Cuffless BP - Intro
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bp-estimation-example.html">
      Cuffless BP - example
     </a>
    </li>
@@ -357,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/case-studies/bp-estimation-example.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/case-studies/bp-estimation-example_old.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -377,10 +375,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Fcase-studies/bp-estimation-example.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Fcase-studies/bp-estimation-example_old.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/case-studies/bp-estimation-example.ipynb"><button
+        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/case-studies/bp-estimation-example_old.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -400,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/case-studies/bp-estimation-example.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/case-studies/bp-estimation-example_old.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -408,7 +406,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/case-studies/bp-estimation-example.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/case-studies/bp-estimation-example_old.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -522,6 +520,45 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wfdb in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (4.1.0)
+Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (3.3.4)
+Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (1.20.1)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (2.25.1)
+Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (0.10.3.post1)
+Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (1.6.2)
+Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb) (1.2.4)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (8.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (2.8.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (2.4.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (1.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (0.10.0)
+Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb) (1.15.0)
+Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb) (2021.1)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb) (2.10)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb) (1.26.4)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb) (4.0.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb) (2022.12.7)
+Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb) (1.14.5)
+Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb) (2.20)
+Requirement already satisfied: neurokit2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (0.2.3)
+Requirement already satisfied: scipy in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from neurokit2) (1.6.2)
+Requirement already satisfied: matplotlib in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from neurokit2) (3.3.4)
+Requirement already satisfied: scikit-learn&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from neurokit2) (1.2.2)
+Requirement already satisfied: numpy in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from neurokit2) (1.20.1)
+Requirement already satisfied: pandas in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from neurokit2) (1.2.4)
+Requirement already satisfied: joblib&gt;=1.1.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=1.0.0-&gt;neurokit2) (1.2.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from scikit-learn&gt;=1.0.0-&gt;neurokit2) (2.1.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib-&gt;neurokit2) (8.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib-&gt;neurokit2) (0.10.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib-&gt;neurokit2) (2.8.1)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib-&gt;neurokit2) (1.3.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib-&gt;neurokit2) (2.4.7)
+Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;neurokit2) (1.15.0)
+Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas-&gt;neurokit2) (2021.1)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,7 +661,37 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nk2</span><span class="o">.</span><span class="n">ppg_fid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">get_peaks</span><span class="p">(</span><span class="n">ppg</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">35</span><span class="n">f3e356ee1b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">peaks</span> <span class="o">=</span> <span class="n">get_peaks</span><span class="p">(</span><span class="n">ppg</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-13-176fd8f432c1&gt;</span> in <span class="ni">get_peaks</span><span class="nt">(raw, fs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_peaks</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>   <span class="n">ppg_clean</span> <span class="o">=</span> <span class="n">nk2</span><span class="o">.</span><span class="n">ppg_clean</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>   <span class="n">peaks</span> <span class="o">=</span> <span class="n">nk2</span><span class="o">.</span><span class="n">ppg_findpeaks</span><span class="p">(</span><span class="n">ppg_clean</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;bishop&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">return</span> <span class="n">peaks</span><span class="p">[</span><span class="s1">&#39;PPG_Peaks&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/neurokit2/ppg/ppg_findpeaks.py</span> in <span class="ni">ppg_findpeaks</span><span class="nt">(ppg_cleaned, sampling_rate, method, show, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>       <span class="p">(</span><span class="n">pp</span><span class="o">.</span> <span class="mi">189</span><span class="o">-</span><span class="mi">195</span><span class="p">)</span><span class="o">.</span> <span class="n">Springer</span> <span class="n">International</span> <span class="n">Publishing</span><span class="o">.</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> 
+<span class="ne">---&gt; </span><span class="mi">67</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span><span class="s2">     method = method.lower()</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span><span class="s2">     if method in [&quot;elgendi&quot;]:</span>
+
+<span class="ne">ValueError</span>: `method` not found. Must be one of the following: &#39;elgendi&#39;.
 </pre></div>
 </div>
 </div>
@@ -639,10 +706,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7faf84d7a820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff573056d00&gt;
 </pre></div>
 </div>
-<img alt="../_images/bp-estimation-example_12_1.png" src="../_images/bp-estimation-example_12_1.png" />
+<img alt="../_images/bp-estimation-example_old_13_1.png" src="../_images/bp-estimation-example_old_13_1.png" />
 </div>
 </div>
 </div>
@@ -687,10 +754,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7faf86106670&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff5729e6eb0&gt;
 </pre></div>
 </div>
-<img alt="../_images/bp-estimation-example_16_1.png" src="../_images/bp-estimation-example_16_1.png" />
+<img alt="../_images/bp-estimation-example_old_17_1.png" src="../_images/bp-estimation-example_old_17_1.png" />
 </div>
 </div>
 </div>
@@ -700,36 +767,27 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Differentiation Demo<a class="headerlink" href="#differentiation-demo" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sp</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ppg_seg</span> <span class="o">=</span> <span class="n">ppg</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">]</span>
 <span class="n">seg_peaks</span> <span class="o">=</span> <span class="n">get_peaks</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
 <span class="n">seg_onset</span> <span class="o">=</span> <span class="n">get_onsets</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="n">seg_peaks</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
 <span class="n">d1x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">deriv</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> 
 <span class="n">d2x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">deriv</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> 
 <span class="n">d3x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">savgol_filter</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">deriv</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_onset</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_onset</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PPG&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d1x</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1st derivative of PPG&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d2x</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_onset</span><span class="p">,</span> <span class="n">d2x</span><span class="p">[</span><span class="n">seg_onset</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2nd derivative of PPG&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d3x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;2nd derivative of PPG&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff571ecb370&gt;]
 </pre></div>
 </div>
-<img alt="../_images/bp-estimation-example_20_1.png" src="../_images/bp-estimation-example_20_1.png" />
+<img alt="../_images/bp-estimation-example_old_20_1.png" src="../_images/bp-estimation-example_old_20_1.png" />
 </div>
 </div>
 </div>
@@ -795,19 +853,17 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">seg_dia</span><span class="p">,</span> <span class="n">seg_dic</span> <span class="o">=</span> <span class="n">get_dia_dic</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">,</span> <span class="n">seg_peaks</span><span class="p">,</span> <span class="n">seg_onset</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppg_seg</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PPG&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_onset</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_onset</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Onsets&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_dia</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_dia</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Diastolic Peaks&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_dic</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_dic</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dicrotic Notches&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_onset</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_onset</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_dia</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_dia</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">seg_dic</span><span class="p">,</span> <span class="n">ppg_seg</span><span class="p">[</span><span class="n">seg_dic</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faf871d0e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff5719c8ac0&gt;
 </pre></div>
 </div>
-<img alt="../_images/bp-estimation-example_23_1.png" src="../_images/bp-estimation-example_23_1.png" />
+<img alt="../_images/bp-estimation-example_old_23_1.png" src="../_images/bp-estimation-example_old_23_1.png" />
 </div>
 </div>
 </div>
@@ -932,7 +988,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3548387096774194 118.84375 64.0625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.293275783734666 118.84375 64.0625
 </pre></div>
 </div>
 </div>
@@ -961,81 +1017,418 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train_set = pd.DataFrame(np.nan, </span>
-<span class="c1">#                          columns = [&#39;id&#39;, </span>
-<span class="c1">#                                     &#39;pk_to_dia&#39;, &#39;pk_to_dic&#39;, </span>
-<span class="c1">#                                     &#39;on_to_pk&#39;, &#39;on_to_dia&#39;, &#39;on_to_dic&#39;,</span>
-<span class="c1">#                                     &#39;peak_len&#39;, </span>
-<span class="c1">#                                     &#39;peak_h&#39;, &#39;dia_h&#39;, &#39;dic_h&#39;, &#39;on_h&#39;,</span>
-<span class="c1">#                                     &#39;sbp&#39;, &#39;dbp&#39;], </span>
-<span class="c1">#                          index = list(range(0,100)))</span>
-<span class="c1"># train_set[&#39;id&#39;] = train_set[&#39;id&#39;].astype(str)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> 
+                         <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> 
+                                    <span class="s1">&#39;pk_to_dia&#39;</span><span class="p">,</span> <span class="s1">&#39;pk_to_dic&#39;</span><span class="p">,</span> 
+                                    <span class="s1">&#39;on_to_pk&#39;</span><span class="p">,</span> <span class="s1">&#39;on_to_dia&#39;</span><span class="p">,</span> <span class="s1">&#39;on_to_dic&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;peak_len&#39;</span><span class="p">,</span> 
+                                    <span class="s1">&#39;peak_h&#39;</span><span class="p">,</span> <span class="s1">&#39;dia_h&#39;</span><span class="p">,</span> <span class="s1">&#39;dic_h&#39;</span><span class="p">,</span> <span class="s1">&#39;on_h&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;sbp&#39;</span><span class="p">,</span> <span class="s1">&#39;dbp&#39;</span><span class="p">],</span> 
+                         <span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)))</span>
+<span class="n">train_set</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train_set.shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;res.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<span class="n">train_set</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># intv = 60</span>
-<span class="c1"># i = 0</span>
-<span class="c1"># for start in range(40, 800, 60):</span>
-<span class="c1">#   for no in range(40, 52):</span>
-<span class="c1">#     ppg, fs = get_signal(no, &#39;ppg&#39;, start, intv)</span>
-<span class="c1">#     ppg = remove_nan(ppg)</span>
-<span class="c1">#     pks, ons, dias, dics = get_fids(ppg, fs)</span>
-
-<span class="c1">#     on_pks = [get_less_closest(ons, pk)[0] for pk in pks[1:]]</span>
-<span class="c1">#     on_to_p = np.subtract(pks[1:], on_pks)/fs</span>
-<span class="c1">#     on_dia = [get_less_closest(ons, dia)[0] for dia in dias]</span>
-<span class="c1">#     on_to_dia = np.subtract(dias, on_dia)/fs</span>
-<span class="c1">#     on_dic = [get_less_closest(ons, dic)[0] for dic in dics]</span>
-<span class="c1">#     on_to_dic = np.subtract(dics, on_dic)/fs</span>
-
-<span class="c1">#     dia_pks = [get_less_closest(pks, dia)[0] for dia in dias]</span>
-<span class="c1">#     p_to_dia = np.subtract(dias, dia_pks)/fs</span>
-<span class="c1">#     dic_pks = [get_less_closest(pks, dic)[0] for dic in dics]</span>
-<span class="c1">#     p_to_dic = np.subtract(dics, dic_pks)/fs</span>
-
-<span class="c1">#     bp, fs = get_signal(no, &#39;bp&#39;, start, intv)</span>
-<span class="c1">#     bp = remove_nan(bp)</span>
-<span class="c1">#     pks = get_peaks(bp, fs)</span>
-<span class="c1">#     ons = get_onsets(bp, pks, fs)</span>
-
-<span class="c1">#     sbp = np.median(bp[pks])</span>
-<span class="c1">#     dbp = np.median(bp[ons])</span>
-
-<span class="c1">#     train_set.at[i, &#39;id&#39;] = str(no)+&#39;-&#39;+str(start)+&#39;-&#39;+str(intv)</span>
-<span class="c1">#     train_set.at[i, &#39;on_to_pk&#39;] = np.mean(on_to_p)</span>
-<span class="c1">#     train_set.at[i, &#39;on_to_dia&#39;] = np.mean(on_to_dia)</span>
-<span class="c1">#     train_set.at[i, &#39;on_to_dic&#39;] = np.mean(on_to_dic)</span>
-
-<span class="c1">#     train_set.at[i, &#39;pk_to_dia&#39;] = np.mean(p_to_dia)</span>
-<span class="c1">#     train_set.at[i, &#39;pk_to_dic&#39;] = np.mean(p_to_dic)</span>
-
-<span class="c1">#     train_set.at[i, &#39;peak_h&#39;] = np.mean(ppg[pks])</span>
-<span class="c1">#     train_set.at[i, &#39;dia_h&#39;] = np.mean(ppg[dias])</span>
-<span class="c1">#     train_set.at[i, &#39;dic_h&#39;] = np.mean(ppg[dics])</span>
-<span class="c1">#     train_set.at[i, &#39;on_h&#39;] = np.mean(ppg[ons])</span>
-
-<span class="c1">#     train_set.at[i, &#39;peak_len&#39;] = np.mean(np.diff(pks)/fs)</span>
-<span class="c1">#     train_set.at[i, &#39;sbp&#39;] = sbp</span>
-<span class="c1">#     train_set.at[i, &#39;dbp&#39;] = dbp</span>
-
-<span class="c1">#     i += 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(370, 5)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train_set.to_csv(&#39;train_res.csv&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intv</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">60</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">no</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">52</span><span class="p">):</span>
+    <span class="n">ppg</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">get_signal</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="s1">&#39;ppg&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">intv</span><span class="p">)</span>
+    <span class="n">ppg</span> <span class="o">=</span> <span class="n">remove_nan</span><span class="p">(</span><span class="n">ppg</span><span class="p">)</span>
+    <span class="n">pks</span><span class="p">,</span> <span class="n">ons</span><span class="p">,</span> <span class="n">dias</span><span class="p">,</span> <span class="n">dics</span> <span class="o">=</span> <span class="n">get_fids</span><span class="p">(</span><span class="n">ppg</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+    <span class="n">on_pks</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_less_closest</span><span class="p">(</span><span class="n">ons</span><span class="p">,</span> <span class="n">pk</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">pk</span> <span class="ow">in</span> <span class="n">pks</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+    <span class="n">on_to_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">pks</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">on_pks</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+    <span class="n">on_dia</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_less_closest</span><span class="p">(</span><span class="n">ons</span><span class="p">,</span> <span class="n">dia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">dia</span> <span class="ow">in</span> <span class="n">dias</span><span class="p">]</span>
+    <span class="n">on_to_dia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">dias</span><span class="p">,</span> <span class="n">on_dia</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+    <span class="n">on_dic</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_less_closest</span><span class="p">(</span><span class="n">ons</span><span class="p">,</span> <span class="n">dic</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">dic</span> <span class="ow">in</span> <span class="n">dics</span><span class="p">]</span>
+    <span class="n">on_to_dic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">dics</span><span class="p">,</span> <span class="n">on_dic</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+
+    <span class="n">dia_pks</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_less_closest</span><span class="p">(</span><span class="n">pks</span><span class="p">,</span> <span class="n">dia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">dia</span> <span class="ow">in</span> <span class="n">dias</span><span class="p">]</span>
+    <span class="n">p_to_dia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">dias</span><span class="p">,</span> <span class="n">dia_pks</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+    <span class="n">dic_pks</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_less_closest</span><span class="p">(</span><span class="n">pks</span><span class="p">,</span> <span class="n">dic</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">dic</span> <span class="ow">in</span> <span class="n">dics</span><span class="p">]</span>
+    <span class="n">p_to_dic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">dics</span><span class="p">,</span> <span class="n">dic_pks</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+
+    <span class="n">bp</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">get_signal</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="s1">&#39;bp&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">intv</span><span class="p">)</span>
+    <span class="n">bp</span> <span class="o">=</span> <span class="n">remove_nan</span><span class="p">(</span><span class="n">bp</span><span class="p">)</span>
+    <span class="n">pks</span> <span class="o">=</span> <span class="n">get_peaks</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+    <span class="n">ons</span> <span class="o">=</span> <span class="n">get_onsets</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="n">pks</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+    <span class="n">sbp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">bp</span><span class="p">[</span><span class="n">pks</span><span class="p">])</span>
+    <span class="n">dbp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">bp</span><span class="p">[</span><span class="n">ons</span><span class="p">])</span>
+
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">no</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">intv</span><span class="p">)</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;on_to_pk&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">on_to_p</span><span class="p">)</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;on_to_dia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">on_to_dia</span><span class="p">)</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;on_to_dic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">on_to_dic</span><span class="p">)</span>
+
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;pk_to_dia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_to_dia</span><span class="p">)</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;pk_to_dic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_to_dic</span><span class="p">)</span>
+
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;peak_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ppg</span><span class="p">[</span><span class="n">pks</span><span class="p">])</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;dia_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ppg</span><span class="p">[</span><span class="n">dias</span><span class="p">])</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;dic_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ppg</span><span class="p">[</span><span class="n">dics</span><span class="p">])</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;on_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ppg</span><span class="p">[</span><span class="n">ons</span><span class="p">])</span>
+
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;peak_len&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">pks</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;sbp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sbp</span>
+    <span class="n">train_set</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;dbp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dbp</span>
+
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-55325c22-14bb-41de-9f8b-d509e83a3564">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>pk_to_dia</th>
+      <th>pk_to_dic</th>
+      <th>on_to_pk</th>
+      <th>on_to_dia</th>
+      <th>on_to_dic</th>
+      <th>peak_len</th>
+      <th>peak_h</th>
+      <th>dia_h</th>
+      <th>dic_h</th>
+      <th>on_h</th>
+      <th>sbp</th>
+      <th>dbp</th>
+    </tr>
+    <tr>
+      <th>Unnamed: 0</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1-40-60</td>
+      <td>0.209677</td>
+      <td>0.161290</td>
+      <td>0.358781</td>
+      <td>0.483871</td>
+      <td>0.435484</td>
+      <td>1.282258</td>
+      <td>0.289317</td>
+      <td>0.491211</td>
+      <td>0.546875</td>
+      <td>0.297408</td>
+      <td>113.75000</td>
+      <td>40.90625</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3-40-60</td>
+      <td>0.338710</td>
+      <td>0.225806</td>
+      <td>0.184612</td>
+      <td>0.516129</td>
+      <td>0.403226</td>
+      <td>0.794246</td>
+      <td>0.412357</td>
+      <td>0.544922</td>
+      <td>0.515869</td>
+      <td>0.480327</td>
+      <td>118.00000</td>
+      <td>63.71875</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4-40-60</td>
+      <td>0.209677</td>
+      <td>0.161290</td>
+      <td>0.188054</td>
+      <td>0.354839</td>
+      <td>0.306452</td>
+      <td>2.086849</td>
+      <td>0.420392</td>
+      <td>0.480225</td>
+      <td>0.493652</td>
+      <td>0.469651</td>
+      <td>91.81250</td>
+      <td>68.40625</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6-40-60</td>
+      <td>0.161290</td>
+      <td>0.064516</td>
+      <td>0.696885</td>
+      <td>2.225806</td>
+      <td>2.129032</td>
+      <td>0.641616</td>
+      <td>0.455235</td>
+      <td>0.586426</td>
+      <td>0.627197</td>
+      <td>0.498803</td>
+      <td>85.06250</td>
+      <td>52.68750</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7-40-60</td>
+      <td>0.241935</td>
+      <td>0.112903</td>
+      <td>0.206452</td>
+      <td>0.451613</td>
+      <td>0.322581</td>
+      <td>0.723019</td>
+      <td>0.404934</td>
+      <td>0.451660</td>
+      <td>0.459473</td>
+      <td>0.481081</td>
+      <td>102.93750</td>
+      <td>53.75000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>5-640-60</td>
+      <td>0.258065</td>
+      <td>0.225806</td>
+      <td>0.218203</td>
+      <td>0.483871</td>
+      <td>0.451613</td>
+      <td>0.783871</td>
+      <td>0.371592</td>
+      <td>0.559326</td>
+      <td>0.590576</td>
+      <td>0.469294</td>
+      <td>93.06250</td>
+      <td>37.68750</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>6-640-60</td>
+      <td>0.838710</td>
+      <td>0.774194</td>
+      <td>0.398185</td>
+      <td>1.032258</td>
+      <td>0.967742</td>
+      <td>1.217570</td>
+      <td>0.423503</td>
+      <td>0.329834</td>
+      <td>0.353027</td>
+      <td>0.418488</td>
+      <td>115.21875</td>
+      <td>61.18750</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>7-640-60</td>
+      <td>0.145161</td>
+      <td>0.112903</td>
+      <td>0.194556</td>
+      <td>0.322581</td>
+      <td>0.290323</td>
+      <td>0.734274</td>
+      <td>0.349453</td>
+      <td>0.499023</td>
+      <td>0.541260</td>
+      <td>0.400525</td>
+      <td>89.12500</td>
+      <td>46.87500</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>8-640-60</td>
+      <td>0.161290</td>
+      <td>0.112903</td>
+      <td>0.190223</td>
+      <td>0.354839</td>
+      <td>0.306452</td>
+      <td>0.610383</td>
+      <td>0.389623</td>
+      <td>0.490967</td>
+      <td>0.526611</td>
+      <td>0.501600</td>
+      <td>152.75000</td>
+      <td>59.68750</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>9-640-60</td>
+      <td>0.274194</td>
+      <td>0.145161</td>
+      <td>0.209126</td>
+      <td>0.403226</td>
+      <td>0.274194</td>
+      <td>0.479544</td>
+      <td>0.409711</td>
+      <td>0.369873</td>
+      <td>0.361816</td>
+      <td>0.464401</td>
+      <td>97.81250</td>
+      <td>53.81250</td>
+    </tr>
+  </tbody>
+</table>
+<p>370 rows × 13 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-55325c22-14bb-41de-9f8b-d509e83a3564')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-55325c22-14bb-41de-9f8b-d509e83a3564 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-55325c22-14bb-41de-9f8b-d509e83a3564');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;train_res.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppg/test.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1046,59 +1439,11 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Run Linear Regression<a class="headerlink" href="#run-linear-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> wget https://raw.githubusercontent.com/kellydingzx/ppg-bp-data/main/train.csv
-<span class="o">!</span> wget https://raw.githubusercontent.com/kellydingzx/ppg-bp-data/main/test.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-03-14 22:53:41--  https://raw.githubusercontent.com/kellydingzx/ppg-bp-data/main/train.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 81643 (80K) [text/plain]
-Saving to: ‘train.csv’
-
-train.csv           100%[===================&gt;]  79.73K  --.-KB/s    in 0.005s  
-
-2023-03-14 22:53:41 (15.1 MB/s) - ‘train.csv’ saved [81643/81643]
-
---2023-03-14 22:53:42--  https://raw.githubusercontent.com/kellydingzx/ppg-bp-data/main/test.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 27342 (27K) [text/plain]
-Saving to: ‘test.csv’
-
-test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s  
-
-2023-03-14 22:53:42 (50.9 MB/s) - ‘test.csv’ saved [27342/27342]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppg/train.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
 <span class="n">train_set</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
-<span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppg/test.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
 <span class="n">test_set</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_set</span><span class="p">[</span><span class="n">train_set</span><span class="p">[</span><span class="s1">&#39;sbp&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">220</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">test_set</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">test_set</span><span class="p">[</span><span class="n">test_set</span><span class="p">[</span><span class="s1">&#39;sbp&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">220</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1455,7 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((364, 13), (68, 13))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((370, 13), (101, 13))
 </pre></div>
 </div>
 </div>
@@ -1141,9 +1486,9 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07020956884995677
-[ 17.27915979  -3.77602219   3.43481116   7.73166082 -13.32352116
-  -5.41141461 -18.12401551 -30.69878586  44.17869563  49.58030356] 36.07810821002502
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.034304453707100224
+[ 25.48010557 -19.564318     4.69677986  18.43585945 -26.60856413
+   9.29177474  34.57955967 -16.47285566  20.42310903  52.57408263] 11.048954143308158
 </pre></div>
 </div>
 </div>
@@ -1156,7 +1501,7 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>271.9106456602938
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24792.72177656143
 </pre></div>
 </div>
 </div>
@@ -1173,7 +1518,7 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9104779254812161
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8484705022781107
 </pre></div>
 </div>
 </div>
@@ -1185,7 +1530,7 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>266.31520622271375
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27637.997236108644
 </pre></div>
 </div>
 </div>
@@ -1222,24 +1567,6 @@ test.csv            100%[===================&gt;]  26.70K  --.-KB/s    in 0.001s
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="bp-estimation-intro.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Cuffless BP - Intro</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../summary.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Summary</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
