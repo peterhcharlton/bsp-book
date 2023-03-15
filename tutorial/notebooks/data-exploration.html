@@ -450,6 +450,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-the-structure-of-the-database">
+   Understanding the structure of the database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#identify-the-records-in-the-database">
    Identify the records in the database
   </a>
@@ -587,7 +592,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="section" id="exploring-mimic-iv">
 <h1>Exploring MIMIC-IV<a class="headerlink" href="#exploring-mimic-iv" title="Permalink to this headline">¶</a></h1>
-<p>Let’s begin by exploring data in the MIMIC Waveform Database.</p>
+<p>Let’s explore the data in the MIMIC-IV Waveform Database.</p>
 <p>Our <strong>objectives</strong> are to:</p>
 <ul class="simple">
 <li><p>Become familiar with the file structure of the database.</p></li>
@@ -598,7 +603,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Look more closely at the shape of the PPG pulse waves</p></li>
 </ul>
 <div class="alert alert-block alert-warning">
-<p><b>Resource:</b> You can find out more about the MIMIC Waveform Database <a href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>.</p>
+<p><b>Resource:</b> You can find out more about the MIMIC-IV Waveform Database <a href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>.</p>
 </div><hr class="docutils" />
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
@@ -630,30 +635,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wfdb==4.1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (4.1.0)
-Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (3.3.4)
-Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.2.4)
-Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (0.10.3.post1)
-Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.20.1)
-Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.6.2)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (2.25.1)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.4.7)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.3.1)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.8.1)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (8.2.0)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (0.10.0)
-Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.15.0)
-Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.1.0) (2021.1)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2022.12.7)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2.10)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (4.0.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (1.26.4)
-Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (1.14.5)
-Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (2.20)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="alert alert-block alert-warning">
 <p><b>Resource:</b> You can find out more about the WFDB package <a href="https://physionet.org/content/wfdb-python/3.4.1/">here</a>.</p>
@@ -673,6 +654,39 @@ Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/p
 </div>
 </div>
 </div>
+<div class="section" id="understanding-the-structure-of-the-database">
+<h2>Understanding the structure of the database<a class="headerlink" href="#understanding-the-structure-of-the-database" title="Permalink to this headline">¶</a></h2>
+<p>The waveform database is organized into “records”.  Each record represents a single patient and roughly corresponds to a single ICU stay. Each record is stored in a separate subdirectory.</p>
+<p>An example of the file structure is shown below.  Here there are two patients (<code class="docutils literal notranslate"><span class="pre">subject_id</span></code> 10014354 and 10039708).  There is one record (81739927) belonging to the first patient, and two records (83411188 and 85583557) belonging to the second. Each record is made of several segments (e.g. record 83411188 is composed of segments: 81739927_0000, 81739927_0001, etc).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>waves
+└── p100
+    ├── p10014354
+    │   └── 81739927
+    │       ├── 81739927.dat
+    │       ├── 81739927_0000.hea
+    │       ├── 81739927_0001.hea
+    │       ├── 81739927_0001e.dat
+    │       ├── 81739927_0001r.dat
+    │       ├── 81739927_0002.hea
+    │       ├── 81739927_0002e.dat
+    │       ├── 81739927_0002p.dat
+    │       ├── 81739927_0002r.dat
+    │       ├── ...
+    │       └── 81739927n.csv.gz
+    ├── ...
+    └── p10039708
+        ├── 83411188
+        │   ├── 83411188.hea
+        │   ├── ...
+        │   └── 83411188n.csv.gz
+        └── 85583557
+            ├── 85583557.hea
+            ├── ...
+            └── 85583557n.csv.gz
+</pre></div>
+</div>
+<p><em>Source: this content is adapted from the <a class="reference external" href="https://wfdb.io/mimic_wfdb_tutorials">MIMIC WFDB Tutorials</a>.</em></p>
+</div>
 <hr class="docutils" />
 <div class="section" id="identify-the-records-in-the-database">
 <h2>Identify the records in the database<a class="headerlink" href="#identify-the-records-in-the-database" title="Permalink to this headline">¶</a></h2>
@@ -686,9 +700,6 @@ Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/p
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># each subject may be associated with multiple records</span>
 <span class="n">subjects</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database contains data from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span><span class="si">}</span><span class="s2"> subjects&quot;</span><span class="p">)</span>
-
-<span class="c1"># set max number of records to load</span>
-<span class="n">max_records_to_load</span> <span class="o">=</span> <span class="mi">200</span>
 </pre></div>
 </div>
 </div>
@@ -706,22 +717,18 @@ Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/p
     <span class="n">studies</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">study</span> <span class="ow">in</span> <span class="n">studies</span><span class="p">:</span>
         <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subject</span><span class="si">}{</span><span class="n">study</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
-        <span class="c1"># stop if we&#39;ve loaded enough records</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_records_to_load</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached maximum required number of records.&quot;</span><span class="p">)</span>
-            <span class="k">break</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reached maximum required number of records.
-Loaded 200 records from the &#39;mimic4wdb/0.1.0&#39; database.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 200 records from the &#39;mimic4wdb/0.1.0&#39; database.
 </pre></div>
 </div>
 </div>
 </div>
+<p><em>NB: There are 200 records for 198 subjects because two subjects had two records (we saw an example of this for subject 10039708 above).</em></p>
 </div>
 <div class="section" id="look-at-the-records">
 <h3>Look at the records<a class="headerlink" href="#look-at-the-records" title="Permalink to this headline">¶</a></h3>
@@ -880,10 +887,11 @@ https://physionet.org/content/mimic4wdb/0.1.0/waves/p100/p10039708/83411188/8341
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">segments</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seg_no</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">segment_metadata</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdheader</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">segments</span><span class="p">[</span><span class="n">seg_no</span><span class="p">],</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">record_dir</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Header metadata loaded for: </span>
-<span class="s2">- the segment &#39;</span><span class="si">{</span><span class="n">segments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="s2">- the segment &#39;</span><span class="si">{</span><span class="n">segment_metadata</span><span class="o">.</span><span class="n">record_name</span><span class="si">}</span><span class="s2">&#39;</span>
 <span class="s2">- in record &#39;</span><span class="si">{</span><span class="n">record_name</span><span class="si">}</span><span class="s2">&#39;</span>
 <span class="s2">- for subject &#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">record_dir</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2">&#39;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
@@ -892,7 +900,7 @@ https://physionet.org/content/mimic4wdb/0.1.0/waves/p100/p10039708/83411188/8341
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Header metadata loaded for: 
-- the segment &#39;83411188_0001&#39;
+- the segment &#39;83411188_0002&#39;
 - in record &#39;83411188&#39;
 - for subject &#39;p10039708&#39;
 </pre></div>
@@ -947,14 +955,6 @@ and they last for 0.9 minutes
 </ul>
 <div class="section" id="id1">
 <h3>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Earlier, we loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s2"> records from the &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database.&quot;</span><span class="p">)</span>
@@ -1045,6 +1045,7 @@ and they last for 0.9 minutes
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> records met the requirements:&quot;</span><span class="p">)</span>
 
+<span class="c1"># import pandas as pd</span>
 <span class="c1">#df_matching_recs = pd.DataFrame(data=matching_recs)</span>
 <span class="c1">#df_matching_recs.to_csv(&#39;matching_records.csv&#39;, index=False)</span>
 <span class="c1">#p=1</span>
@@ -2208,58 +2209,57 @@ They last for 52.4 minutes
 <p><b>Question:</b> Can you find out which signals are sampled at multiples of the base sampling frequency by looking at the following contents of the 'segment_data' variable?</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="n">pprint</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">segment_data</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">vars</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;adc_gain&#39;: [200.0, 200.0, 200.0, 16.0, 4096.0, 4093.0],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;record_name&#39;: &#39;83404654_0005&#39;,
+ &#39;n_sig&#39;: 6,
+ &#39;fs&#39;: 62.4725,
+ &#39;counter_freq&#39;: 999.56,
+ &#39;base_counter&#39;: 10219520.0,
+ &#39;sig_len&#39;: 196480,
+ &#39;base_time&#39;: None,
+ &#39;base_date&#39;: None,
+ &#39;comments&#39;: [&#39;signal 0 (II): channel=0 bandpass=[0.5,35]&#39;,
+  &#39;signal 1 (V): channel=1 bandpass=[0.5,35]&#39;,
+  &#39;signal 2 (aVR): channel=2 bandpass=[0.5,35]&#39;],
+ &#39;sig_name&#39;: [&#39;II&#39;, &#39;V&#39;, &#39;aVR&#39;, &#39;ABP&#39;, &#39;Pleth&#39;, &#39;Resp&#39;],
+ &#39;p_signal&#39;: array([[ 0.00000000e+00, -6.50000000e-02, -5.00000000e-03,
+                     nan,  5.02929688e-01,  1.56120205e-01],
+        [ 5.00000000e-03, -4.50000000e-02, -5.00000000e-03,
+                     nan,  5.02929688e-01,  1.56853164e-01],
+        [ 1.50000000e-02, -2.50000000e-02,  5.00000000e-03,
+                     nan,  5.02929688e-01,  1.57097484e-01],
+        ...,
+        [-1.50000000e-02,  7.00000000e-02, -4.00000000e-02,
+          7.25000000e+01,  5.74951172e-01,  3.57683850e-01],
+        [-1.50000000e-02,  5.50000000e-02, -4.50000000e-02,
+          7.25000000e+01,  5.70800781e-01,  3.61104324e-01],
+        [ 0.00000000e+00,  9.00000000e-02, -5.50000000e-02,
+          7.25000000e+01,  5.62255859e-01,  3.63791840e-01]]),
+ &#39;d_signal&#39;: None,
+ &#39;e_p_signal&#39;: None,
+ &#39;e_d_signal&#39;: None,
+ &#39;file_name&#39;: [&#39;83404654_0005e.dat&#39;,
+  &#39;83404654_0005e.dat&#39;,
+  &#39;83404654_0005e.dat&#39;,
+  &#39;83404654_0005p.dat&#39;,
+  &#39;83404654_0005p.dat&#39;,
+  &#39;83404654_0005r.dat&#39;],
+ &#39;fmt&#39;: [&#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;],
+ &#39;samps_per_frame&#39;: [4, 4, 4, 2, 2, 1],
+ &#39;skew&#39;: [None, None, None, None, None, None],
+ &#39;byte_offset&#39;: [None, None, None, None, None, None],
+ &#39;adc_gain&#39;: [200.0, 200.0, 200.0, 16.0, 4096.0, 4093.0],
+ &#39;baseline&#39;: [8192, 8192, 8192, 800, 0, 2],
+ &#39;units&#39;: [&#39;mV&#39;, &#39;mV&#39;, &#39;mV&#39;, &#39;mmHg&#39;, &#39;NU&#39;, &#39;Ohm&#39;],
  &#39;adc_res&#39;: [14, 14, 14, 13, 12, 12],
  &#39;adc_zero&#39;: [8192, 8192, 8192, 4096, 2048, 2048],
- &#39;base_counter&#39;: 10219520.0,
- &#39;base_date&#39;: None,
- &#39;base_time&#39;: None,
- &#39;baseline&#39;: [8192, 8192, 8192, 800, 0, 2],
- &#39;block_size&#39;: [0, 0, 0, 0, 0, 0],
- &#39;byte_offset&#39;: [None, None, None, None, None, None],
- &#39;checksum&#39;: [10167, 1300, 56956, 35887, 29987, 21750],
- &#39;comments&#39;: [&#39;signal 0 (II): channel=0 bandpass=[0.5,35]&#39;,
-              &#39;signal 1 (V): channel=1 bandpass=[0.5,35]&#39;,
-              &#39;signal 2 (aVR): channel=2 bandpass=[0.5,35]&#39;],
- &#39;counter_freq&#39;: 999.56,
- &#39;d_signal&#39;: None,
- &#39;e_d_signal&#39;: None,
- &#39;e_p_signal&#39;: None,
- &#39;file_name&#39;: [&#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005p.dat&#39;,
-               &#39;83404654_0005p.dat&#39;,
-               &#39;83404654_0005r.dat&#39;],
- &#39;fmt&#39;: [&#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;],
- &#39;fs&#39;: 62.4725,
  &#39;init_value&#39;: [0, 0, 0, 0, 0, 0],
- &#39;n_sig&#39;: 6,
- &#39;p_signal&#39;: array([[ 0.00000000e+00, -6.50000000e-02, -5.00000000e-03,
-                    nan,  5.02929688e-01,  1.56120205e-01],
-       [ 5.00000000e-03, -4.50000000e-02, -5.00000000e-03,
-                    nan,  5.02929688e-01,  1.56853164e-01],
-       [ 1.50000000e-02, -2.50000000e-02,  5.00000000e-03,
-                    nan,  5.02929688e-01,  1.57097484e-01],
-       ...,
-       [-1.50000000e-02,  7.00000000e-02, -4.00000000e-02,
-         7.25000000e+01,  5.74951172e-01,  3.57683850e-01],
-       [-1.50000000e-02,  5.50000000e-02, -4.50000000e-02,
-         7.25000000e+01,  5.70800781e-01,  3.61104324e-01],
-       [ 0.00000000e+00,  9.00000000e-02, -5.50000000e-02,
-         7.25000000e+01,  5.62255859e-01,  3.63791840e-01]]),
- &#39;record_name&#39;: &#39;83404654_0005&#39;,
- &#39;samps_per_frame&#39;: [4, 4, 4, 2, 2, 1],
- &#39;sig_len&#39;: 196480,
- &#39;sig_name&#39;: [&#39;II&#39;, &#39;V&#39;, &#39;aVR&#39;, &#39;ABP&#39;, &#39;Pleth&#39;, &#39;Resp&#39;],
- &#39;skew&#39;: [None, None, None, None, None, None],
- &#39;units&#39;: [&#39;mV&#39;, &#39;mV&#39;, &#39;mV&#39;, &#39;mmHg&#39;, &#39;NU&#39;, &#39;Ohm&#39;]}
+ &#39;checksum&#39;: [10167, 1300, 56956, 35887, 29987, 21750],
+ &#39;block_size&#39;: [0, 0, 0, 0, 0, 0]}
 </pre></div>
 </div>
 </div>
@@ -2360,7 +2360,7 @@ They last for 52.4 minutes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/data-exploration_88_0.png" src="../../_images/data-exploration_88_0.png" />
+<img alt="../../_images/data-exploration_91_0.png" src="../../_images/data-exploration_91_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2402,7 +2402,7 @@ They last for 52.4 minutes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50.0, 55.0)
 </pre></div>
 </div>
-<img alt="../../_images/data-exploration_93_1.png" src="../../_images/data-exploration_93_1.png" />
+<img alt="../../_images/data-exploration_96_1.png" src="../../_images/data-exploration_96_1.png" />
 </div>
 </div>
 </div>

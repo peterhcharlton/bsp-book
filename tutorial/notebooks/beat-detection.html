@@ -463,6 +463,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detecting-beats-in-bp-and-ppg-signals-using-neurokit">
+     Detecting beats in BP and PPG signals using Neurokit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#detect-beats-in-the-ecg-signal">
      Detect beats in the ECG signal
     </a>
@@ -507,40 +512,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Packages</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="c1">#from pathlib import Path</span>
 <span class="o">!</span>pip install <span class="nv">wfdb</span><span class="o">==</span><span class="m">4</span>.1.0
 <span class="kn">import</span> <span class="nn">wfdb</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wfdb==4.1.0
-  Using cached wfdb-4.1.0-py3-none-any.whl (159 kB)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (2.25.1)
-Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (3.3.4)
-Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.2.4)
-Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.6.2)
-Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (0.10.3.post1)
-Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from wfdb==4.1.0) (1.20.1)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.8.1)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (0.10.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (8.2.0)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (2.4.7)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.3.1)
-Requirement already satisfied: six in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.1.0) (1.15.0)
-Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.1.0) (2021.1)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (4.0.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (1.26.4)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.1.0) (2022.12.7)
-Requirement already satisfied: cffi&gt;=1.0 in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (1.14.5)
-Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.1.0) (2.20)
-Installing collected packages: wfdb
-  Attempting uninstall: wfdb
-    Found existing installation: wfdb 4.0.0
-    Uninstalling wfdb-4.0.0:
-      Successfully uninstalled wfdb-4.0.0
-Successfully installed wfdb-4.1.0
 </pre></div>
 </div>
 </div>
@@ -554,7 +528,7 @@ Successfully installed wfdb-4.1.0
 <span class="n">segment_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;83404654_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;82924339_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;84248019_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;82439920_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;82800131_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;84304393_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;89464742_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;88958796_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;88995377_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;85230771_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;86643930_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;81250824_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;87706224_0003&#39;</span><span class="p">,</span> <span class="s1">&#39;83058614_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;82803505_0017&#39;</span><span class="p">,</span> <span class="s1">&#39;88574629_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;87867111_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;84560969_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;87562386_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;88685937_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;86120311_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;89866183_0014&#39;</span><span class="p">,</span> <span class="s1">&#39;89068160_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;86380383_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;85078610_0008&#39;</span><span class="p">,</span> <span class="s1">&#39;87702634_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;84686667_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;84802706_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;81811182_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;84421559_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;88221516_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;80057524_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;84209926_0018&#39;</span><span class="p">,</span> <span class="s1">&#39;83959636_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;89989722_0016&#39;</span><span class="p">,</span> <span class="s1">&#39;89225487_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;84391267_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;80889556_0002&#39;</span><span class="p">,</span> <span class="s1">&#39;85250558_0011&#39;</span><span class="p">,</span> <span class="s1">&#39;84567505_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;85814172_0007&#39;</span><span class="p">,</span> <span class="s1">&#39;88884866_0005&#39;</span><span class="p">,</span> <span class="s1">&#39;80497954_0012&#39;</span><span class="p">,</span> <span class="s1">&#39;80666640_0014&#39;</span><span class="p">,</span> <span class="s1">&#39;84939605_0004&#39;</span><span class="p">,</span> <span class="s1">&#39;82141753_0018&#39;</span><span class="p">,</span> <span class="s1">&#39;86874920_0014&#39;</span><span class="p">,</span> <span class="s1">&#39;84505262_0010&#39;</span><span class="p">,</span> <span class="s1">&#39;86288257_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;89699401_0001&#39;</span><span class="p">,</span> <span class="s1">&#39;88537698_0013&#39;</span><span class="p">,</span> <span class="s1">&#39;83958172_0001&#39;</span><span class="p">]</span>
 <span class="n">segment_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mimic4wdb/0.1.0/waves/p100/p10020306/83404654&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p101/p10126957/82924339&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p102/p10209410/84248019&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p109/p10952189/82439920&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p111/p11109975/82800131&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p113/p11392990/84304393&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p121/p12168037/89464742&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p121/p12173569/88958796&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p121/p12188288/88995377&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p128/p12872596/85230771&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p129/p12933208/86643930&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p130/p13016481/81250824&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p132/p13240081/87706224&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p136/p13624686/83058614&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p137/p13791821/82803505&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p141/p14191565/88574629&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p142/p14285792/87867111&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p143/p14356077/84560969&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p143/p14363499/87562386&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p146/p14695840/88685937&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p149/p14931547/86120311&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p151/p15174162/89866183&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p153/p15312343/89068160&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p153/p15342703/86380383&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p155/p15552902/85078610&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p156/p15649186/87702634&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p158/p15857793/84686667&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p158/p15865327/84802706&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p158/p15896656/81811182&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p159/p15920699/84421559&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p160/p16034243/88221516&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p165/p16566444/80057524&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p166/p16644640/84209926&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p167/p16709726/83959636&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p167/p16715341/89989722&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p168/p16818396/89225487&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p170/p17032851/84391267&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p172/p17229504/80889556&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p173/p17301721/85250558&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p173/p17325001/84567505&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p174/p17490822/85814172&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p177/p17738824/88884866&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p177/p17744715/80497954&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p179/p17957832/80666640&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p180/p18080257/84939605&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p181/p18109577/82141753&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p183/p18324626/86874920&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p187/p18742074/84505262&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p188/p18824975/86288257&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p191/p19126489/89699401&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p193/p19313794/88537698&#39;</span><span class="p">,</span> <span class="s1">&#39;mimic4wdb/0.1.0/waves/p196/p19619764/83958172&#39;</span><span class="p">]</span>
 
-<span class="c1"># 3 and 8 are helpful</span>
+<span class="c1"># 3 and 8 are helpful examples</span>
 <span class="n">rel_segment_no</span> <span class="o">=</span> <span class="mi">8</span> 
 <span class="n">rel_segment_name</span> <span class="o">=</span> <span class="n">segment_names</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
 <span class="n">rel_segment_dir</span> <span class="o">=</span> <span class="n">segment_dirs</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
@@ -658,7 +632,7 @@ Extracted the ECG signal from column 2 of the matrix of waveform data at 62.5 Hz
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter PPG</span>
 <span class="n">ppg_filt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos_filter</span><span class="p">,</span> <span class="n">ppg</span><span class="p">)</span>
 
-<span class="c1"># Filter ABP</span>
+<span class="c1"># Filter BP</span>
 <span class="n">abp_filt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos_filter</span><span class="p">,</span> <span class="n">abp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -869,6 +843,33 @@ Detected 82 beats in the PPG signal using the bishop algorithm
 </div>
 </div>
 </div>
+<div class="section" id="detecting-beats-in-bp-and-ppg-signals-using-neurokit">
+<h3>Detecting beats in BP and PPG signals using Neurokit<a class="headerlink" href="#detecting-beats-in-bp-and-ppg-signals-using-neurokit" title="Permalink to this headline">¶</a></h3>
+<p>We could also use a Python toolbox to detect beats in BP and PPG signals. Neurokit provides a helpful starting point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">neurokit2</span> <span class="k">as</span> <span class="nn">nk</span>
+
+<span class="c1"># PPG</span>
+<span class="n">pks</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">ppg_findpeaks</span><span class="p">(</span><span class="n">ppg_filt</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mf">62.5</span><span class="p">)</span>
+<span class="n">ppg_ibis</span> <span class="o">=</span> <span class="n">pks</span><span class="p">[</span><span class="s1">&#39;PPG_Peaks&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detected </span><span class="si">{}</span><span class="s2"> beats in the PPG signal&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ppg_ibis</span><span class="p">)))</span>
+
+<span class="c1"># BP</span>
+<span class="n">pks</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">ppg_findpeaks</span><span class="p">(</span><span class="n">abp_filt</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mf">62.5</span><span class="p">)</span>
+<span class="n">abp_ibis</span> <span class="o">=</span> <span class="n">pks</span><span class="p">[</span><span class="s1">&#39;PPG_Peaks&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detected </span><span class="si">{}</span><span class="s2"> beats in the BP signal&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">abp_ibis</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detected 93 beats in the PPG signal
+Detected 92 beats in the BP signal
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="detect-beats-in-the-ecg-signal">
 <h3>Detect beats in the ECG signal<a class="headerlink" href="#detect-beats-in-the-ecg-signal" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -913,8 +914,8 @@ Detected 82 beats in the PPG signal using the bishop algorithm
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ppg_filt</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ppg_filt</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ppg_ibis_bishop</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span>
-            <span class="n">ppg_filt</span><span class="p">[</span><span class="n">ppg_ibis_bishop</span><span class="p">],</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ppg_ibis</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span>
+            <span class="n">ppg_filt</span><span class="p">[</span><span class="n">ppg_ibis</span><span class="p">],</span>
             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
             <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PPG [au]&#39;</span><span class="p">)</span>
@@ -941,10 +942,10 @@ Detected 82 beats in the PPG signal using the bishop algorithm
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ECG&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/beat-detection_42_1.png" src="../../_images/beat-detection_42_1.png" />
+<img alt="../../_images/beat-detection_45_1.png" src="../../_images/beat-detection_45_1.png" />
 </div>
 </div>
-<div class="alert alert-block alert-warning"> <b>Note:</b> In this case, beats are accurately detected in both BP and PPG signals.</div></div>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="functions">
