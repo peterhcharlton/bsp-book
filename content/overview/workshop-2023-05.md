@@ -14,17 +14,12 @@ The workshop was designed and run by:
 
 ### Outline
 
-This interactive workshop will provide an introduction to the analysis of cardiovascular signals, including: 
-1. a brief overview of the cardiovascular physiology underlying arterial pulse waves;
+This interactive workshop will provide an introduction to the analysis of cardiovascular signals for vascular ageing assessment, including: 
+1. a brief overview of the underlying theory;
 2. hands-on experience of analysing cardiovascular signals in Python; and
-3. opportunity to critically appraise the performance of techniques.
+3. opportunity to critically appraise analysis techniques.
 
 The lesson will focus on selected signals (such as blood pressure, photoplethysmogram and electrocardiogram signals) and parameters which can be derived from them (such as pulse wave velocity, the augmentation index, and pulse arrival time). The principles of pulse wave propagation will be introduced, including the relationship between arterial stiffness and pulse wave velocity, and the origins of wave reflections. Participants will be encouraged to investigate how the design of the analysis influences performance (such as comparing pulse transit time to pulse arrival time), allowing them to appreciate the limitations and shortcomings of techniques, and critically appraise their potential clinical utility. The workshop is intended to be accessible to all, including those with no prior experience of programming or signal processing.
-
-The workshop will consist of three parts:
-- Participants will be introduced to the signals commonly measured by wearables, which could be used to assess vascular ageing: the photoplethysmogram and electrocardiogram signals.
-- Participants will learn fundamental techniques for processing wearable signals through interactive tutorials.
-- Participants will gain hands-on experience of developing signal processing and machine learning techniques to assess vascular ageing
 
 ## Schedule
 

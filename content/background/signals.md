@@ -44,7 +44,15 @@ For instance, in the example above the MAD is 1.93m/s$^2$, which corresponds to 
 
 The electrocardiogram (ECG) is a measure of the heart's electrical activity. Each time the heart beats a series of electrical currents are generated, indicating the contraction or relaxation of different parts of the heart. Consequently, the ECG provides information on heart rate, heart rhythm, and heart muscle function. The ECG is measured as the voltage difference between two points on the body surface over time. Like accelerometers, ECG sensors are inexpensive and consume little power.
 
-A traditional 12-lead ECG device used in a clinic (such as that shown in {numref}`12-lead-ecg`) provides 12 simultaneous ECG signals which correspond to different 'views' of the heart's electrical activity. Consequently, 12-lead ECGs can be used not only to identify abnormal heart function, but even to identify which part of the heart is not functioning normally. In the 1960s wearable devices ('Holter' monitors) were developed which measured a reduced set of ECG signals from electrodes on the chest. These are widely used today for cardiac investigations.
+A traditional 12-lead ECG device used in a clinic (such as that shown in {numref}`12-lead-ecg`) provides 12 simultaneous ECG signals which correspond to different 'views' of the heart's electrical activity (see {numref}`12-lead-ecg-trace`). Consequently, 12-lead ECGs can be used not only to identify abnormal heart function, but even to identify which part of the heart is not functioning normally. In the 1960s wearable devices ('Holter' monitors) were developed which measured a reduced set of ECG signals from electrodes on the chest. These are widely used today for cardiac investigations.
+
+```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/12_lead_ECG.jpg/1600px-12_lead_ECG.jpg?20230502072821
+---
+width: 80%
+name: 12-lead-ecg-trace
+---
+**A 12-lead ECG measurement.** _Source: Charlton PH, [12 lead ECG](https://commons.wikimedia.org/wiki/File:12_lead_ECG.jpg) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))_
+```
 
 Recently, single-lead ECG sensors have been incorporated into wrist-worn devices, as shown in {numref}`withings-move-ecg`. These devices typically have on electrode on the underside, and another on either the side or top of the device which the user touches with their opposite hand.
 
@@ -91,5 +99,27 @@ width: 80%
 
 Note how the PPG signal is highly susceptible to noise, as shown in the lower panel of {numref}`ppg-signal`. Here, the signal is contaminated with motion artifact caused by walking.
 
+(content:signals:bp)=
+## Blood pressure
 
+The blood pressure signal is not widely measured by wearables. It is briefly introduced here to outline the physiology underpinning the signal, and for comparison with the PPG signal.
 
+The pressure within the arteries varies with the pumping of blood each heart beat. When measured continuously, the blood pressure is a pulsatile signal, varying between systolic (maximum) and diastolic (minimum) pressures, as shown in {numref}`bp-signal`.
+
+```{figure} ../images/bp_mimic.png
+---
+name: bp-signal
+width: 100%
+---
+**A blood pressure signal recorded from a critically-ill patient.** _Data extracted from the [MIMIC Waveform Database (v.2)]()._
+```
+
+{numref}`compare-ppg-bp` shows a comparison of photoplethysmogram (PPG) and blood pressure signals. The two signals do share similarities, particularly in the timing of pulse waves. However, the pulse wave morphologies differ slightly between the signals, such as the different appearances of the diastolic peaks, and the differing nature of the diastolic decay shown particularly clearly in the ectopic beat (at time 2.5-3.2 s).
+
+```{figure} ../images/compare_ppg_bp_mimic.png
+---
+name: compare-ppg-bp
+width: 100%
+---
+**Comparison of photoplethysmogram (PPG) and blood pressure signals.** _Data extracted from the [MIMIC Waveform Database (v.2)]()._
+```

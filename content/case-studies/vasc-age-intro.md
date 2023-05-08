@@ -1,4 +1,4 @@
-# Cuffless BP - Intro
+# Vascular age - Intro
 
 In the tutorials we have explored different steps which would commonly be encountered when developing techniques for cuffless blood pressure estimation.
 
