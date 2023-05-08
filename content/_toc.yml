@@ -30,8 +30,8 @@
   sections:
     - file: case-studies/bp-estimation-intro
     - file: case-studies/bp-estimation-example
-      - file: case-studies/vasc-age-intro
-      - file: case-studies/vasc-age-example
+    - file: case-studies/vasc-age-intro
+    - file: case-studies/vasc-age-example
 - file: summary
   sections:
     - file: closing/additional-resources
