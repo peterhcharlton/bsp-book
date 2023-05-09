@@ -105,6 +105,11 @@ const thebe_selector_output = ".output, .cell_output"
      Workshop - March 2023
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../overview/workshop-2023-05.html">
+     Workshop - May 2023
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -231,6 +236,16 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../case-studies/bp-estimation-example.html">
      Cuffless BP - example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../case-studies/vasc-age-intro.html">
+     Vascular age - Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../case-studies/vasc-age-example.html">
+     Vascular age - example
     </a>
    </li>
   </ul>
@@ -436,21 +451,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In this book we’ll use two datasets, both of which are hosted on PhysioNet and are now described.</p>
 <div class="section" id="mimic-database">
 <h2>MIMIC Database<a class="headerlink" href="#mimic-database" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://mimic.mit.edu/">MIMIC Database</a> is a publicly accessible critical care database. It is widely used in biomedical signal processing research because it contains a variety of physiological signals collected from many thousands of patients. The relevant signals for this book are the ECG and PPG signals (as shown in <a class="reference internal" href="#mimic-signals"><span class="std std-numref">Fig. 18</span></a>). Note that this database does not contain accelerometry signals.</p>
+<p>The <a class="reference external" href="https://mimic.mit.edu/">MIMIC Database</a> is a publicly accessible critical care database. It is widely used in biomedical signal processing research because it contains a variety of physiological signals collected from many thousands of patients. The relevant signals for this book are the ECG and PPG signals (as shown in <a class="reference internal" href="#mimic-signals"><span class="std std-numref">Fig. 22</span></a>). Note that this database does not contain accelerometry signals.</p>
 <div class="figure align-default" id="mimic-signals">
 <img alt="https://cloud.githubusercontent.com/assets/9865941/13321748/ce4d0ce2-dbc8-11e5-91d0-c480bad98555.png" src="https://cloud.githubusercontent.com/assets/9865941/13321748/ce4d0ce2-dbc8-11e5-91d0-c480bad98555.png" />
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text"><strong>Signals from a patient in the MIMIC Database.</strong></span><a class="headerlink" href="#mimic-signals" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text"><strong>Signals from a patient in the MIMIC Database.</strong></span><a class="headerlink" href="#mimic-signals" title="Permalink to this image">¶</a></p>
 </div>
-<p>The latest version of the MIMIC Database is <a class="reference external" href="https://mimic.mit.edu/docs/iv/">MIMIC-IV</a>, which currently includes an initial release of 200 signal recordings from 198 patients (<a class="reference external" href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>). The previous version of MIMIC, <a class="reference external" href="https://mimic.mit.edu/docs/iii/">MIMIC-III</a> contains signals recorded from 10,000s of patients, alongside clinical data for many of these patients. <a class="reference internal" href="#mimic-pt"><span class="std std-numref">Fig. 19</span></a> shows an example of the additional clinical data for an individual patient.</p>
+<p>The latest version of the MIMIC Database is <a class="reference external" href="https://mimic.mit.edu/docs/iv/">MIMIC-IV</a>, which currently includes an initial release of 200 signal recordings from 198 patients (<a class="reference external" href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>). The previous version of MIMIC, <a class="reference external" href="https://mimic.mit.edu/docs/iii/">MIMIC-III</a> contains signals recorded from 10,000s of patients, alongside clinical data for many of these patients. <a class="reference internal" href="#mimic-pt"><span class="std std-numref">Fig. 23</span></a> shows an example of the additional clinical data for an individual patient.</p>
 <div class="figure align-default" id="mimic-pt">
 <img alt="../_images/examplepatient.jpg" src="../_images/examplepatient.jpg" />
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text"><strong>Clinical data from a patient in the MIMIC Database.</strong> <em>Reproduced under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from: Johnson AEW et al. MIMIC-III, a freely accessible critical care database. Sci Data 2016; 3: 160035. <a class="reference external" href="https://doi.org/10.1038/sdata.2016.35">https://doi.org/10.1038/sdata.2016.35</a></em></span><a class="headerlink" href="#mimic-pt" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text"><strong>Clinical data from a patient in the MIMIC Database.</strong> <em>Reproduced under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from: Johnson AEW et al. MIMIC-III, a freely accessible critical care database. Sci Data 2016; 3: 160035. <a class="reference external" href="https://doi.org/10.1038/sdata.2016.35">https://doi.org/10.1038/sdata.2016.35</a></em></span><a class="headerlink" href="#mimic-pt" title="Permalink to this image">¶</a></p>
 </div>
 <p>There are several advantages to using the MIMIC Database to develop algorithms for wearable data analysis:</p>
 <ul class="simple">
 <li><p>The dataset is large: it contains signals from 10,000s of patients mostly lasting hours or days.</p></li>
 <li><p>The dataset is publicly available, facilitating open research in both academic and commercial settings.</p></li>
-<li><p>The dataset contains a wide range of physiological signals from which reference physiological parameters can be derived. For instance, the dataset includes blood pressure and respiratory signals from which reference blood pressure and respiratory parameters can be derived. These can be used as reference values with which to assess the performance of PPG and ECG signal processing algorithms. See the impedance signal in <a class="reference internal" href="#mimic-signals"><span class="std std-numref">Fig. 18</span></a> for an example of a reference signal alongside ECG and PPG signals.</p></li>
+<li><p>The dataset contains a wide range of physiological signals from which reference physiological parameters can be derived. For instance, the dataset includes blood pressure and respiratory signals from which reference blood pressure and respiratory parameters can be derived. These can be used as reference values with which to assess the performance of PPG and ECG signal processing algorithms. See the impedance signal in <a class="reference internal" href="#mimic-signals"><span class="std std-numref">Fig. 22</span></a> for an example of a reference signal alongside ECG and PPG signals.</p></li>
 </ul>
 <p>However, the data are acquired from critically-ill patients in hospital using bedside monitors, meaning they may not be representative of real-world wearable data:</p>
 <ul class="simple">

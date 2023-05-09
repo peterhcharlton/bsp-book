@@ -1,10 +1,14 @@
 # Physiology
 
-This section provides an overview of the physiology of ECG and PPG signals which underpins cuffless blood pressure estimation.
+This section provides an overview of the physiology of ECG and PPG signals which underpins both cuffless blood pressure estimation and the assessment of vascular age.
 
-## Blood pressure and pulse wave velocity
+## Arterial stiffness, pulse wave velocity, blood pressure and vascular ageing
 
-Blood pressure can be estimated from ECG and PPG signals because blood pressure is linked to pulse wave velocity, which in turn influences these signals. As blood pressure increases, the stiffness of the arteries increases, and therefore the speed at which the pulse wave travels from the heart to the periphery (the pulse wave velocity) increases. Therefore, blood pressure can be estimated from the time taken for the pulse wave to travel through the arteries.
+Arterial stiffness and pulse wave velocity are strongly related. 'Arterial stiffness' (the stiffness of arterial walls) is a key determinant of pulse wave velocity (PWV, the speed at which the pulse wave travels from the heart to the periphery). PWV increases with arterial stiffness, as expressed in the Moens-Korteweg equation (see [here](https://doi.org/10.1038/s41598-017-05807-x)). Arterial stiffness and PWV increase with age (see [here](https://doi.org/10.1093/eurheartj/ehq165)): this is an aspect of vascular ageing.
+
+Blood pressure is also related, because arterial stiffness (and consequently PWV) increase with blood pressure. This is because as blood pressure increases, the arterial walls stretch further, and stiffness of the arterial walls increases as they distend. 
+
+Blood pressure and vascular ageing can be assessed from ECG and PPG signals based on these changes in arterial stiffness and PWV. Blood pressure can be estimated from ECG and PPG signals because blood pressure is linked to PWV, which in turn influences these signals. As blood pressure increases, the stiffness of the arteries increases, and therefore the speed at which the pulse wave travels from the heart to the periphery (the pulse wave velocity) increases. Therefore, blood pressure can be estimated from the time taken for the pulse wave to travel through the arteries. Similarly, the impact of vascular ageing on arterial stiffness can be assessed from this time delay.
 
 ## Electrocardiogram (ECG)
 
@@ -47,32 +51,49 @@ width: 100%
 **Three approaches to estimate blood pressure from ECG and PPG signals.** _Source: PH Charlton, [Estimating blood pressure from the photoplethysmogram](https://commons.wikimedia.org/wiki/File:Estimating_blood_pressure_from_the_photoplethysmogram.pdf), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
 ```
 
-The three approaches to estimate blood pressure from ECG and PPG signals are now described.
+## Vascular age assessment
+
+Similarly to blood pressure estimation, there are broadly three approaches to assessing vascular age from PPG and ECG signals, as illustrated in {numref}`assessing-vasc-age`. These are based on the observation that the speed with which the pulse wave propagates increases with blood pressure (linked via arterial stiffness):
+   - measuring the pulse transit time (PTT) between two arterial pulse waves (one closer to the heart and one further away).
+   - measuring the pulse arrival time (PAT) between a marker of ventricular contraction, and the arrival of a pulse wave (preferably at a peripheral site)
+   - estimating BP from the shape of a pulse wave (such as a photoplethysmography, PPG, pulse wave), since changes in pulse wave velocity influence the shapes of pulse waves.
+
+```{figure} ../images/assessing-vasc-age.jpg
+:name: assessing-vasc-age
+---
+width: 100%
+---
+**Three approaches to assessing vascular age from ECG and PPG signals.** _Source: PH Charlton et al., [Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet](https://doi.org/10.1152/ajpheart.00392.2021), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
+```
+
+## Parameters
+
+The three approaches to estimate blood pressure or assess vascular age from ECG and PPG signals are now described.
 
 ### Pulse transit time
 
-Blood pressure can be estimated from the pulse transit time, the time delay between two PPG pulse waves, where one is measured closer to the heart, and one further away. This pulse transit time is related to pulse wave velocity:
+Blood pressure and vascular ageing can be assessed from the pulse transit time, the time delay between two PPG pulse waves, where one is measured closer to the heart, and one further away. This pulse transit time is related to pulse wave velocity:
 
 ```{math}
 :label: pwv
 \mathrm{pulse} \, \mathrm{wave} \, \mathrm{velocity} = \frac{\mathrm{distance} \, \mathrm{travelled}}{\mathrm{pulse} \, \mathrm{transit} \, \mathrm{time}}
 ```
 
-Pulse wave velocity is in turn related to blood pressure. The distance travelled by the pulse wave between the two PPG measurement sites is often unknown, introducing additional uncertainty into the relationship between the measured pulse transit time and the true blood pressure.
+Pulse wave velocity is in turn related to blood pressure. The distance travelled by the pulse wave between the two PPG measurement sites is often unknown, introducing additional uncertainty into the relationship between the measured pulse transit time and the true blood pressure or arterial stiffness.
 
 ### Pulse arrival time
 
-Blood pressure can be estimated from the pulse arrival time, the time delay between the ECG R-wave and the arrival of a PPG pulse wave. The pulse arrival time is related to pulse transit time by:
+Blood pressure and vascular ageing can be assessed from the pulse arrival time, the time delay between the ECG R-wave and the arrival of a PPG pulse wave. The pulse arrival time is related to pulse transit time by:
 ```{math}
 :label: pat
 \mathrm{pulse} \, \mathrm{arrival} \, \mathrm{time} = \mathrm{pulse} \, \mathrm{transit} \, \mathrm{time} + \mathrm{pre} \, \mathrm{ejection} \, \mathrm{period}
 ```
 
-The pre-ejection period can vary both between subjects, and also over time for an individual subject. Consequently, the use of pulse arrival time introduces additional uncertainty into blood pressure estimation beyond that of using pulse transit time.
+The pre-ejection period can vary both between subjects, and also over time for an individual subject. Consequently, the use of pulse arrival time introduces additional uncertainty into the assessment of blood pressure or arterial stiffness beyond that of using pulse transit time.
 
 ### Pulse wave shape
 
-Blood pressure can be estimated from the shape of a PPG pulse wave. The shape of the pulse wave changes with blood pressure as demonstrated in {numref}`ppg-classes`. The higher classes are associated with higher blood pressures. An individual's baseline pulse wave shape is strongly influenced by not only blood pressure, but also their age.
+Blood pressure and vascular ageing can be assessed from the shape of a PPG pulse wave. The shape of the pulse wave changes with vascular ageing and blood pressure as demonstrated in {numref}`ppg-classes`. The higher classes are associated with older subjects and higher blood pressures.
 
 ```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png
 ---
