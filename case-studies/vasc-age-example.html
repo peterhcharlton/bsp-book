@@ -605,6 +605,10 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="import-libraries">
 <h3>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The ‘WFDB’ toolbox provides tools for reading data from ‘WaveForm DataBase’ format (which is the format used on <a class="reference external" href="https://physionet.org/">PhysioNet</a>)</p></li>
+<li><p>The ‘Neurokit2’ toolbox provides tools for physiological signal processing</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> pip install wfdb
@@ -621,6 +625,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Can you find out more about these packages? What is the 'Waveform DataBase Format', and what tasks could 'Neurokit' be used for? <br> <b>Hint:</b> See <a href="https://wfdb.readthedocs.io/">the WFDB documentation</a>, and the <a href="https://neuropsychology.github.io/NeuroKit/">the Neurokit documentation</a>.</p>
+</div><ul class="simple">
+<li><p>The following toolboxes are often used in data science, and provide tools for data analysis</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -634,13 +643,24 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="setup-database">
 <h3>Setup database<a class="headerlink" href="#setup-database" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Specify the name of the database on PhysioNet (<a class="reference external" href="https://physionet.org/content/pulse-transit-time-ppg/1.1.0/">here</a>).</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the database</span>
-<span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;pulse-transit-time-ppg/1.1.0&#39;</span> <span class="c1"># The name of the database on Physionet</span>
-
-<span class="c1"># Find a list of records in the database</span>
-<span class="n">record_list</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;pulse-transit-time-ppg/1.1.0&#39;</span> <span class="c1"># The name of the database on Physionet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Do look into <a href="https://physionet.org/">PhysioNet</a> and the <a href="https://physionet.org/about/database/">datasets it hosts</a>.</p>
+</div><ul class="simple">
+<li><p>Find a list of records in the database</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record_list</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">get_record_list</span><span class="p">(</span><span class="n">database_name</span><span class="p">)</span>
 
 <span class="c1"># Output the result</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The &#39;</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&#39; database contains </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">record_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> records&quot;</span><span class="p">)</span>
@@ -656,8 +676,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="import-required-functions">
 <h3>Import required functions<a class="headerlink" href="#import-required-functions" title="Permalink to this headline">¶</a></h3>
+<p>The following functions have been written to perform tasks specifically for this analysis.</p>
+<p>It’s help to appreciate what the functions do (as described in the bullet points), and to be aware of the inputs to the functions (which are provided in the brackets on the first line of the function).</p>
 <ul class="simple">
-<li><p>Finding suitable records in the database</p></li>
+<li><p>This function finds suitable records in the database. It finds records which meet the following criteria:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">required_signals</span></code>: Contain the required signals</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">required_duration</span></code>: Are of at least the required duration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">required_activity</span></code>: Were collected during the required activity</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,7 +766,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <ul class="simple">
-<li><p>Extracting a segment of data from a record</p></li>
+<li><p>This function extracts a short segment of data from a longer record. It uses the following inputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_seconds</span></code>: the start time at which to start extracting data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_seconds_to_load</span></code>: the duration of the segment to be extracted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record_name</span></code>: the name of the record from which data are to be extracted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record_dir</span></code>: the folder (a.k.a directory) which contains the record.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">required_signals</span></code>: the signals to be extracted.</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,7 +806,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <ul class="simple">
-<li><p>Find peaks in PPG signal</p></li>
+<li><p>This function finds peaks in PPG signal. It takes the following inputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw</span></code>: raw PPG signal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fs</span></code>: sampling frequency (in Hz)</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +824,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <ul class="simple">
-<li><p>Find peaks in ECG signal</p></li>
+<li><p>This function finds peaks in an ECG signal. It takes the following inputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw</span></code>: raw ECG signal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fs</span></code>: sampling frequency (in Hz)</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -797,7 +843,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <ul class="simple">
-<li><p>Find PPG pulse onsets</p></li>
+<li><p>This function finds PPG pulse onsets as the minimum values between each pair of identified PPG peaks. It takes the following inputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ppg</span></code>: A PPG signal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pks</span></code>: the peaks in a PPG signal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fs</span></code>: the sampling frequency (in Hz)</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,7 +871,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <ul class="simple">
-<li><p>A function to find the index in a list which immediately follows a specified point</p></li>
+<li><p>A function to find the index in a list which immediately follows a specified point. It takes the following inputs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">array</span></code>: the list of sample numbers (e.g. a list of PPG peak sample numbers)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: the sample number of the specified point (e.g. an ECG R-wave sample number)</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -840,18 +897,120 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Extracting a dataset<a class="headerlink" href="#extracting-a-dataset" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="finding-suitable-records-in-the-database">
 <h2>Finding suitable records in the database<a class="headerlink" href="#finding-suitable-records-in-the-database" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Specify the required signals</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify requirements</span>
-<span class="n">name_of_ecg_signal</span> <span class="o">=</span> <span class="s2">&quot;ecg&quot;</span>
-<span class="n">name_of_ppg_signal</span> <span class="o">=</span> <span class="s2">&quot;pleth_1&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_of_ecg_signal</span> <span class="o">=</span> <span class="s2">&quot;ecg&quot;</span> <span class="c1"># the name of the ecg signal in the data</span>
+<span class="n">name_of_ppg_signal</span> <span class="o">=</span> <span class="s2">&quot;pleth_1&quot;</span> <span class="c1"># the name of the ppg signal in the data</span>
 <span class="n">required_signals</span> <span class="o">=</span> <span class="p">[</span><span class="n">name_of_ecg_signal</span><span class="p">,</span> <span class="n">name_of_ppg_signal</span><span class="p">]</span>
-<span class="n">required_duration</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">60</span> <span class="c1"># in seconds</span>
-<span class="n">required_activity</span> <span class="o">=</span> <span class="s2">&quot;sit&quot;</span>
-
-<span class="c1"># find records which meet these requirements</span>
-<span class="n">do_verbose</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Can you find out the details of the 'pleth_1' signal from the <a href="https://physionet.org/content/pulse-transit-time-ppg/1.1.0/">database description</a>? How was it measured? Is it ieal for vascular ageing assessment? What alternative signals are available?</p>
+</div><ul class="simple">
+<li><p>Specify the required duration in seconds</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_duration</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">60</span> <span class="c1"># in seconds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Specify the required activity</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_activity</span> <span class="o">=</span> <span class="s2">&quot;sit&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Similarly, can you find out what different activities the data in this database were collected during? See the <a href="https://physionet.org/content/pulse-transit-time-ppg/1.1.0/">database description</a>.</p>
+</div><ul class="simple">
+<li><p>find records which meet these requirements</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_verbose</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># this tells the function to output some text to explain what it is doing.</span>
 <span class="n">matching_recs</span> <span class="o">=</span> <span class="n">find_suitable_records</span><span class="p">(</span><span class="n">required_signals</span><span class="p">,</span> <span class="n">required_duration</span><span class="p">,</span> <span class="n">required_activity</span><span class="p">,</span> <span class="n">do_verbose</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Record: s1_walk   (not required activity)
+Record: s1_run   (not required activity)
+Record: s1_sit   (met requirements)
+Record: s2_walk   (not required activity)
+Record: s2_run   (not required activity)
+Record: s2_sit   (met requirements)
+Record: s3_sit   (met requirements)
+Record: s3_walk   (not required activity)
+Record: s3_run   (not required activity)
+Record: s4_sit   (met requirements)
+Record: s4_run   (not required activity)
+Record: s4_walk   (not required activity)
+Record: s5_walk   (not required activity)
+Record: s5_run   (not required activity)
+Record: s5_sit   (met requirements)
+Record: s6_run   (not required activity)
+Record: s6_sit   (met requirements)
+Record: s6_walk   (not required activity)
+Record: s7_walk   (not required activity)
+Record: s7_run   (not required activity)
+Record: s7_sit   (met requirements)
+Record: s8_sit   (met requirements)
+Record: s8_run   (not required activity)
+Record: s8_walk   (not required activity)
+Record: s9_walk   (not required activity)
+Record: s9_sit   (met requirements)
+Record: s9_run   (not required activity)
+Record: s10_run   (not required activity)
+Record: s10_walk   (not required activity)
+Record: s10_sit   (met requirements)
+Record: s11_sit   (met requirements)
+Record: s11_walk   (not required activity)
+Record: s11_run   (not required activity)
+Record: s12_walk   (not required activity)
+Record: s12_run   (not required activity)
+Record: s12_sit   (met requirements)
+Record: s13_walk   (not required activity)
+Record: s13_sit   (met requirements)
+Record: s13_run   (not required activity)
+Record: s14_run   (not required activity)
+Record: s14_walk   (not required activity)
+Record: s14_sit   (met requirements)
+Record: s15_walk   (not required activity)
+Record: s15_sit   (met requirements)
+Record: s15_run   (not required activity)
+Record: s16_sit   (met requirements)
+Record: s16_run   (not required activity)
+Record: s16_walk   (not required activity)
+Record: s17_run   (not required activity)
+Record: s17_walk   (not required activity)
+Record: s17_sit   (met requirements)
+Record: s18_run   (not required activity)
+Record: s18_walk   (not required activity)
+Record: s18_sit   (met requirements)
+Record: s19_walk   (not required activity)
+Record: s19_sit   (met requirements)
+Record: s19_run   (not required activity)
+Record: s20_run   (not required activity)
+Record: s20_walk   (not required activity)
+Record: s20_sit   (met requirements)
+Record: s21_walk   (not required activity)
+Record: s21_sit   (met requirements)
+Record: s21_run   (not required activity)
+Record: s22_walk   (not required activity)
+Record: s22_run   (not required activity)
+Record: s22_sit   (met requirements)
+A total of 22 out of 66 records met the requirements.
 </pre></div>
 </div>
 </div>
@@ -859,17 +1018,32 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="extract-data-from-a-record">
 <h2>Extract data from a record<a class="headerlink" href="#extract-data-from-a-record" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>specify details of the segment of data to be extracted</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify details of data to be extracted</span>
-<span class="n">start_seconds</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_seconds</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">n_seconds_to_load</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">record_name</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">record_dir</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># extract these data</span>
-<span class="n">do_verbose</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">subj_no</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># In python, zero refers to the first item in a list</span>
+<span class="n">record_name</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">subj_no</span><span class="p">]</span>
+<span class="n">record_dir</span> <span class="o">=</span> <span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">][</span><span class="n">subj_no</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>extract this segment of data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_verbose</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">segment_data</span> <span class="o">=</span> <span class="n">extract_segment_of_data</span><span class="p">(</span><span class="n">start_seconds</span><span class="p">,</span> <span class="n">n_seconds_to_load</span><span class="p">,</span> <span class="n">record_name</span><span class="p">,</span> <span class="n">record_dir</span><span class="p">,</span> <span class="n">required_signals</span><span class="p">,</span> <span class="n">do_verbose</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60 seconds of data extracted from record: s1_sit
 </pre></div>
 </div>
 </div>
@@ -881,15 +1055,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="extract-signals">
 <h2>Extract signals<a class="headerlink" href="#extract-signals" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Extract PPG and ECG signals</p></li>
+<li><p>Extract PPG and ECG signals from the segment of data</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ppg&quot;</span><span class="p">,</span> <span class="s2">&quot;ecg&quot;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">sig</span> <span class="ow">in</span> <span class="n">sig_list</span><span class="p">:</span>
-    <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;curr_sig_name = name_of_&quot;</span> <span class="o">+</span> <span class="n">sig</span> <span class="o">+</span> <span class="s2">&quot;_signal&quot;</span><span class="p">)</span>
-    <span class="n">rel_col</span> <span class="o">=</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">curr_sig_name</span><span class="p">)</span>
-    <span class="n">exec</span><span class="p">(</span><span class="n">sig</span> <span class="o">+</span> <span class="s2">&quot; = segment_data.p_signal[:,rel_col]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ppg&quot;</span><span class="p">,</span> <span class="s2">&quot;ecg&quot;</span><span class="p">]</span> <span class="c1"># a list of signals to be extracted</span>
+<span class="k">for</span> <span class="n">sig</span> <span class="ow">in</span> <span class="n">sig_list</span><span class="p">:</span>  <span class="c1"># cycle through each signal in the list</span>
+    <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;curr_sig_name = name_of_&quot;</span> <span class="o">+</span> <span class="n">sig</span> <span class="o">+</span> <span class="s2">&quot;_signal&quot;</span><span class="p">)</span>  <span class="c1"># specify the name of the signal</span>
+    <span class="n">rel_col</span> <span class="o">=</span> <span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">curr_sig_name</span><span class="p">)</span>  <span class="c1"># identify the column in the data which contains this signal</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">sig</span> <span class="o">+</span> <span class="s2">&quot; = segment_data.p_signal[:,rel_col]&quot;</span><span class="p">)</span>  <span class="c1"># extract the data for this signal</span>
 </pre></div>
 </div>
 </div>
@@ -907,6 +1081,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="invert-ppg-signal">
 <h2>Invert PPG signal<a class="headerlink" href="#invert-ppg-signal" title="Permalink to this headline">¶</a></h2>
+<p>This is usually done to make the PPG signal look like a blood pressure signal. Consider why this is the case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ppg</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">ppg</span>
@@ -917,6 +1092,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="filter-signals">
 <h2>Filter signals<a class="headerlink" href="#filter-signals" title="Permalink to this headline">¶</a></h2>
+<p>Signals are filtered to eliminate noise from the signals, which makes it easier for the signal processing to perform well.</p>
 <ul class="simple">
 <li><p>Filter PPG</p></li>
 </ul>
@@ -927,7 +1103,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<ul class="simple">
+<div class="alert alert-block alert-info">
+<p><b>Info:</b> You can find out more about this function <a href="https://neuropsychology.github.io/NeuroKit/functions/ppg.html#neurokit2.ppg.ppg_clean">here</a>.</p>
+</div><ul class="simple">
 <li><p>Filter ECG</p></li>
 </ul>
 <div class="cell docutils container">
@@ -937,9 +1115,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> You can find out more about this function <a href="https://neuropsychology.github.io/NeuroKit/functions/ecg.html#ecg-clean">here</a>. What frequency content does it exclude from the signal?</p>
+</div></div>
 <div class="section" id="beat-detection">
 <h2>Beat detection<a class="headerlink" href="#beat-detection" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to detect beats in the signals</p>
 <div class="section" id="ppg-beat-detection">
 <h3>PPG beat detection<a class="headerlink" href="#ppg-beat-detection" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -957,16 +1138,16 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppg</span><span class="p">)</span>
-<span class="n">heights</span> <span class="o">=</span> <span class="n">ppg</span><span class="p">[</span><span class="n">ppg_peaks</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ppg_peaks</span><span class="p">,</span> <span class="n">heights</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># setup the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ppg</span><span class="p">)</span>  <span class="c1"># plot the PPG signal</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">ppg</span><span class="p">[</span><span class="n">ppg_peaks</span><span class="p">]</span>  <span class="c1"># extract the heights of the PPG peaks</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ppg_peaks</span><span class="p">,</span> <span class="n">heights</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># plot points indicating the PPG peaks (plot the sample numbers against the heights, using green circular markers)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vasc-age-example_44_0.png" src="../_images/vasc-age-example_44_0.png" />
+<img alt="../_images/vasc-age-example_69_0.png" src="../_images/vasc-age-example_69_0.png" />
 </div>
 </div>
 </div>
@@ -996,7 +1177,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vasc-age-example_49_0.png" src="../_images/vasc-age-example_49_0.png" />
+<img alt="../_images/vasc-age-example_74_0.png" src="../_images/vasc-age-example_74_0.png" />
 </div>
 </div>
 </div>
@@ -1043,7 +1224,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vasc-age-example_59_0.png" src="../_images/vasc-age-example_59_0.png" />
+<img alt="../_images/vasc-age-example_84_0.png" src="../_images/vasc-age-example_84_0.png" />
 </div>
 </div>
 </div>
@@ -1084,7 +1265,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Parameter(s) derived from PPG and ECG signals: pulse arrival time</p></li>
 <li><p>Reference parameter(s): age</p></li>
 </ul>
-<div class="section" id="id1">
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> What alternative reference parameters would be ideal?</p>
+</div><div class="section" id="id1">
 <h3>Setup:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1144,10 +1327,39 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subject no. 0 has median PAT of 0.172 seconds
+Subject no. 1 has median PAT of 0.658 seconds
+Subject no. 2 has median PAT of 0.192 seconds
+Subject no. 3 has median PAT of 0.162 seconds
+Subject no. 4 has median PAT of 0.152 seconds
+Subject no. 5 has median PAT of 0.192 seconds
+Subject no. 6 has median PAT of 0.15 seconds
+Subject no. 7 has median PAT of 0.154 seconds
+Subject no. 8 has median PAT of 0.208 seconds
+Subject no. 9 has median PAT of 0.18 seconds
+Subject no. 10 has median PAT of 0.222 seconds
+Subject no. 11 has median PAT of 0.176 seconds
+Subject no. 12 has median PAT of 0.154 seconds
+Subject no. 13 has median PAT of 0.168 seconds
+Subject no. 14 has median PAT of 0.214 seconds
+Subject no. 15 has median PAT of 0.184 seconds
+Subject no. 16 has median PAT of 0.204 seconds
+Subject no. 17 has median PAT of 0.18 seconds
+Subject no. 18 has median PAT of 0.17 seconds
+Subject no. 19 has median PAT of 0.184 seconds
+Subject no. 20 has median PAT of 0.176 seconds
+Subject no. 21 has median PAT of 0.158 seconds
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="extract-ages">
 <h3>Extract ages<a class="headerlink" href="#extract-ages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cycle through each subject, extracting its age</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1168,20 +1380,27 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="inspect-dataset">
 <h2>Inspect dataset<a class="headerlink" href="#inspect-dataset" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Plot the ages on the x-axis against median pulse arrival times on the y-axis</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">median_pats</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">median_pats</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (years)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Pulse arrival time (secs)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vasc-age-example_75_0.png" src="../_images/vasc-age-example_75_0.png" />
+<img alt="../_images/vasc-age-example_103_0.png" src="../_images/vasc-age-example_103_0.png" />
 </div>
 </div>
-<ul class="simple">
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Are there any outliers? Which point(s)?</p>
+</div><ul class="simple">
 <li><p>if we exclude the outlier:</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1201,21 +1420,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rel_ages</span><span class="p">,</span> <span class="n">rel_median_pats</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">rel_ages</span><span class="p">,</span> <span class="n">rel_median_pats</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rel_ages</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rel_ages</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (years)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Pulse arrival time (secs)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/vasc-age-example_78_0.png" src="../_images/vasc-age-example_78_0.png" />
+<img alt="../_images/vasc-age-example_107_0.png" src="../_images/vasc-age-example_107_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="taking-it-further">
 <h2>Taking it further<a class="headerlink" href="#taking-it-further" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Can you assess the strength of the correlation? <em>Consider using the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> package <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">here</a></em></p></li>
-</ul>
-</div>
+<div class="alert alert-block alert-info">
+<p><b>Q:</b> Can you assess the strength of the correlation? <br> <b>Hint:</b> Consider using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">'sklearn' package</a></p>
+</div><div class="alert alert-block alert-info">
+<p><b>Q:</b> What other parameters could we extract from the PPG signal? See the <a href="https://peterhcharlton.github.io/bsp-book/tutorials.html">tutorials</a> in this book, and also <a href="https://doi.org/10.1152/ajpheart.00392.2021">this article</a>.</p>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">
