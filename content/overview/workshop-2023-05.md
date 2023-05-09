@@ -27,20 +27,17 @@ The workshop will last 1 hour.
 
 | Time | Content |
 | :--- | :--- |
-| 5 mins | [Welcome and overview](../overview/workshop-2023-03) |
-| 5 mins | [Introduction to vascular ageing assessment](../case-studies/vasc-age-intro) |
-| 15 mins | [Interactive Tutorials](../tutorials) |
-| 5 mins | [Overview of case study](../case-studies/vasc-age-example) |
-| 25 mins | [Group work](../case-studies) |
-| 5 mins | Group feedback |
+| 5 mins | [Welcome](../overview/workshop-2023-05) |
+| 5 mins | [Background](../overview/workshop-2023-05) |
+| 20 mins | [Interactive case study](../case-studies/vasc-age-intro) |
+| 10 mins | Pulse arrival time activity |
+| 15 mins | [Group work](../case-studies/vasc-age-intro) |
 | 5 mins | [Summary](../summary) |
 
 ## Introductory presentation
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MANsp-qoCgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-The slides from the introductory presentation are available [here](https://doi.org/10.5281/zenodo.7734870).
+The slides from the introductory presentation are available [here](https://doi.org/10.5281/zenodo.7912856).
 
 ## Acknowledgment
 
-Thanks to the Institute of Physics and Engineering in Medicine, who helped publicise this event.
+This work is based upon work from COST ACTION 'Network for Research in Vascular Ageing' CA18216 supported by COST (European Cooperation in Science and Technology): www.cost.eu.
