@@ -23,6 +23,7 @@
     - file: tutorial/notebooks/data-exploration3
     - file: tutorial/notebooks/signal-filtering
     - file: tutorial/notebooks/beat-detection
+    - file: tutorial/notebooks/signal-quality-assessment
     - file: tutorial/notebooks/pulse-arrival-time
     - file: tutorial/notebooks/pulse-wave-analysis
     - file: tutorial/notebooks/extracting-reference-bp
@@ -42,7 +43,6 @@
     - file: about/future-tutorials
       sections:
         - file: tutorial/notebooks/qrs-detection
-        - file: tutorial/signal-quality-assessment
         - file: tutorial/data-modelling
         - file: tutorial/data-analysis
         - file: tutorial/data-interpretation
