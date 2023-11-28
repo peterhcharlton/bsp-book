@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Cuffless BP - Intro &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -465,15 +466,15 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="cuffless-bp-intro">
+  <section id="cuffless-bp-intro">
 <h1>Cuffless BP - Intro<a class="headerlink" href="#cuffless-bp-intro" title="Permalink to this headline">¶</a></h1>
 <p>In the tutorials we have explored different steps which would commonly be encountered when developing techniques for cuffless blood pressure estimation.</p>
-<div class="section" id="introduction-to-estimating-blood-pressure-from-the-ppg">
+<section id="introduction-to-estimating-blood-pressure-from-the-ppg">
 <h2>Introduction to estimating blood pressure from the PPG<a class="headerlink" href="#introduction-to-estimating-blood-pressure-from-the-ppg" title="Permalink to this headline">¶</a></h2>
 <p>Blood pressure (BP) has been estimated from the PPG using the following inputs: a single PPG; a proximal and a distal PPG to measure PPT; or a distal PPG signal and a signal indicating the time of ventricular contraction (e.g., ECG, phonocardiogram) to measure PAT. Techniques that use a single PPG signal are based on analysis of pulse wave shape using either extracted features or the whole pulse wave. Often machine learning is used to create a model relating pulse wave features to BP. Techniques that use PTT or PAT require a second signal, such as ECG at the wrist or a signal at the chest. Several models relating BP to PTT or PAT have been proposed, including models that incorporate additional variables, such as HR. Models that require a single calibration cuff measurement are convenient but potentially less accurate than those that use multiple measurements to form a patient-specific calibration curve. While frequent calibration may be necessary to accurately estimate absolute BP values from a single PPG, less frequent calibration may be required when estimating BP from certain PAT measurements. Furthermore, it may be possible to identify changes in BP from a single PPG without calibration, which could have utility in detecting clinical deteriorations, such as sepsis.</p>
 <p>Wearables that use the PPG for BP monitoring are widely available. Most devices are not validated [163] although some have recently been certified for medical use. Studies are now assessing the accuracy and potential clinical utility of such devices. Standards have been developed for the validation of wearable, cuffless BP devices although further work is required to refine validation standards to account for the issues presented by PPG-based devices.</p>
 <p><em>Source (with references): Charlton PH et al., Wearable Photoplethysmography for Cardiovascular Monitoring, Proceedings of the IEEE, 2022. DOI: <a class="reference external" href="https://doi.org/10.1109/JPROC.2022.3149785">10.1109/JPROC.2022.3149785</a></em></p>
-<div class="section" id="further-reading">
+<section id="further-reading">
 <h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Overview: <a class="reference external" href="https://doi.org/10.1146/annurev-bioeng-110220-014644">1</a>, <a class="reference external" href="https://doi.org/10.1038/s41746-019-0136-7">2</a></p></li>
@@ -482,9 +483,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://doi.org/10.1016/j.bspc.2020.101870">Using machine learning</a></p></li>
 <li><p><a class="reference external" href="https://doi.org/10.1161/HYPERTENSIONAHA.121.17747">Evaluating cuffless blood pressure devices</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="example">
+</section>
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="bp-estimation-example.html"><span class="doc std std-doc">This notebook</span></a> provides an initial example for this case study. Briefly, the code:</p>
 <ul class="simple">
@@ -495,11 +496,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Assesses its performance</p></li>
 </ul>
 <p>It is intended to provide a starting point for further work, and is by no means perfect. We would be grateful for any improvements via pull requests!</p>
-</div>
-<div class="section" id="directions-for-further-work">
+</section>
+<section id="directions-for-further-work">
 <h2>Directions for further work<a class="headerlink" href="#directions-for-further-work" title="Permalink to this headline">¶</a></h2>
 <p>Here are some ideas for further work. You might consider working on any of these, or something of your own choosing:</p>
-<div class="section" id="assessing-algorithm-performance">
+<section id="assessing-algorithm-performance">
 <h3>Assessing algorithm performance<a class="headerlink" href="#assessing-algorithm-performance" title="Permalink to this headline">¶</a></h3>
 <p>The assessment of algorithm performance could be improved as follows:</p>
 <ul class="simple">
@@ -508,9 +509,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>Using a larger dataset:</strong> <em>[suitable for coders]</em> The current example uses data from MIMIC-IV, which is limited to a sample size of 52 recordings. It might be interesting to import data from MIMIC-III which has many more recordings available for analysis (following <a class="reference internal" href="../tutorial/notebooks/data-exploration3.html"><span class="doc std std-doc">this tutorial</span></a>).</p></li>
 <li><p><strong>Tracking changes in BP:</strong> <em>[suitable for coders]</em> The example currently assesses the algorithm’s ability to estimate absolute BP from a PPG signal segment, with no prior knowledge of the patient. In contrast, often cuffless blood pressure devices require calibration with a reference blood pressure measurement for each patient. Therefore, it might be interesting to assess the ability of the model to track changes in BP within a recording, rather than estimating absolute BP.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="suggested-workflow">
+</section>
+</section>
+<section id="suggested-workflow">
 <h2>Suggested workflow<a class="headerlink" href="#suggested-workflow" title="Permalink to this headline">¶</a></h2>
 <p>A suggested workflow is provided here - feel free to use this or ignore it!</p>
 <ol class="simple">
@@ -530,8 +531,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

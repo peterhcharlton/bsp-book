@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Import Libraries and Database &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -200,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -298,11 +304,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -517,7 +518,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="import-libraries-and-database">
+  <section id="import-libraries-and-database">
 <h1>Import Libraries and Database<a class="headerlink" href="#import-libraries-and-database" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,8 +622,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="key-functions">
+</section>
+<section id="key-functions">
 <h1>Key Functions<a class="headerlink" href="#key-functions" title="Permalink to this headline">¶</a></h1>
 <p>All functions are derived from the original PPG work done by Elisa Mejía Mejía.</p>
 <div class="cell docutils container">
@@ -652,7 +653,7 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-<div class="section" id="find-peaks">
+<section id="find-peaks">
 <h2>Find peaks<a class="headerlink" href="#find-peaks" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -717,8 +718,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 <img alt="../../_images/ECG_BP_Demo_12_1.png" src="../../_images/ECG_BP_Demo_12_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="find-onsets">
+</section>
+<section id="find-onsets">
 <h2>Find Onsets<a class="headerlink" href="#find-onsets" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,10 +766,10 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 <img alt="../../_images/ECG_BP_Demo_16_1.png" src="../../_images/ECG_BP_Demo_16_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="find-diastolic-peak-and-dicrotic-notch">
+</section>
+<section id="find-diastolic-peak-and-dicrotic-notch">
 <h2>Find Diastolic peak and Dicrotic notch<a class="headerlink" href="#find-diastolic-peak-and-dicrotic-notch" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="differentiation-demo">
+<section id="differentiation-demo">
 <h3>Differentiation Demo<a class="headerlink" href="#differentiation-demo" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -795,8 +796,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 <img alt="../../_images/ECG_BP_Demo_19_1.png" src="../../_images/ECG_BP_Demo_19_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="actual-function">
+</section>
+<section id="actual-function">
 <h3>Actual Function<a class="headerlink" href="#actual-function" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -871,9 +872,9 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 <img alt="../../_images/ECG_BP_Demo_22_1.png" src="../../_images/ECG_BP_Demo_22_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="run-bp-estimation">
+</section>
+</section>
+<section id="run-bp-estimation">
 <h2>Run BP Estimation<a class="headerlink" href="#run-bp-estimation" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -935,7 +936,7 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-<div class="section" id="test-example">
+<section id="test-example">
 <h3>Test Example<a class="headerlink" href="#test-example" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,8 +959,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-delta-t-and-bp-example">
+</section>
+<section id="get-delta-t-and-bp-example">
 <h3>Get delta_t and bp example<a class="headerlink" href="#get-delta-t-and-bp-example" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -998,8 +999,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-training-set">
+</section>
+<section id="get-training-set">
 <h3>Get training set<a class="headerlink" href="#get-training-set" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1438,9 +1439,9 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="run-linear-regression">
+</section>
+</section>
+<section id="run-linear-regression">
 <h2>Run Linear Regression<a class="headerlink" href="#run-linear-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1540,8 +1541,8 @@ Requirement already satisfied: pytz&gt;=2017.3 in /Users/petercharlton/anaconda3
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

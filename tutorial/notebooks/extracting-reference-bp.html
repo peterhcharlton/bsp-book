@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Extracting BP values &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -495,7 +496,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="extracting-bp-values">
+  <section id="extracting-bp-values">
 <h1>Extracting BP values<a class="headerlink" href="#extracting-bp-values" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we will extract reference blood pressure (BP) values from an arterial blood pressure (ABP) signal.</p>
 <p>The <strong>objectives</strong> are:</p>
@@ -511,7 +512,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>Obtaining BPs directly from numerics data:</li> The MIMIC Waveform Database contains 'numerics' data, which is the numerical values which the patient monitor derives from the waveforms and displays on the screen. This approach has the advantage that no signal processing is required, but the disadvantages that it involves reading additional numerics files, and that we don't know how these values are derived by the monitor (since the algorithms are proprietary).
       <li>Obtaining BPs from the ABP signal:</li> This has the advantage that no additional files are required, since all signals are stored in the same file. However, it does involve signal processing to obtain the values from the ABP signal.
     </ol>
-</div><div class="section" id="setup">
+</div><section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -565,9 +566,9 @@ Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/p
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="extract-one-minute-of-abp-signal-from-this-segment">
+<section id="extract-one-minute-of-abp-signal-from-this-segment">
 <h2>Extract one minute of ABP signal from this segment<a class="headerlink" href="#extract-one-minute-of-abp-signal-from-this-segment" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -600,12 +601,12 @@ Extracted the ABP signal from column 3 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="derive-bp-values">
+<section id="derive-bp-values">
 <h2>Derive BP values<a class="headerlink" href="#derive-bp-values" title="Permalink to this headline">¶</a></h2>
 <p>Derive BP values from the ABP signal</p>
-<div class="section" id="detect-beats-in-the-bp-signal">
+<section id="detect-beats-in-the-bp-signal">
 <h3>Detect beats in the BP signal<a class="headerlink" href="#detect-beats-in-the-bp-signal" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Import the functions required to detect beats by running the cell containing the required functions below.</p></li>
@@ -644,8 +645,8 @@ Extracted the ABP signal from column 3 of the matrix of waveform data at 62.5 Hz
 <img alt="../../_images/extracting-reference-bp_15_0.png" src="../../_images/extracting-reference-bp_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="detect-pulse-onsets-and-peaks">
+</section>
+<section id="detect-pulse-onsets-and-peaks">
 <h3>Detect pulse onsets and peaks<a class="headerlink" href="#detect-pulse-onsets-and-peaks" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Import the functions required to detect fiducial points by running the cell containing the required functions below.</p></li>
@@ -681,8 +682,8 @@ Extracted the ABP signal from column 3 of the matrix of waveform data at 62.5 Hz
 <img alt="../../_images/extracting-reference-bp_21_1.png" src="../../_images/extracting-reference-bp_21_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calculate-bp-values">
+</section>
+<section id="calculate-bp-values">
 <h3>Calculate BP values<a class="headerlink" href="#calculate-bp-values" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Extract systolic and diastolic BPs:</p></li>
@@ -733,10 +734,10 @@ Mean blood pressure      (MBP): 102.5 mmHg
     Often MBP is approximated as: MBP = ((2/3)*DBP)+((1/3)*SBP).
     Would it have made much difference if we had used this approximation?
     What is the basis for this approximation?
-</div></div>
-</div>
+</div></section>
+</section>
 <hr class="docutils" />
-<div class="section" id="beat-detection-functions">
+<section id="beat-detection-functions">
 <h2>Beat Detection Functions<a class="headerlink" href="#beat-detection-functions" title="Permalink to this headline">¶</a></h2>
 <p>The following functions are required for this tutorial. Run the cell below and then return to the top of the page.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1728,9 +1729,9 @@ Mean blood pressure      (MBP): 102.5 mmHg
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="fiducial-point-functions">
+<section id="fiducial-point-functions">
 <h2>Fiducial Point functions<a class="headerlink" href="#fiducial-point-functions" title="Permalink to this headline">¶</a></h2>
 <p>The following functions are required to detect fiducial points.</p>
 <div class="cell docutils container">
@@ -2125,8 +2126,8 @@ Mean blood pressure      (MBP): 102.5 mmHg
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Datasets &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -441,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="datasets">
+  <section id="datasets">
 <h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
 <p>There are several publicly available datasets containing ECG, PPG and accelerometry signals. The following are helpful starting points for finding such datasets:</p>
 <ul class="simple">
@@ -449,18 +450,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://peterhcharlton.github.io/post/ppg_datasets">List of PPG datasets</a> is a list of several datasets containing PPG signals, some of which are on PhysioNet, and some of which are hosted elsewhere.</p></li>
 </ul>
 <p>In this book we’ll use two datasets, both of which are hosted on PhysioNet and are now described.</p>
-<div class="section" id="mimic-database">
+<section id="mimic-database">
 <h2>MIMIC Database<a class="headerlink" href="#mimic-database" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://mimic.mit.edu/">MIMIC Database</a> is a publicly accessible critical care database. It is widely used in biomedical signal processing research because it contains a variety of physiological signals collected from many thousands of patients. The relevant signals for this book are the ECG and PPG signals (as shown in <a class="reference internal" href="#mimic-signals"><span class="std std-numref">Fig. 22</span></a>). Note that this database does not contain accelerometry signals.</p>
-<div class="figure align-default" id="mimic-signals">
+<figure class="align-default" id="mimic-signals">
 <img alt="https://cloud.githubusercontent.com/assets/9865941/13321748/ce4d0ce2-dbc8-11e5-91d0-c480bad98555.png" src="https://cloud.githubusercontent.com/assets/9865941/13321748/ce4d0ce2-dbc8-11e5-91d0-c480bad98555.png" />
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text"><strong>Signals from a patient in the MIMIC Database.</strong></span><a class="headerlink" href="#mimic-signals" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text"><strong>Signals from a patient in the MIMIC Database.</strong></span><a class="headerlink" href="#mimic-signals" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The latest version of the MIMIC Database is <a class="reference external" href="https://mimic.mit.edu/docs/iv/">MIMIC-IV</a>, which currently includes an initial release of 200 signal recordings from 198 patients (<a class="reference external" href="https://physionet.org/content/mimic4wdb/0.1.0/">here</a>). The previous version of MIMIC, <a class="reference external" href="https://mimic.mit.edu/docs/iii/">MIMIC-III</a> contains signals recorded from 10,000s of patients, alongside clinical data for many of these patients. <a class="reference internal" href="#mimic-pt"><span class="std std-numref">Fig. 23</span></a> shows an example of the additional clinical data for an individual patient.</p>
-<div class="figure align-default" id="mimic-pt">
+<figure class="align-default" id="mimic-pt">
 <img alt="../_images/examplepatient.jpg" src="../_images/examplepatient.jpg" />
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text"><strong>Clinical data from a patient in the MIMIC Database.</strong> <em>Reproduced under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from: Johnson AEW et al. MIMIC-III, a freely accessible critical care database. Sci Data 2016; 3: 160035. <a class="reference external" href="https://doi.org/10.1038/sdata.2016.35">https://doi.org/10.1038/sdata.2016.35</a></em></span><a class="headerlink" href="#mimic-pt" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text"><strong>Clinical data from a patient in the MIMIC Database.</strong> <em>Reproduced under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from: Johnson AEW et al. MIMIC-III, a freely accessible critical care database. Sci Data 2016; 3: 160035. <a class="reference external" href="https://doi.org/10.1038/sdata.2016.35">https://doi.org/10.1038/sdata.2016.35</a></em></span><a class="headerlink" href="#mimic-pt" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>There are several advantages to using the MIMIC Database to develop algorithms for wearable data analysis:</p>
 <ul class="simple">
 <li><p>The dataset is large: it contains signals from 10,000s of patients mostly lasting hours or days.</p></li>
@@ -473,12 +478,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>The signals are not necessarily measured in the same way as with wearable sensors. For instance, the PPG signal is mostly measured using infrared light at the finger, rather than the other colours and measurement sites used by wearables. ECG signals are measured using chest electrodes rather than at the wrist.</p></li>
 <li><p>The artifact contained within the signals is not necessarily representative of that which would be encountered in wearable data. For instance, critically-ill patients are often bed-bound and do not undertake many of the activities of daily living which healthy subjects perform.</p></li>
 </ul>
-</div>
-<div class="section" id="pulse-transit-time-ppg-dataset">
+</section>
+<section id="pulse-transit-time-ppg-dataset">
 <h2>Pulse Transit Time PPG Dataset<a class="headerlink" href="#pulse-transit-time-ppg-dataset" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://doi.org/10.13026/jpan-6n92">Pulse Transit Time PPG Dataset</a> is a publicly accessible dataset containing ECG, PPG, accelerometry, and other signals. Signals were acquired from 22 healthy subjects during a few activities (sitting, walking, and running). It also contains some reference physiological parameters such as blood pressure. This dataset is particularly helpful because the signals are broadly representative of those acquired by wearable devices. For instance, the PPG signals include red, infrared, and green wavelength signals, and the dataset includes accelerometry signals.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Vascular age - Intro &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -441,12 +442,12 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="vascular-age-intro">
+  <section id="vascular-age-intro">
 <h1>Vascular age - Intro<a class="headerlink" href="#vascular-age-intro" title="Permalink to this headline">¶</a></h1>
 <p>In this case study we will explore a particular approach for assessing vascular age from PPG and ECG signals: pulse arrival time measurement.</p>
 <p>The background to this task is presented in the <a class="reference internal" href="../background.html"><span class="doc std std-doc">Background</span></a> section of this book - in particular see the <a class="reference internal" href="../background/physiology.html"><span class="doc std std-doc">Physiology</span></a> section.</p>
 <p>For further reading, see <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">this article</a> on assessing vascular age from the PPG.</p>
-<div class="section" id="example">
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="vasc-age-example.html"><span class="doc std std-doc">This notebook</span></a> provides an initial example for this case study. Briefly, the code:</p>
 <ul class="simple">
@@ -456,8 +457,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Looks at the association between pulse arrival time and age</p></li>
 </ul>
 <p>It is intended to provide a starting point for further work, and is by no means perfect. We would be grateful for any improvements via pull requests!</p>
-</div>
-<div class="section" id="critical-appraisal-of-the-technique">
+</section>
+<section id="critical-appraisal-of-the-technique">
 <h2>Critical appraisal of the technique<a class="headerlink" href="#critical-appraisal-of-the-technique" title="Permalink to this headline">¶</a></h2>
 <p>When appraising the use of pulse arrival time for vascular ageing assessment, perhaps consider:</p>
 <ul class="simple">
@@ -487,8 +488,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Code &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -446,10 +447,10 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="code">
+  <section id="code">
 <h1>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h1>
 <p>In this book the wearable data analysis will be performed using Python code. We will use a few existing Python toolboxes in the analysis, which are now described.</p>
-<div class="section" id="wfdb-toolbox">
+<section id="wfdb-toolbox">
 <h2>WFDB Toolbox<a class="headerlink" href="#wfdb-toolbox" title="Permalink to this headline">¶</a></h2>
 <p>Waveform Database (WFDB) is a set of file standards designed for reading and storing physiologic signal data, and associated annotations. Data on <a class="reference external" href="https://physionet.org/">PhysioNet</a> are stored in WFDB format.</p>
 <p>The WFDB Toolbox is a set of openly-licensed tools for reading, writing, and analysing WFDB data. It is available in <a class="reference external" href="https://doi.org/10.13026/gjvw-1m31">C</a>, <a class="reference external" href="https://archive.physionet.org/physiotools/matlab/wfdb-swig-matlab/new_version.shtml">Matlab</a>, and <a class="reference external" href="https://wfdb.readthedocs.io/en/stable/">Python</a>.</p>
@@ -460,8 +461,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>It will be imported using: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">wfdb</span></code></p>
 <p><em>Sources: adapted from <a class="reference external" href="https://wfdb.io/">https://wfdb.io/</a> and the WFDB Python Package <a class="reference external" href="https://github.com/MIT-LCP/wfdb-python/blob/main/README.md">Readme</a>.</em></p>
-</div>
-<div class="section" id="neurokit">
+</section>
+<section id="neurokit">
 <h2>Neurokit<a class="headerlink" href="#neurokit" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://neuropsychology.github.io/NeuroKit/">Neurokit</a> is a ‘Python Toolbox for Neurophysiological Signal Processing’. It includes functions for analysing ECG and PPG signals, such as algorithms for detecting beats in these signals.</p>
 <p>Neurokit can be installed using:</p>
@@ -470,8 +471,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>It will be imported using: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">neurokit2</span> <span class="pre">as</span> <span class="pre">nk</span></code></p>
 <p><em>Source: adapted from <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/">https://neuropsychology.github.io/NeuroKit/</a> under <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></p>
-</div>
-<div class="section" id="additional-toolboxes">
+</section>
+<section id="additional-toolboxes">
 <h2>Additional toolboxes<a class="headerlink" href="#additional-toolboxes" title="Permalink to this headline">¶</a></h2>
 <p>The following toolboxes are also used in this book:</p>
 <ul class="simple">
@@ -483,8 +484,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong><em>pprint</em></strong>: for printing Python data structures, imported using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pprint</span> <span class="pre">import</span> <span class="pre">pprint</span></code></p></li>
 <li><p><strong><em>copy</em></strong>: to copy Python variables, imported using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">copy</span></code></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

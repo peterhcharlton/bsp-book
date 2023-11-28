@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Pulse Wave Analysis &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -204,6 +205,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -302,11 +308,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -495,7 +496,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="pulse-wave-analysis">
+  <section id="pulse-wave-analysis">
 <h1>Pulse Wave Analysis<a class="headerlink" href="#pulse-wave-analysis" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we will learn how to extract features from PPG pulse waves.</p>
 <p>Our <strong>objectives</strong> are to:</p>
@@ -504,7 +505,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Calculate pulse wave features from the fiducial points</p></li>
 </ul>
 <div class="alert alert-block alert-warning"><p><b>Context:</b> One approach to estimating BP from PPG signals consists of extracting features from PPG pulse waves, and then using these as inputs to BP estimation model. This tutorial covers the first of these steps: extracting features from PPG pulse waves.</p></div><div class="alert alert-block alert-info"><p><b>Resource:</b> You can read more about pulse wave analysis in Sections 3.2.2 and 3.2.3 of <a href="https://peterhcharlton.github.io/publication/ppg_sig_proc_chapter/">this book</a>.</p></div><hr class="docutils" />
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -567,9 +568,9 @@ Successfully installed wfdb-4.0.0
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="extract-one-minute-of-ppg-signals-from-this-segment">
+<section id="extract-one-minute-of-ppg-signals-from-this-segment">
 <h2>Extract one minute of PPG signals from this segment<a class="headerlink" href="#extract-one-minute-of-ppg-signals-from-this-segment" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -612,9 +613,9 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="filter-the-ppg-signal">
+<section id="filter-the-ppg-signal">
 <h2>Filter the PPG signal<a class="headerlink" href="#filter-the-ppg-signal" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -641,9 +642,9 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="detect-beats-in-the-ppg-signal">
+<section id="detect-beats-in-the-ppg-signal">
 <h2>Detect beats in the PPG signal<a class="headerlink" href="#detect-beats-in-the-ppg-signal" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <ul class="simple">
@@ -693,8 +694,8 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 <img alt="../../_images/pulse-wave-analysis_17_1.png" src="../../_images/pulse-wave-analysis_17_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="identify-fiducial-points-on-pulse-waves">
+</section>
+<section id="identify-fiducial-points-on-pulse-waves">
 <h2>Identify fiducial points on pulse waves<a class="headerlink" href="#identify-fiducial-points-on-pulse-waves" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Import the functions required to detect beats by running the cell containing the required functions at the end of this tutorial.</p></li>
@@ -773,8 +774,8 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-pulse-wave-features">
+</section>
+<section id="calculate-pulse-wave-features">
 <h2>Calculate pulse wave features<a class="headerlink" href="#calculate-pulse-wave-features" title="Permalink to this headline">¶</a></h2>
 <p>We will now calculate pulse wave features from the amplitudes and timings of the fiducial points on each pulse wave.</p>
 <div class="alert alert-block alert-warning"> <b>Explanation:</b> Pulse wave features can be derived from the differences between the amplitudes (or timings) of fiducial points, as shown below:</div><p><img alt="pw indices" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Photoplethysmogram_%28PPG%29_pulse_wave_indices.svg" /></p>
@@ -843,9 +844,9 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-info"><p><b>Question:</b> Can you implement any more pulse wave features (e.g. 'CT')?</p></div></div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> Can you implement any more pulse wave features (e.g. 'CT')?</p></div></section>
 <hr class="docutils" />
-<div class="section" id="beat-detection-functions">
+<section id="beat-detection-functions">
 <h2>Beat Detection Functions<a class="headerlink" href="#beat-detection-functions" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1837,9 +1838,9 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 <p>Now return to the ‘Detect beats in the PPG signal’ step.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="fiducial-point-functions">
+<section id="fiducial-point-functions">
 <h2>Fiducial Point Functions<a class="headerlink" href="#fiducial-point-functions" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2231,8 +2232,8 @@ Extracted the PPG signal from column 6 of the matrix of waveform data at 62.5 Hz
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

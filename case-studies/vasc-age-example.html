@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Vascular age - example &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -560,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
+      <a class="reference internal nav-link" href="#setup-1">
        Setup:
       </a>
      </li>
@@ -599,11 +600,11 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="vascular-age-example">
+  <section id="vascular-age-example">
 <h1>Vascular age - example<a class="headerlink" href="#vascular-age-example" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="import-libraries">
+<section id="import-libraries">
 <h3>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The ‘WFDB’ toolbox provides tools for reading data from ‘WaveForm DataBase’ format (which is the format used on <a class="reference external" href="https://physionet.org/">PhysioNet</a>)</p></li>
@@ -640,8 +641,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="setup-database">
+</section>
+<section id="setup-database">
 <h3>Setup database<a class="headerlink" href="#setup-database" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Specify the name of the database on PhysioNet (<a class="reference external" href="https://physionet.org/content/pulse-transit-time-ppg/1.1.0/">here</a>).</p></li>
@@ -673,8 +674,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="import-required-functions">
+</section>
+<section id="import-required-functions">
 <h3>Import required functions<a class="headerlink" href="#import-required-functions" title="Permalink to this headline">¶</a></h3>
 <p>The following functions have been written to perform tasks specifically for this analysis.</p>
 <p>It’s help to appreciate what the functions do (as described in the bullet points), and to be aware of the inputs to the functions (which are provided in the brackets on the first line of the function).</p>
@@ -890,12 +891,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="extracting-a-dataset">
+</section>
+</section>
+</section>
+<section id="extracting-a-dataset">
 <h1>Extracting a dataset<a class="headerlink" href="#extracting-a-dataset" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="finding-suitable-records-in-the-database">
+<section id="finding-suitable-records-in-the-database">
 <h2>Finding suitable records in the database<a class="headerlink" href="#finding-suitable-records-in-the-database" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Specify the required signals</p></li>
@@ -1015,8 +1016,8 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="extract-data-from-a-record">
+</section>
+<section id="extract-data-from-a-record">
 <h2>Extract data from a record<a class="headerlink" href="#extract-data-from-a-record" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>specify details of the segment of data to be extracted</p></li>
@@ -1048,11 +1049,11 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="signal-processing">
+</section>
+</section>
+<section id="signal-processing">
 <h1>Signal processing<a class="headerlink" href="#signal-processing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="extract-signals">
+<section id="extract-signals">
 <h2>Extract signals<a class="headerlink" href="#extract-signals" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Extract PPG and ECG signals from the segment of data</p></li>
@@ -1078,8 +1079,8 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="invert-ppg-signal">
+</section>
+<section id="invert-ppg-signal">
 <h2>Invert PPG signal<a class="headerlink" href="#invert-ppg-signal" title="Permalink to this headline">¶</a></h2>
 <p>This is usually done to make the PPG signal look like a blood pressure signal. Consider why this is the case.</p>
 <div class="cell docutils container">
@@ -1089,8 +1090,8 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filter-signals">
+</section>
+<section id="filter-signals">
 <h2>Filter signals<a class="headerlink" href="#filter-signals" title="Permalink to this headline">¶</a></h2>
 <p>Signals are filtered to eliminate noise from the signals, which makes it easier for the signal processing to perform well.</p>
 <ul class="simple">
@@ -1117,11 +1118,11 @@ A total of 22 out of 66 records met the requirements.
 </div>
 <div class="alert alert-block alert-info">
 <p><b>Q:</b> You can find out more about this function <a href="https://neuropsychology.github.io/NeuroKit/functions/ecg.html#ecg-clean">here</a>. What frequency content does it exclude from the signal?</p>
-</div></div>
-<div class="section" id="beat-detection">
+</div></section>
+<section id="beat-detection">
 <h2>Beat detection<a class="headerlink" href="#beat-detection" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to detect beats in the signals</p>
-<div class="section" id="ppg-beat-detection">
+<section id="ppg-beat-detection">
 <h3>PPG beat detection<a class="headerlink" href="#ppg-beat-detection" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Detect beats</p></li>
@@ -1150,8 +1151,8 @@ A total of 22 out of 66 records met the requirements.
 <img alt="../_images/vasc-age-example_69_0.png" src="../_images/vasc-age-example_69_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="ecg-beat-detection">
+</section>
+<section id="ecg-beat-detection">
 <h3>ECG beat detection<a class="headerlink" href="#ecg-beat-detection" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Detect beats</p></li>
@@ -1180,11 +1181,11 @@ A total of 22 out of 66 records met the requirements.
 <img alt="../_images/vasc-age-example_74_0.png" src="../_images/vasc-age-example_74_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="extract-timings">
+</section>
+</section>
+<section id="extract-timings">
 <h2>Extract timings<a class="headerlink" href="#extract-timings" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ecg-timings">
+<section id="ecg-timings">
 <h3>ECG timings<a class="headerlink" href="#ecg-timings" title="Permalink to this headline">¶</a></h3>
 <p>The ECG timings are simply the times of the R-waves, which indicate the times of ventricular depolarisation (i.e. the electrical activity which prompts ventricular contraction).</p>
 <div class="cell docutils container">
@@ -1194,8 +1195,8 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ppg-timings">
+</section>
+<section id="ppg-timings">
 <h3>PPG timings<a class="headerlink" href="#ppg-timings" title="Permalink to this headline">¶</a></h3>
 <p>Ideally, we wouldn’t use the times of systolic peaks on PPG waves, because there can be a variable delay between the pulse onset and systolic peak. Therefore, we use an alternative, such as the time of pulse onset:</p>
 <ul class="simple">
@@ -1227,9 +1228,9 @@ A total of 22 out of 66 records met the requirements.
 <img alt="../_images/vasc-age-example_84_0.png" src="../_images/vasc-age-example_84_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="extract-pulse-arrival-times">
+</section>
+</section>
+<section id="extract-pulse-arrival-times">
 <h2>Extract pulse arrival times<a class="headerlink" href="#extract-pulse-arrival-times" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Find pairs of R-waves and subsequent PPG pulse onsets</p></li>
@@ -1254,11 +1255,11 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="modelling">
+</section>
+</section>
+<section id="modelling">
 <h1>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="extract-dataset">
+<section id="extract-dataset">
 <h2>Extract dataset<a class="headerlink" href="#extract-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Extract a dataset of:</p>
 <ul class="simple">
@@ -1267,8 +1268,8 @@ A total of 22 out of 66 records met the requirements.
 </ul>
 <div class="alert alert-block alert-info">
 <p><b>Q:</b> What alternative reference parameters would be ideal?</p>
-</div><div class="section" id="id1">
-<h3>Setup:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div><section id="setup-1">
+<h3>Setup:<a class="headerlink" href="#setup-1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subj_nos</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matching_recs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))]</span>
@@ -1276,8 +1277,8 @@ A total of 22 out of 66 records met the requirements.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="extract-median-pulse-arrival-times">
+</section>
+<section id="extract-median-pulse-arrival-times">
 <h3>Extract median pulse arrival times<a class="headerlink" href="#extract-median-pulse-arrival-times" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1354,8 +1355,8 @@ Subject no. 21 has median PAT of 0.158 seconds
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="extract-ages">
+</section>
+<section id="extract-ages">
 <h3>Extract ages<a class="headerlink" href="#extract-ages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Cycle through each subject, extracting its age</p></li>
@@ -1376,9 +1377,9 @@ Subject no. 21 has median PAT of 0.158 seconds
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="inspect-dataset">
+</section>
+</section>
+<section id="inspect-dataset">
 <h2>Inspect dataset<a class="headerlink" href="#inspect-dataset" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Plot the ages on the x-axis against median pulse arrival times on the y-axis</p></li>
@@ -1430,15 +1431,15 @@ Subject no. 21 has median PAT of 0.158 seconds
 <img alt="../_images/vasc-age-example_107_0.png" src="../_images/vasc-age-example_107_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="taking-it-further">
+</section>
+<section id="taking-it-further">
 <h2>Taking it further<a class="headerlink" href="#taking-it-further" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-block alert-info">
 <p><b>Q:</b> Can you assess the strength of the correlation? <br> <b>Hint:</b> Consider using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">'sklearn' package</a></p>
 </div><div class="alert alert-block alert-info">
 <p><b>Q:</b> What other parameters could we extract from the PPG signal? See the <a href="https://peterhcharlton.github.io/bsp-book/tutorials.html">tutorials</a> in this book, and also <a href="https://doi.org/10.1152/ajpheart.00392.2021">this article</a>.</p>
-</div></div>
-</div>
+</div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Data Extraction &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -200,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -298,11 +304,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -461,7 +462,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="data-extraction">
+  <section id="data-extraction">
 <h1>Data Extraction<a class="headerlink" href="#data-extraction" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we’ll extract data from the MIMIC-IV Waveform Database.</p>
 <p>Our <strong>objectives</strong> are to:</p>
@@ -473,7 +474,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><b>Context:</b>
     In the <a href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration</a> tutorial we learnt how to identify segments of waveform data which are suitable for a particular research study (i.e. which have the required duration of the required signals). We extracted metadata for such a segment, providing high-level details of what is contained in the segment (e.g. which signals, their sampling frequency, and their duration). Now we will go a step further to extract signals for analysis.</p>
 </div><hr class="docutils" />
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-block alert-warning">
 <p><b>Resource:</b> These steps are taken from the <a href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration</a> tutorial.</p></div><ul class="simple">
@@ -565,9 +566,9 @@ Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packag
 </div>
 <div class="alert alert-block alert-info">
 <p><b>Extension:</b> Have a look at the files which make up this record <a href="https://physionet.org/content/mimic4wdb/0.1.0/waves/p100/p10020306/">here</a> (NB: you will need to scroll to the bottom of the page).</p>
-</div></div>
+</div></section>
 <hr class="docutils" />
-<div class="section" id="extract-data-for-this-segment">
+<section id="extract-data-for-this-segment">
 <h2>Extract data for this segment<a class="headerlink" href="#extract-data-for-this-segment" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.rdrecord"><code class="docutils literal notranslate"><span class="pre">rdrecord</span></code></a> function from the WFDB toolbox to read the data for this segment.</p></li>
@@ -681,8 +682,8 @@ They last for 52.4 minutes
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

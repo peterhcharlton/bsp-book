@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Data modelling &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -52,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data analysis" href="data-analysis.html" />
-    <link rel="prev" title="Signal Quality Assessment" href="signal-quality-assessment.html" />
+    <link rel="prev" title="QRS peak detection" href="notebooks/qrs-detection.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -423,10 +424,10 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="data-modelling">
+  <section id="data-modelling">
 <h1>Data modelling<a class="headerlink" href="#data-modelling" title="Permalink to this headline">¶</a></h1>
 <p><em>Tutorial on data modelling - i.e. training a ML algorithm to estimate BP from PPG pulse wave features.</em></p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -458,11 +459,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="signal-quality-assessment.html" title="previous page">
+        <a class="left-prev" href="notebooks/qrs-detection.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Signal Quality Assessment</p>
+                <p class="prevnext-title">QRS peak detection</p>
             </div>
         </a>
     </div>

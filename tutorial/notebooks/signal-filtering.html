@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Filtering Signals &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -517,7 +518,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="filtering-signals">
+  <section id="filtering-signals">
 <h1>Filtering Signals<a class="headerlink" href="#filtering-signals" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we will practice filtering MIMIC waveform signals.</p>
 <p>Our <strong>objectives</strong> are to:</p>
@@ -527,7 +528,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Gain experience in filtering PPG signals.</p></li>
 <li><p>Be able to use filters to obtain the derivatives of a signal</p></li>
 </ul>
-<div class="alert alert-block alert-warning"><p><b>Context:</b> Filtering is used to eliminate noise from physiological signals. For instance, ECG signals can contain mains frequency noise due to electrical interference. Ideally, a filter would attenuate unwanted frequency content in a signal whilst retaining the physiological frequency content.</p></div><div class="alert alert-block alert-info"><p><b>Extension:</b> If you've not seen it before, then have a look at the <a href= https://docs.scipy.org/doc/scipy/reference/signal.html>SciPy signal processing package</a>. How might it be helpful for processing PPG signals?</p></div><div class="section" id="setup">
+<div class="alert alert-block alert-warning"><p><b>Context:</b> Filtering is used to eliminate noise from physiological signals. For instance, ECG signals can contain mains frequency noise due to electrical interference. Ideally, a filter would attenuate unwanted frequency content in a signal whilst retaining the physiological frequency content.</p></div><div class="alert alert-block alert-info"><p><b>Extension:</b> If you've not seen it before, then have a look at the <a href= https://docs.scipy.org/doc/scipy/reference/signal.html>SciPy signal processing package</a>. How might it be helpful for processing PPG signals?</p></div><section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p><em>The following steps have been covered in previous tutorials. We’ll just re-use the previous code here.</em></p>
 <div class="cell docutils container">
@@ -586,9 +587,9 @@ Requirement already satisfied: pycparser in /Users/petercharlton/anaconda3/lib/p
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="extract-one-minute-of-noisy-ppg-signal-from-this-segment">
+<section id="extract-one-minute-of-noisy-ppg-signal-from-this-segment">
 <h2>Extract one minute of noisy PPG signal from this segment<a class="headerlink" href="#extract-one-minute-of-noisy-ppg-signal-from-this-segment" title="Permalink to this headline">¶</a></h2>
 <p><em>These steps have been covered in previous tutorials, so we’ll just re-use the code here.</em></p>
 <div class="cell docutils container">
@@ -627,9 +628,9 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="create-a-filter">
+<section id="create-a-filter">
 <h2>Create a filter<a class="headerlink" href="#create-a-filter" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Import the <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/signal.html">SciPy signal processing package</a>, which contains functions for filtering and differentiating.</p></li>
@@ -697,9 +698,9 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 <img alt="../../_images/signal-filtering_18_0.png" src="../../_images/signal-filtering_18_0.png" />
 </div>
 </div>
-<div class="alert alert-block alert-info"><p><b>Question:</b> What does this plot tell us about the filter characteristics? What types of noise does the filter attenuate?</p></div><div class="alert alert-block alert-warning"><p><b>Explanation:</b> This function generates the co-efficients for a Butterworth filter. The filter-type is specified as 'bp' - a bandpass filtter. The filter frequencies are specified in Hz (because the sampling frequency, fs, has also been specified): a high-pass frequency of 0.7 Hz, and a low-pass frequency of 10 Hz.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> The filter designed here has an order of 10. What would be the impact of reducing the order, to say 4?</p></div><div class="alert alert-block alert-info"><p><b>Extension 1:</b> How could we re-design the filter to retain frequency content of up to 20 Hz, but eliminate mains frequencies?</p></div><div class="alert alert-block alert-info"><p><b>Extension 2:</b> What would be appropriate cut-off frequencies when using the PPG for different purposes, e.g. heart rate monitoring, or blood pressure estimation? See <a href="http://peterhcharlton.github.io/publication/wearable_ppg_chapter/">this book chapter</a> (Sections 2.2.4 to 2.2.5 on Sampling Frequency and Bandwidth) for details.</p></div></div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> What does this plot tell us about the filter characteristics? What types of noise does the filter attenuate?</p></div><div class="alert alert-block alert-warning"><p><b>Explanation:</b> This function generates the co-efficients for a Butterworth filter. The filter-type is specified as 'bp' - a bandpass filtter. The filter frequencies are specified in Hz (because the sampling frequency, fs, has also been specified): a high-pass frequency of 0.7 Hz, and a low-pass frequency of 10 Hz.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> The filter designed here has an order of 10. What would be the impact of reducing the order, to say 4?</p></div><div class="alert alert-block alert-info"><p><b>Extension 1:</b> How could we re-design the filter to retain frequency content of up to 20 Hz, but eliminate mains frequencies?</p></div><div class="alert alert-block alert-info"><p><b>Extension 2:</b> What would be appropriate cut-off frequencies when using the PPG for different purposes, e.g. heart rate monitoring, or blood pressure estimation? See <a href="http://peterhcharlton.github.io/publication/wearable_ppg_chapter/">this book chapter</a> (Sections 2.2.4 to 2.2.5 on Sampling Frequency and Bandwidth) for details.</p></div></section>
 <hr class="docutils" />
-<div class="section" id="filter-the-ppg-signal">
+<section id="filter-the-ppg-signal">
 <h2>Filter the PPG signal<a class="headerlink" href="#filter-the-ppg-signal" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Filter the PPG signal</p></li>
@@ -743,12 +744,12 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 <img alt="../../_images/signal-filtering_28_0.png" src="../../_images/signal-filtering_28_0.png" />
 </div>
 </div>
-<div class="alert alert-block alert-warning"><p><b>Note:</b> The PPG signals in MIMIC have already been filtered somewhat by the clinical monitors used to record them.</p></div><div class="alert alert-block alert-info"><p><b>Further work:</b> Several different types of filters have been used to filter the PPG signal (e.g. Chebyshev filter, Butterworth filter). Have a look at <a href="https://doi.org/10.1038/sdata.2018.76">this article</a> for examples of several filter types (on pp.8-9). Which type of filter do the authors recommend? Can you re-design the filter above to use this type of filter?</p></div></div>
-<div class="section" id="prepare-a-segment-of-clean-ppg-signal-for-differentiation">
+<div class="alert alert-block alert-warning"><p><b>Note:</b> The PPG signals in MIMIC have already been filtered somewhat by the clinical monitors used to record them.</p></div><div class="alert alert-block alert-info"><p><b>Further work:</b> Several different types of filters have been used to filter the PPG signal (e.g. Chebyshev filter, Butterworth filter). Have a look at <a href="https://doi.org/10.1038/sdata.2018.76">this article</a> for examples of several filter types (on pp.8-9). Which type of filter do the authors recommend? Can you re-design the filter above to use this type of filter?</p></div></section>
+<section id="prepare-a-segment-of-clean-ppg-signal-for-differentiation">
 <h2>Prepare a segment of clean PPG signal for differentiation<a class="headerlink" href="#prepare-a-segment-of-clean-ppg-signal-for-differentiation" title="Permalink to this headline">¶</a></h2>
 <p>We’ll now extract a segment of clean PPG signal, which we’ll use to show the process of differentiation.</p>
 <p><em>These first few steps are repeated from earlier in this tutorial.</em></p>
-<div class="section" id="extract-data">
+<section id="extract-data">
 <h3>Extract data<a class="headerlink" href="#extract-data" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Specify the segment</p></li>
@@ -801,8 +802,8 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filter-this-signal-segment">
+</section>
+<section id="filter-this-signal-segment">
 <h3>Filter this signal segment<a class="headerlink" href="#filter-this-signal-segment" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Filter the PPG signal</p></li>
@@ -814,8 +815,8 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-signal">
+</section>
+<section id="plot-the-signal">
 <h3>Plot the signal<a class="headerlink" href="#plot-the-signal" title="Permalink to this headline">¶</a></h3>
 <p>Plot the original and the filtered PPG signal</p>
 <ul class="simple">
@@ -860,11 +861,11 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 <ul class="simple">
 <li><p>We will use the filtered signal instead of the original PPG from now on.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="differentiate-the-ppg-signal">
+</section>
+</section>
+<section id="differentiate-the-ppg-signal">
 <h2>Differentiate the PPG signal<a class="headerlink" href="#differentiate-the-ppg-signal" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="differentiate-using-savitzky-golay-filtering">
+<section id="differentiate-using-savitzky-golay-filtering">
 <h3>Differentiate using Savitzky-Golay filtering<a class="headerlink" href="#differentiate-using-savitzky-golay-filtering" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Differentiate it once and twice using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzky-Golay filtering</a> function in SciPy</p></li>
@@ -880,8 +881,8 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-warning"><p><b>Resource:</b> Savitzky-Golay filtering, which is used here to calculate derivatives, is described in <a href="https://doi.org/10.1021/ac60214a047">this article</a>.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> Can you summarise how Savitzky-Golay filtering works? What are its advantages in physiological signal processing?</p></div></div>
-<div class="section" id="plot-the-ppg-and-its-derivatives">
+<div class="alert alert-block alert-warning"><p><b>Resource:</b> Savitzky-Golay filtering, which is used here to calculate derivatives, is described in <a href="https://doi.org/10.1021/ac60214a047">this article</a>.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> Can you summarise how Savitzky-Golay filtering works? What are its advantages in physiological signal processing?</p></div></section>
+<section id="plot-the-ppg-and-its-derivatives">
 <h3>Plot the PPG and its derivatives<a class="headerlink" href="#plot-the-ppg-and-its-derivatives" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -912,15 +913,15 @@ Extracted the PPG signal from column 4 of the matrix of waveform data.
 <div class="alert alert-block alert-info"><p><b>Question:</b> How would the derivatives have looked different if the PPG signal hadn't been filtered before differentiation? <br> <b>Hint:</b> In the differentiation step above, try replacing 'ppg_filt' with 'ppg'.</p></div><div class="alert alert-block alert-info"><p><b>Question:</b> How would the derivatives have been different if the PPG signal had been filtered using different co-efficients?
     <br> <b>Hint:</b> Above, try replacing the relatively wide band-pass frequencies '[0.7, 10]' with '[0.8, 3]'. 
     <br> <b>Consider:</b> Which band-pass frequencies would be most suitable for pulse wave analysis? How about heart rate estimation?</p>
-</div></div>
-<div class="section" id="comparison-with-a-typical-ppg-pulse-wave">
+</div></section>
+<section id="comparison-with-a-typical-ppg-pulse-wave">
 <h3>Comparison with a typical PPG pulse wave<a class="headerlink" href="#comparison-with-a-typical-ppg-pulse-wave" title="Permalink to this headline">¶</a></h3>
 <p>The figure below shows a typical PPG pulse wave recorded from a young, healthy subject.</p>
 <p><img alt="pic" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Photoplethysmogram_%28PPG%29_pulse_wave_fiducial_points.svg" /></p>
 <p><em>Source: Charlton PH, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Photoplethysmogram_%5C(PPG%5C)_pulse_wave_fiducial_points.svg">Photoplethysmogram (PPG) pulse wave fiducial points</a>, Wikimedia Commons (CC BY 4.0).</em></p>
-<div class="alert alert-block alert-info"><p><b>Question:</b> How does this pulse wave shape and derivatives compare to the shape of those obtained from MIMIC data above? What might explain the differences?</p></div><div class="alert alert-block alert-info"><p><b>Extension:</b> Try using 'rel_segment_n=3' above (i.e. analysing segment '82439920_0004'). How do the pulse waves in this signal compare? What might that tell us about this patient?</p></div><div class="alert alert-block alert-warning"><p><b>Further reading:</b> <a href="https://doi.org/10.1161/01.HYP.32.2.365">this article</a> provides further information on how age affects the shape of the PPG's second derivative.</p></div></div>
-</div>
-</div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> How does this pulse wave shape and derivatives compare to the shape of those obtained from MIMIC data above? What might explain the differences?</p></div><div class="alert alert-block alert-info"><p><b>Extension:</b> Try using 'rel_segment_n=3' above (i.e. analysing segment '82439920_0004'). How do the pulse waves in this signal compare? What might that tell us about this patient?</p></div><div class="alert alert-block alert-warning"><p><b>Further reading:</b> <a href="https://doi.org/10.1161/01.HYP.32.2.365">this article</a> provides further information on how age affects the shape of the PPG's second derivative.</p></div></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

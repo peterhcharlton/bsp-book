@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>QRS peak detection &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -51,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Signal Quality Assessment" href="../signal-quality-assessment.html" />
+    <link rel="next" title="Data modelling" href="../data-modelling.html" />
     <link rel="prev" title="Future Tutorials" href="../../about/future-tutorials.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -485,7 +486,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="qrs-peak-detection">
+  <section id="qrs-peak-detection">
 <h1>QRS peak detection<a class="headerlink" href="#qrs-peak-detection" title="Permalink to this headline">¶</a></h1>
 <p>Detection of cardiac cycles from ECG signals</p>
 <div class="cell docutils container">
@@ -502,8 +503,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="download-records">
+</section>
+<section id="download-records">
 <h1>Download records<a class="headerlink" href="#download-records" title="Permalink to this headline">¶</a></h1>
 <p>Identify and download records in the MIMIC III Waveform Database</p>
 <div class="cell docutils container">
@@ -534,8 +535,8 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/qrs-detection_3_1.png" src="../../_images/qrs-detection_3_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="separate-records">
+</section>
+<section id="separate-records">
 <h1>Separate records<a class="headerlink" href="#separate-records" title="Permalink to this headline">¶</a></h1>
 <p>Separate ECG, PPG and ABP signals</p>
 <div class="cell docutils container">
@@ -602,8 +603,8 @@ PPG at position 2
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filter-data">
+</section>
+<section id="filter-data">
 <h1>Filter data<a class="headerlink" href="#filter-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,10 +653,10 @@ PPG at position 2
 <img alt="../../_images/qrs-detection_8_0.png" src="../../_images/qrs-detection_8_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="qrs-detection">
+</section>
+<section id="qrs-detection">
 <h1>QRS detection<a class="headerlink" href="#qrs-detection" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="define-qrs-detector-functions">
+<section id="define-qrs-detector-functions">
 <h2>Define QRS detector functions<a class="headerlink" href="#define-qrs-detector-functions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -986,8 +987,8 @@ PPG at position 2
 <img alt="../../_images/qrs-detection_13_1.png" src="../../_images/qrs-detection_13_1.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1028,10 +1029,10 @@ PPG at position 2
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../signal-quality-assessment.html" title="next page">
+        <a class="right-next" href="../data-modelling.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Signal Quality Assessment</p>
+                <p class="prevnext-title">Data modelling</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

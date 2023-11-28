@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Exploring MIMIC-III &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -202,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -300,11 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -487,7 +488,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#setup-1">
      Setup
     </a>
    </li>
@@ -546,7 +547,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="exploring-mimic-iii">
+  <section id="exploring-mimic-iii">
 <h1>Exploring MIMIC-III<a class="headerlink" href="#exploring-mimic-iii" title="Permalink to this headline">¶</a></h1>
 <p>Let’s begin by exploring data in the MIMIC-III Waveform Database.</p>
 <p>Our <strong>objectives</strong> are to:</p>
@@ -561,9 +562,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="alert alert-block alert-warning">
 <p><b>Resource:</b> You can find out more about the MIMIC-III Waveform Database <a href="https://physionet.org/content/mimic3wdb/1.0/">here</a>.</p>
 </div><hr class="docutils" />
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="specify-the-required-python-packages">
+<section id="specify-the-required-python-packages">
 <h3>Specify the required Python packages<a class="headerlink" href="#specify-the-required-python-packages" title="Permalink to this headline">¶</a></h3>
 <p>We’ll import the following:</p>
 <ul class="simple">
@@ -578,8 +579,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="specify-a-particular-version-of-the-wfdb-toolbox">
+</section>
+<section id="specify-a-particular-version-of-the-wfdb-toolbox">
 <h3>Specify a particular version of the WFDB Toolbox<a class="headerlink" href="#specify-a-particular-version-of-the-wfdb-toolbox" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><em>wfdb</em>: For this workshop we will be using version 4 of the WaveForm DataBase (WFDB) Toolbox package. The package contains tools for processing waveform data such as those found in MIMIC:</p></li>
@@ -595,8 +596,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="alert alert-block alert-warning">
 <p><b>Resource:</b> You can find out more about the WFDB package <a href="https://physionet.org/content/wfdb-python/3.4.1/">here</a>.</p>
 </div><p>Now that we have imported these packages (<em>i.e.</em> toolboxes) we have a set of tools (functions) ready to use.</p>
-</div>
-<div class="section" id="specify-the-name-of-the-mimic-waveform-database">
+</section>
+<section id="specify-the-name-of-the-mimic-waveform-database">
 <h3>Specify the name of the MIMIC Waveform Database<a class="headerlink" href="#specify-the-name-of-the-mimic-waveform-database" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Specify the name of the MIMIC-III Matched Waveform Database on Physionet, which comes from the URL: <a class="reference external" href="https://physionet.org/content/mimic3wdb-matched/1.0/">https://physionet.org/content/mimic3wdb-matched/1.0/</a></p></li>
@@ -608,12 +609,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="identify-the-records-in-the-database">
+<section id="identify-the-records-in-the-database">
 <h2>Identify the records in the database<a class="headerlink" href="#identify-the-records-in-the-database" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="get-a-list-of-records">
+<section id="get-a-list-of-records">
 <h3>Get a list of records<a class="headerlink" href="#get-a-list-of-records" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.get_record_list"><code class="docutils literal notranslate"><span class="pre">get_record_list</span></code></a> function from the WFDB toolbox to get a list of records in the database.</p></li>
@@ -672,8 +673,8 @@ Loaded 106 records from the &#39;mimic3wdb-matched/1.0&#39; database.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="look-at-the-records">
+</section>
+<section id="look-at-the-records">
 <h3>Look at the records<a class="headerlink" href="#look-at-the-records" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Display the first few records</p></li>
@@ -713,16 +714,16 @@ Note the formatting of these records:
 </div>
 <div class="alert alert-block alert-info">
 <p><b>Q:</b> Can you print the names of the last five records? <br> <b>Hint:</b> in Python, the last five elements can be specified using '[-5:]'</p>
-</div></div>
-</div>
-<div class="section" id="identify-records-suitable-for-analysis">
+</div></section>
+</section>
+<section id="identify-records-suitable-for-analysis">
 <h2>Identify records suitable for analysis<a class="headerlink" href="#identify-records-suitable-for-analysis" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The signals and their durations vary from one record (and segment) to the next.</p></li>
 <li><p>Since most studies require specific types of signals (e.g. blood pressure and photoplethysmography signals), we need to be able to identify which records (or segments) contain the required signals and duration.</p></li>
 </ul>
-<div class="section" id="id1">
-<h3>Setup<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="setup-1">
+<h3>Setup<a class="headerlink" href="#setup-1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -743,8 +744,8 @@ Note the formatting of these records:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="specify-requirements">
+</section>
+<section id="specify-requirements">
 <h3>Specify requirements<a class="headerlink" href="#specify-requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Required signals</p></li>
@@ -773,8 +774,8 @@ Note the formatting of these records:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="find-out-how-many-records-meet-the-requirements">
+</section>
+<section id="find-out-how-many-records-meet-the-requirements">
 <h3>Find out how many records meet the requirements<a class="headerlink" href="#find-out-how-many-records-meet-the-requirements" title="Permalink to this headline">¶</a></h3>
 <p><em>NB: This step may take a while. The results are copied below to save running it yourself.</em></p>
 <div class="cell docutils container">
@@ -1081,9 +1082,9 @@ The corresponding directories are:
 </div>
 <div class="alert alert-block alert-info">
 <p><b>Question:</b> Is this enough data for a study? Consider different types of studies, e.g. assessing the performance of a previously proposed algorithm to estimate BP from the PPG signal, vs. developing a deep learning approach to estimate BP from the PPG.</p>
-</div></div>
-</div>
-<div class="section" id="extract-data-for-a-segment">
+</div></section>
+</section>
+<section id="extract-data-for-a-segment">
 <h2>Extract data for a segment<a class="headerlink" href="#extract-data-for-a-segment" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Provide a list of segments which meet the requirements for the study</p></li>
@@ -1168,10 +1169,10 @@ They last for 179.8 minutes
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualise-the-signals">
+</section>
+<section id="visualise-the-signals">
 <h2>Visualise the signals<a class="headerlink" href="#visualise-the-signals" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="select-a-segment">
+<section id="select-a-segment">
 <h3>Select a segment<a class="headerlink" href="#select-a-segment" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Specify a segment from which to extract data</p></li>
@@ -1191,8 +1192,8 @@ They last for 179.8 minutes
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="extract-one-minute-of-data-from-this-segment">
+</section>
+<section id="extract-one-minute-of-data-from-this-segment">
 <h3>Extract one minute of data from this segment<a class="headerlink" href="#extract-one-minute-of-data-from-this-segment" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Specify the timings of the data to be extracted</p></li>
@@ -1248,8 +1249,8 @@ They last for 179.8 minutes
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-extracted-signals">
+</section>
+<section id="plot-the-extracted-signals">
 <h3>Plot the extracted signals<a class="headerlink" href="#plot-the-extracted-signals" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Plot the extracted signals using the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/plot.html#wfdb.plot.plot_wfdb">plot_wfdb</a> function from the WFDB Toolbox.</p></li>
@@ -1309,8 +1310,8 @@ They last for 179.8 minutes
 <img alt="../../_images/data-exploration3_73_1.png" src="../../_images/data-exploration3_73_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="compare-this-to-pulse-waves-from-the-literature">
+</section>
+<section id="compare-this-to-pulse-waves-from-the-literature">
 <h3>Compare this to pulse waves from the literature<a class="headerlink" href="#compare-this-to-pulse-waves-from-the-literature" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Compare the pulse waves above to the different shapes of pulse waves shown here:</p></li>
@@ -1318,9 +1319,9 @@ They last for 179.8 minutes
 <p><img alt="PPG pulse waves" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg" /></p>
 <p>Source: <em>Charlton PH et al., ‘Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet’, <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">https://doi.org/10.1152/ajpheart.00392.2021</a> (CC BY 4.0)</em></p>
 <p>These pulse waves are the typical shapes for young (class 1) to old (class 4) subjects.</p>
-<div class="alert alert-block alert-info"><p><b>Question:</b> How do these pulse waves compare to those extracted from the MIMIC Database? Which is most similar?</p></div></div>
-</div>
-</div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> How do these pulse waves compare to those extracted from the MIMIC Database? Which is most similar?</p></div></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

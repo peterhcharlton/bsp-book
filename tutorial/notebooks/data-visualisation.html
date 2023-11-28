@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Data Visualisation &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -200,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -298,11 +304,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -471,7 +472,7 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="data-visualisation">
+  <section id="data-visualisation">
 <h1>Data Visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we’ll visualise the signals in a MIMIC Waveform record.</p>
 <p>Our <strong>objectives</strong> are to:</p>
@@ -480,7 +481,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Look more closely at the shape of the PPG pulse waves</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-block alert-warning">
 <p><b>Resource:</b> These steps are taken from the <a href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration</a> tutorial.</p>
@@ -576,9 +577,9 @@ Successfully installed wfdb-4.0.0
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="extract-one-minute-of-data-from-this-segment">
+<section id="extract-one-minute-of-data-from-this-segment">
 <h2>Extract one minute of data from this segment<a class="headerlink" href="#extract-one-minute-of-data-from-this-segment" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Specify the timings of the data to be extracted</p></li>
@@ -634,9 +635,9 @@ Successfully installed wfdb-4.0.0
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="plot-the-extracted-signals">
+<section id="plot-the-extracted-signals">
 <h2>Plot the extracted signals<a class="headerlink" href="#plot-the-extracted-signals" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Plot the extracted signals using the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/plot.html#wfdb.plot.plot_wfdb">plot_wfdb</a> function from the WFDB Toolbox.</p></li>
@@ -696,9 +697,9 @@ Successfully installed wfdb-4.0.0
 <img alt="../../_images/data-visualisation_26_1.png" src="../../_images/data-visualisation_26_1.png" />
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="compare-this-to-pulse-waves-from-the-literature">
+<section id="compare-this-to-pulse-waves-from-the-literature">
 <h2>Compare this to pulse waves from the literature<a class="headerlink" href="#compare-this-to-pulse-waves-from-the-literature" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Compare the pulse waves above to the different shapes of pulse waves shown here:</p></li>
@@ -706,8 +707,8 @@ Successfully installed wfdb-4.0.0
 <p><img alt="PPG pulse waves" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg" /></p>
 <p>Source: <em>Charlton PH et al., ‘Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet’, <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">https://doi.org/10.1152/ajpheart.00392.2021</a> (CC BY 4.0)</em></p>
 <p>These pulse waves are the typical shapes for young (class 1) to old (class 4) subjects.</p>
-<div class="alert alert-block alert-info"><p><b>Question:</b> How do these pulse waves compare to those extracted from the MIMIC Database? Which is most similar?</p></div></div>
-</div>
+<div class="alert alert-block alert-info"><p><b>Question:</b> How do these pulse waves compare to those extracted from the MIMIC Database? Which is most similar?</p></div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {

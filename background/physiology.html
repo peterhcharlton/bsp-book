@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Physiology &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -204,6 +205,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../tutorial/notebooks/signal-quality-assessment.html">
+     Signal quality assessment
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../tutorial/notebooks/pulse-arrival-time.html">
      Pulse Arrival Time
     </a>
@@ -302,11 +308,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../tutorial/notebooks/qrs-detection.html">
        QRS peak detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../tutorial/signal-quality-assessment.html">
-       Signal Quality Assessment
       </a>
      </li>
      <li class="toctree-l3">
@@ -480,33 +481,37 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="physiology">
+  <section id="physiology">
 <h1>Physiology<a class="headerlink" href="#physiology" title="Permalink to this headline">¶</a></h1>
 <p>This section provides an overview of the physiology of ECG and PPG signals which underpins both cuffless blood pressure estimation and the assessment of vascular age.</p>
-<div class="section" id="arterial-stiffness-pulse-wave-velocity-blood-pressure-and-vascular-ageing">
+<section id="arterial-stiffness-pulse-wave-velocity-blood-pressure-and-vascular-ageing">
 <h2>Arterial stiffness, pulse wave velocity, blood pressure and vascular ageing<a class="headerlink" href="#arterial-stiffness-pulse-wave-velocity-blood-pressure-and-vascular-ageing" title="Permalink to this headline">¶</a></h2>
 <p>Arterial stiffness and pulse wave velocity are strongly related. ‘Arterial stiffness’ (the stiffness of arterial walls) is a key determinant of pulse wave velocity (PWV, the speed at which the pulse wave travels from the heart to the periphery). PWV increases with arterial stiffness, as expressed in the Moens-Korteweg equation (see <a class="reference external" href="https://doi.org/10.1038/s41598-017-05807-x">here</a>). Arterial stiffness and PWV increase with age (see <a class="reference external" href="https://doi.org/10.1093/eurheartj/ehq165">here</a>): this is an aspect of vascular ageing.</p>
 <p>Blood pressure is also related, because arterial stiffness (and consequently PWV) increase with blood pressure. This is because as blood pressure increases, the arterial walls stretch further, and stiffness of the arterial walls increases as they distend.</p>
 <p>Blood pressure and vascular ageing can be assessed from ECG and PPG signals based on these changes in arterial stiffness and PWV. Blood pressure can be estimated from ECG and PPG signals because blood pressure is linked to PWV, which in turn influences these signals. As blood pressure increases, the stiffness of the arteries increases, and therefore the speed at which the pulse wave travels from the heart to the periphery (the pulse wave velocity) increases. Therefore, blood pressure can be estimated from the time taken for the pulse wave to travel through the arteries. Similarly, the impact of vascular ageing on arterial stiffness can be assessed from this time delay.</p>
-</div>
-<div class="section" id="electrocardiogram-ecg">
+</section>
+<section id="electrocardiogram-ecg">
 <h2>Electrocardiogram (ECG)<a class="headerlink" href="#electrocardiogram-ecg" title="Permalink to this headline">¶</a></h2>
 <p>The electrocardiogram (ECG) (introduced in the <a class="reference internal" href="signals.html#content-signals-ecg"><span class="std std-ref">Electrocardiogram</span></a> Section) can be used to identify the time of the electrical impulse which initiates ventricular contraction and occurs shortly before blood is ejected from the heart into the aorta. This is indicated by the R-wave, which is the dominant feature of an ECG signal, as shown in <a class="reference internal" href="#ecg-waves"><span class="std std-numref">Fig. 17</span></a>.</p>
-<div class="figure align-default" id="ecg-waves">
+<figure class="align-default" id="ecg-waves">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/5/53/SinusRhythmLabels.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/5/53/SinusRhythmLabels.png" src="https://upload.wikimedia.org/wikipedia/commons/5/53/SinusRhythmLabels.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text"><strong>ECG waves.</strong> <em>Source: Agateller (Anthony Atkielski), <a class="reference external" href="https://en.wikipedia.org/wiki/File:SinusRhythmLabels.png">Sinus rhythm labels</a>, Wikimedia Commons (Public Domain).</em></span><a class="headerlink" href="#ecg-waves" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><strong>ECG waves.</strong> <em>Source: Agateller (Anthony Atkielski), <a class="reference external" href="https://en.wikipedia.org/wiki/File:SinusRhythmLabels.png">Sinus rhythm labels</a>, Wikimedia Commons (Public Domain).</em></span><a class="headerlink" href="#ecg-waves" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Therefore, the ECG provides a useful marker of the approximate time of the heart beating, but it has the limitation that it doesn’t provide the exact time at which blood is pumped into the circulation. Instead, it provides an earlier time, which precedes the actual time of blood being pumped by a short time known as the ‘pre-ejection period’ (see <a class="reference external" href="https://doi.org/10.1088/1361-6579/aada72">here</a> for further details).</p>
-</div>
-<div class="section" id="photoplethysmogram-ppg">
+</section>
+<section id="photoplethysmogram-ppg">
 <h2>Photoplethysmogram (PPG)<a class="headerlink" href="#photoplethysmogram-ppg" title="Permalink to this headline">¶</a></h2>
 <p>The photoplethysmogram (PPG) (introduced in the <a class="reference internal" href="signals.html#content-signals-ppg"><span class="std std-ref">Photoplethysmogram</span></a> Section) can be used to identify the time at which the arterial pulse wave arrives at the measurement site. As shown in <a class="reference internal" href="#ppg-origins"><span class="std std-numref">Fig. 18</span></a>, the PPG signal is dominated by variations in arterial blood volume which occur when the pulse wave arrives at the measurement site. The time at which the pulse wave arrives can be obtained from the onset of the PPG pulse wave (i.e. the start of the upslope).</p>
-<div class="figure align-default" id="ppg-origins">
+<figure class="align-default" id="ppg-origins">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/a/ad/Photoplethysmogram_signal_components.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/ad/Photoplethysmogram_signal_components.svg" src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Photoplethysmogram_signal_components.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text"><strong>The origins of the Photoplethysmogram (PPG) signal.</strong> <em>Source: Charlton PH, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Photoplethysmogram_signal_components.svg">Photoplethysmogram signal components</a>, Wikimedia Commons (CC BY 4.0).</em></span><a class="headerlink" href="#ppg-origins" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="blood-pressure-estimation">
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text"><strong>The origins of the Photoplethysmogram (PPG) signal.</strong> <em>Source: Charlton PH, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Photoplethysmogram_signal_components.svg">Photoplethysmogram signal components</a>, Wikimedia Commons (CC BY 4.0).</em></span><a class="headerlink" href="#ppg-origins" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="blood-pressure-estimation">
 <h2>Blood pressure estimation<a class="headerlink" href="#blood-pressure-estimation" title="Permalink to this headline">¶</a></h2>
 <p>Broadly, there are three approaches for cuffless blood pressure estimation, as illustrated in <a class="reference internal" href="#estimating-bp"><span class="std std-numref">Fig. 19</span></a>. These are based on the observation that the speed with which the pulse wave propagates increases with blood pressure (linked via arterial stiffness):</p>
 <ul class="simple">
@@ -514,12 +519,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>measuring the pulse arrival time (PAT) between a marker of ventricular contraction, and the arrival of a pulse wave (preferably at a peripheral site)</p></li>
 <li><p>estimating BP from the shape of a pulse wave (such as a photoplethysmography, PPG, pulse wave), since changes in pulse wave velocity and BP influence the shapes of pulse waves.</p></li>
 </ul>
-<div class="figure align-default" id="estimating-bp">
+<figure class="align-default" id="estimating-bp">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Estimating_blood_pressure_from_the_photoplethysmogram.pdf/page1-1024px-Estimating_blood_pressure_from_the_photoplethysmogram.pdf.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text"><strong>Three approaches to estimate blood pressure from ECG and PPG signals.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Estimating_blood_pressure_from_the_photoplethysmogram.pdf">Estimating blood pressure from the photoplethysmogram</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#estimating-bp" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="vascular-age-assessment">
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><strong>Three approaches to estimate blood pressure from ECG and PPG signals.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Estimating_blood_pressure_from_the_photoplethysmogram.pdf">Estimating blood pressure from the photoplethysmogram</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#estimating-bp" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vascular-age-assessment">
 <h2>Vascular age assessment<a class="headerlink" href="#vascular-age-assessment" title="Permalink to this headline">¶</a></h2>
 <p>Similarly to blood pressure estimation, there are broadly three approaches to assessing vascular age from PPG and ECG signals, as illustrated in <a class="reference internal" href="#assessing-vasc-age"><span class="std std-numref">Fig. 20</span></a>. These are based on the observation that the speed with which the pulse wave propagates increases with blood pressure (linked via arterial stiffness):</p>
 <ul class="simple">
@@ -527,38 +534,42 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>measuring the pulse arrival time (PAT) between a marker of ventricular contraction, and the arrival of a pulse wave (preferably at a peripheral site)</p></li>
 <li><p>estimating BP from the shape of a pulse wave (such as a photoplethysmography, PPG, pulse wave), since changes in pulse wave velocity influence the shapes of pulse waves.</p></li>
 </ul>
-<div class="figure align-default" id="assessing-vasc-age">
+<figure class="align-default" id="assessing-vasc-age">
 <img alt="../_images/assessing-vasc-age.jpg" src="../_images/assessing-vasc-age.jpg" />
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text"><strong>Three approaches to assessing vascular age from ECG and PPG signals.</strong> <em>Source: PH Charlton et al., <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#assessing-vasc-age" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="parameters">
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text"><strong>Three approaches to assessing vascular age from ECG and PPG signals.</strong> <em>Source: PH Charlton et al., <a class="reference external" href="https://doi.org/10.1152/ajpheart.00392.2021">Assessing hemodynamics from the photoplethysmogram to gain insights into vascular age: a review from VascAgeNet</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#assessing-vasc-age" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <p>The three approaches to estimate blood pressure or assess vascular age from ECG and PPG signals are now described.</p>
-<div class="section" id="pulse-transit-time">
+<section id="pulse-transit-time">
 <h3>Pulse transit time<a class="headerlink" href="#pulse-transit-time" title="Permalink to this headline">¶</a></h3>
 <p>Blood pressure and vascular ageing can be assessed from the pulse transit time, the time delay between two PPG pulse waves, where one is measured closer to the heart, and one further away. This pulse transit time is related to pulse wave velocity:</p>
 <div class="math notranslate nohighlight" id="equation-pwv">
 <span class="eqno">(1)<a class="headerlink" href="#equation-pwv" title="Permalink to this equation">¶</a></span>\[\mathrm{pulse} \, \mathrm{wave} \, \mathrm{velocity} = \frac{\mathrm{distance} \, \mathrm{travelled}}{\mathrm{pulse} \, \mathrm{transit} \, \mathrm{time}}\]</div>
 <p>Pulse wave velocity is in turn related to blood pressure. The distance travelled by the pulse wave between the two PPG measurement sites is often unknown, introducing additional uncertainty into the relationship between the measured pulse transit time and the true blood pressure or arterial stiffness.</p>
-</div>
-<div class="section" id="pulse-arrival-time">
+</section>
+<section id="pulse-arrival-time">
 <h3>Pulse arrival time<a class="headerlink" href="#pulse-arrival-time" title="Permalink to this headline">¶</a></h3>
 <p>Blood pressure and vascular ageing can be assessed from the pulse arrival time, the time delay between the ECG R-wave and the arrival of a PPG pulse wave. The pulse arrival time is related to pulse transit time by:</p>
 <div class="math notranslate nohighlight" id="equation-pat">
 <span class="eqno">(2)<a class="headerlink" href="#equation-pat" title="Permalink to this equation">¶</a></span>\[\mathrm{pulse} \, \mathrm{arrival} \, \mathrm{time} = \mathrm{pulse} \, \mathrm{transit} \, \mathrm{time} + \mathrm{pre} \, \mathrm{ejection} \, \mathrm{period}\]</div>
 <p>The pre-ejection period can vary both between subjects, and also over time for an individual subject. Consequently, the use of pulse arrival time introduces additional uncertainty into the assessment of blood pressure or arterial stiffness beyond that of using pulse transit time.</p>
-</div>
-<div class="section" id="pulse-wave-shape">
+</section>
+<section id="pulse-wave-shape">
 <h3>Pulse wave shape<a class="headerlink" href="#pulse-wave-shape" title="Permalink to this headline">¶</a></h3>
 <p>Blood pressure and vascular ageing can be assessed from the shape of a PPG pulse wave. The shape of the pulse wave changes with vascular ageing and blood pressure as demonstrated in <a class="reference internal" href="#ppg-classes"><span class="std std-numref">Fig. 21</span></a>. The higher classes are associated with older subjects and higher blood pressures.</p>
-<div class="figure align-default" id="ppg-classes">
+<figure class="align-default" id="ppg-classes">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg/1024px-Classes_of_photoplethysmogram_%28PPG%29_pulse_wave_shape.svg.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text"><strong>Classes of PPG pulse wave shape.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg">Classes of photoplethysmogram (PPG) pulse wave shape</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#ppg-classes" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><strong>Classes of PPG pulse wave shape.</strong> <em>Source: PH Charlton, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Classes_of_photoplethysmogram_(PPG)_pulse_wave_shape.svg">Classes of photoplethysmogram (PPG) pulse wave shape</a>, <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></span><a class="headerlink" href="#ppg-classes" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
