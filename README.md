@@ -16,7 +16,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://peterhcharlton.github.io/"><img src="https://avatars.githubusercontent.com/u/9865941?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Peter H Charlton</b></sub></a><br /><a href="#design-peterhcharlton" title="Design">🎨</a></td>
+    <td align="center"><a href="https://peterhcharlton.github.io/"><img src="https://avatars.githubusercontent.com/u/9865941?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Peter H Charlton</b></sub></a><br /><a href="#design-peterhcharlton" title="Design">🎨🖋</a></td>
+    <td align="center"><a href="https://www.researchgate.net/profile/Marton-Goda"><img src="https://i1.rgstatic.net/ii/profile.image/11431281095286956-1667828620916_Q512/Marton-Goda.jpg" width="100px;" alt=""/><br /><sub><b>Marton Aron Goda</b></sub></a><br /><a href="#design-martonarongoda" title="Content">🖋</a></td>
+    <td align="center"><a href="#"><img src="" width="100px;" alt=""/><br /><sub><b>Zixuan Ding</b></sub></a><br /><a href="#design-zixuanding" title="Content">🖋</a></td>
   </tr>
 </table>
 
