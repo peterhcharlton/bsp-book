@@ -7,6 +7,7 @@ Follow the links to explore tutorials on signal processing and machine learning 
 - [Exploring the Pulse Transit Time PPG Dataset](../tutorial/notebooks/data-exploration2)
 - [Exploring the MIMIC-IV Database](../tutorial/notebooks/data-exploration)
 - [Exploring the MIMIC-III Database](../tutorial/notebooks/data-exploration3)
+- [Exploring the OpenOximetry Repository](../tutorial/notebooks/data-exploration4)
 
 ## Signal processing
 
