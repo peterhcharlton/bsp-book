@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Extraction &#8212; Signal Processing and Learning for Wearables</title>
+    <title>Exploring OpenOx &#8212; Signal Processing and Learning for Wearables</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Filtering Signals" href="signal-filtering.html" />
+    <link rel="prev" title="Exploring MIMIC-III" href="data-exploration3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,7 +90,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../overview.html">
    Overview
@@ -165,16 +167,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../../tutorials.html">
    Tutorials
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="data-exploration2.html">
      Exploring PTT-PPG
@@ -190,8 +192,8 @@ const thebe_selector_output = ".output, .cell_output"
      Exploring MIMIC-III
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="data-exploration4.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Exploring OpenOx
     </a>
    </li>
@@ -376,7 +378,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/tutorial/notebooks/data-extraction.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/tutorial/notebooks/data-exploration4.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -396,10 +398,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Ftutorial/notebooks/data-extraction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/peterhcharlton/bsp-book/issues/new?title=Issue%20on%20page%20%2Ftutorial/notebooks/data-exploration4.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/tutorial/notebooks/data-extraction.ipynb"><button
+        <a class="edit-button" href="https://github.com/peterhcharlton/bsp-book/edit/main/content/tutorial/notebooks/data-exploration4.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -419,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/tutorial/notebooks/data-extraction.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/peterhcharlton/bsp-book/main?urlpath=tree/content/tutorial/notebooks/data-exploration4.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -427,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/tutorial/notebooks/data-extraction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/peterhcharlton/bsp-book/blob/main/content/tutorial/notebooks/data-exploration4.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -450,11 +452,23 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#setup">
    Setup
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extract-data-for-this-segment">
-   Extract data for this segment
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-the-required-python-packages">
+     Specify the required Python packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specify-a-particular-version-of-the-wfdb-toolbox">
+     Specify a particular version of the WFDB Toolbox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-a-wfdb-file-containing-a-ppg-signal">
+     Download a WFDB file containing a PPG signal
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -467,226 +481,105 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <section id="data-extraction">
-<h1>Data Extraction<a class="headerlink" href="#data-extraction" title="Permalink to this headline">¶</a></h1>
-<p>In this tutorial we’ll extract data from the MIMIC-IV Waveform Database.</p>
-<p>Our <strong>objectives</strong> are to:</p>
-<ul class="simple">
-<li><p>Extract signals from one segment of a record.</p></li>
-<li><p>Limit the segment to only the required duration of relevant signals (<em>i.e.</em> 10 min of photoplethysmography and blood pressure signals).</p></li>
-</ul>
+  <section id="exploring-openox">
+<h1>Exploring OpenOx<a class="headerlink" href="#exploring-openox" title="Permalink to this headline">¶</a></h1>
 <div class="alert alert-block alert-warning">
-<p><b>Context:</b>
-    In the <a href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration</a> tutorial we learnt how to identify segments of waveform data which are suitable for a particular research study (i.e. which have the required duration of the required signals). We extracted metadata for such a segment, providing high-level details of what is contained in the segment (e.g. which signals, their sampling frequency, and their duration). Now we will go a step further to extract signals for analysis.</p>
+<p><b>Note:</b> This tutorial is of limited use, as it requires files to be downloaded manually, and then run locally. The OpenOximetry Repository isn't used further in this book.</p>
+</div><p>This is an initial introduction to reading PPG files in the OpenOximetry Repository.</p>
+<div class="alert alert-block alert-warning">
+<p><b>Resource:</b> You can find out more about the OpenOximetry Repository <a href="https://physionet.org/content/openox-repo/1.0.0/">here</a>.</p>
 </div><hr class="docutils" />
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<div class="alert alert-block alert-warning">
-<p><b>Resource:</b> These steps are taken from the <a href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration</a> tutorial.</p></div><ul class="simple">
-<li><p>Specify the required Python packages</p></li>
+<section id="specify-the-required-python-packages">
+<h3>Specify the required Python packages<a class="headerlink" href="#specify-the-required-python-packages" title="Permalink to this headline">¶</a></h3>
+<p>We’ll import the following:</p>
+<ul class="simple">
+<li><p><em>os</em></p></li>
+<li><p><em>numpy</em></p></li>
+<li><p><em>matplotlib</em>: for plotting</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="specify-a-particular-version-of-the-wfdb-toolbox">
+<h3>Specify a particular version of the WFDB Toolbox<a class="headerlink" href="#specify-a-particular-version-of-the-wfdb-toolbox" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Install and import the WFDB toolbox</p></li>
+<li><p><em>wfdb</em>: For this workshop we will be using version 4 of the WaveForm DataBase (WFDB) Toolbox package. The package contains tools for processing waveform data such as the PPG signals found in the OpenOximetry repository:</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">wfdb</span><span class="o">==</span><span class="m">4</span>.0.0
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">wfdb</span><span class="o">==</span><span class="m">4</span>.1.0
 <span class="kn">import</span> <span class="nn">wfdb</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: wfdb==4.0.0 in /usr/local/lib/python3.7/dist-packages (4.0.0)
-Requirement already satisfied: SoundFile&lt;0.12.0,&gt;=0.10.0 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (0.10.3.post1)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.8.1 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (2.23.0)
-Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.0.0 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (1.3.5)
-Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.0.0 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (1.4.1)
-Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.2.2 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (3.2.2)
-Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.10.1 in /usr/local/lib/python3.7/dist-packages (from wfdb==4.0.0) (1.21.6)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (2.8.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.4.3)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (3.0.9)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.7/dist-packages (from matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (0.11.0)
-Requirement already satisfied: typing-extensions in /usr/local/lib/python3.7/dist-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (4.1.1)
-Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&lt;2.0.0,&gt;=1.0.0-&gt;wfdb==4.0.0) (2022.1)
-Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.1-&gt;matplotlib&lt;4.0.0,&gt;=3.2.2-&gt;wfdb==4.0.0) (1.15.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2022.6.15)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (1.24.3)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (3.0.4)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests&lt;3.0.0,&gt;=2.8.1-&gt;wfdb==4.0.0) (2.10)
-Requirement already satisfied: cffi&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (1.15.0)
-Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.0-&gt;SoundFile&lt;0.12.0,&gt;=0.10.0-&gt;wfdb==4.0.0) (2.21)
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Specify the settings for the MIMIC-IV database</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The name of the MIMIC-IV Waveform Database on PhysioNet</span>
-<span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;mimic4wdb/0.1.0&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Provide a list of segments which meet the requirements for the study (NB: these are copied from the end of the <a class="reference external" href="https://wfdb.io/mimic_wfdb_tutorials/tutorial/notebooks/data-exploration.html">Data Exploration Tutorial</a>).</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;83404654_0005&#39;</span><span class="p">]</span>
-<span class="n">segment_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mimic4wdb/0.1.0/waves/p100/p10020306/83404654&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Specify a segment from which to extract data</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_segment_no</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">rel_segment_name</span> <span class="o">=</span> <span class="n">segment_names</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
-<span class="n">rel_segment_dir</span> <span class="o">=</span> <span class="n">segment_dirs</span><span class="p">[</span><span class="n">rel_segment_no</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specified segment &#39;</span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&#39; in directory: &#39;</span><span class="si">{</span><span class="n">rel_segment_dir</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specified segment &#39;83404654_0005&#39; in directory: &#39;mimic4wdb/0.1.0/waves/p100/p10020306/83404654&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="alert alert-block alert-info">
-<p><b>Extension:</b> Have a look at the files which make up this record <a href="https://physionet.org/content/mimic4wdb/0.1.0/waves/p100/p10020306/">here</a> (NB: you will need to scroll to the bottom of the page).</p>
-</div></section>
-<hr class="docutils" />
-<section id="extract-data-for-this-segment">
-<h2>Extract data for this segment<a class="headerlink" href="#extract-data-for-this-segment" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Use the <a class="reference external" href="https://wfdb.readthedocs.io/en/latest/io.html#wfdb.io.rdrecord"><code class="docutils literal notranslate"><span class="pre">rdrecord</span></code></a> function from the WFDB toolbox to read the data for this segment.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_data</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="n">record_name</span><span class="o">=</span><span class="n">rel_segment_name</span><span class="p">,</span> <span class="n">pn_dir</span><span class="o">=</span><span class="n">rel_segment_dir</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data loaded from segment: </span><span class="si">{</span><span class="n">rel_segment_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data loaded from segment: 83404654_0005
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Look at class type of the object in which the data are stored:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data stored in class of type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data stored in class of type: &lt;class &#39;wfdb.io.record.Record&#39;&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="alert alert-block alert-warning">
-<p><b>Resource:</b> You can find out more about the class representing single segment WFDB records <a href="https://wfdb.readthedocs.io/en/stable/io.html?highlight=class#wfdb.io.Record">here</a>.</p>
-</div><ul class="simple">
-<li><p>Find out about the signals which have been extracted</p></li>
+<p><b>Resource:</b> You can find out more about the WFDB package <a href="https://physionet.org/content/wfdb-python/3.4.1/">here</a>.</p>
+</div><p>Now that we have imported these packages (<em>i.e.</em> toolboxes) we have a set of tools (functions) ready to use.</p>
+</section>
+<section id="download-a-wfdb-file-containing-a-ppg-signal">
+<h3>Download a WFDB file containing a PPG signal<a class="headerlink" href="#download-a-wfdb-file-containing-a-ppg-signal" title="Permalink to this headline">¶</a></h3>
+<p>In preparation for this, I have downloaded the following two files:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://physionet.org/files/openox-repo/1.0.0/waveforms/0/0274ff212eab782d3a29b533b78a051984a04469844659e3cab48bab230e2e1d_ppg.dat?download">0274ff212eab782d3a29b533b78a051984a04469844659e3cab48bab230e2e1d_ppg.dat</a></p></li>
+<li><p><a class="reference external" href="https://physionet.org/files/openox-repo/1.0.0/waveforms/0/0274ff212eab782d3a29b533b78a051984a04469844659e3cab48bab230e2e1d_ppg.hea?download">0274ff212eab782d3a29b533b78a051984a04469844659e3cab48bab230e2e1d_ppg.hea</a></p></li>
 </ul>
+<p>I then moved them to a new folder at the following path (if you are repeating this you will need to update this with the path to your own folder):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This segment contains waveform data for the following </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">n_sig</span><span class="si">}</span><span class="s2"> signals: </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">sig_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The signals are sampled at a base rate of </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span><span class="si">}</span><span class="s2"> Hz (and some are sampled at multiples of this)&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;They last for </span><span class="si">{</span><span class="n">segment_data</span><span class="o">.</span><span class="n">sig_len</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="n">segment_data</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This segment contains waveform data for the following 6 signals: [&#39;II&#39;, &#39;V&#39;, &#39;aVR&#39;, &#39;ABP&#39;, &#39;Pleth&#39;, &#39;Resp&#39;]
-The signals are sampled at a base rate of 62.4725 Hz (and some are sampled at multiples of this)
-They last for 52.4 minutes
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_record_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/petercharlton/Downloads/downloaded2/curr_files/&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-info">
-<p><b>Question:</b> Can you find out which signals are sampled at multiples of the base sampling frequency by looking at the following contents of the 'segment_data' variable?</p>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="n">pprint</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">segment_data</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify all files in the directory</span>
+<span class="n">all_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">local_record_dir</span><span class="p">)</span>
+
+<span class="c1"># Filter to get only record files (assuming .dat and .hea files are used for records)</span>
+<span class="n">record_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">all_files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dat&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Remove the file extension to get the record names</span>
+<span class="n">record_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">record_files</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local WFDB record names:&quot;</span><span class="p">,</span> <span class="n">record_names</span><span class="p">)</span>
+
+<span class="c1"># Load and process each record</span>
+<span class="n">start_sample</span> <span class="o">=</span> <span class="mi">50000</span>  <span class="c1"># Replace with your desired start sample index</span>
+<span class="n">end_sample</span> <span class="o">=</span> <span class="n">start_sample</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">record</span><span class="o">.</span><span class="n">fs</span>    <span class="c1"># Replace with your desired end sample index</span>
+<span class="k">for</span> <span class="n">record_name</span> <span class="ow">in</span> <span class="n">record_names</span><span class="p">:</span>
+    <span class="n">record_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_record_dir</span><span class="p">,</span> <span class="n">record_name</span><span class="p">)</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">wfdb</span><span class="o">.</span><span class="n">rdrecord</span><span class="p">(</span><span class="n">record_path</span><span class="p">,</span> <span class="n">sampfrom</span> <span class="o">=</span> <span class="n">start_sample</span><span class="p">,</span> <span class="n">sampto</span> <span class="o">=</span> <span class="n">end_sample</span><span class="p">)</span>
+    <span class="n">num_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">p_signal</span><span class="p">)</span>
+    <span class="n">time_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">record</span><span class="o">.</span><span class="n">fs</span>
+    <span class="c1"># Plot the signals</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">n_sig</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span><span class="n">record</span><span class="o">.</span><span class="n">p_signal</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Signal </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">sig_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; signal&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;adc_gain&#39;: [200.0, 200.0, 200.0, 16.0, 4096.0, 4093.0],
- &#39;adc_res&#39;: [14, 14, 14, 13, 12, 12],
- &#39;adc_zero&#39;: [8192, 8192, 8192, 4096, 2048, 2048],
- &#39;base_counter&#39;: 10219520.0,
- &#39;base_date&#39;: None,
- &#39;base_time&#39;: None,
- &#39;baseline&#39;: [8192, 8192, 8192, 800, 0, 2],
- &#39;block_size&#39;: [0, 0, 0, 0, 0, 0],
- &#39;byte_offset&#39;: [None, None, None, None, None, None],
- &#39;checksum&#39;: [10167, 1300, 56956, 35887, 29987, 21750],
- &#39;comments&#39;: [&#39;signal 0 (II): channel=0 bandpass=[0.5,35]&#39;,
-              &#39;signal 1 (V): channel=1 bandpass=[0.5,35]&#39;,
-              &#39;signal 2 (aVR): channel=2 bandpass=[0.5,35]&#39;],
- &#39;counter_freq&#39;: 999.56,
- &#39;d_signal&#39;: None,
- &#39;e_d_signal&#39;: None,
- &#39;e_p_signal&#39;: None,
- &#39;file_name&#39;: [&#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005e.dat&#39;,
-               &#39;83404654_0005p.dat&#39;,
-               &#39;83404654_0005p.dat&#39;,
-               &#39;83404654_0005r.dat&#39;],
- &#39;fmt&#39;: [&#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;, &#39;516&#39;],
- &#39;fs&#39;: 62.4725,
- &#39;init_value&#39;: [0, 0, 0, 0, 0, 0],
- &#39;n_sig&#39;: 6,
- &#39;p_signal&#39;: array([[ 0.00000000e+00, -6.50000000e-02, -5.00000000e-03,
-                    nan,  5.02929688e-01,  1.56120205e-01],
-       [ 5.00000000e-03, -4.50000000e-02, -5.00000000e-03,
-                    nan,  5.02929688e-01,  1.56853164e-01],
-       [ 1.50000000e-02, -2.50000000e-02,  5.00000000e-03,
-                    nan,  5.02929688e-01,  1.57097484e-01],
-       ...,
-       [-1.50000000e-02,  7.00000000e-02, -4.00000000e-02,
-         7.25000000e+01,  5.74951172e-01,  3.57683850e-01],
-       [-1.50000000e-02,  5.50000000e-02, -4.50000000e-02,
-         7.25000000e+01,  5.70800781e-01,  3.61104324e-01],
-       [ 0.00000000e+00,  9.00000000e-02, -5.50000000e-02,
-         7.25000000e+01,  5.62255859e-01,  3.63791840e-01]]),
- &#39;record_name&#39;: &#39;83404654_0005&#39;,
- &#39;samps_per_frame&#39;: [4, 4, 4, 2, 2, 1],
- &#39;sig_len&#39;: 196480,
- &#39;sig_name&#39;: [&#39;II&#39;, &#39;V&#39;, &#39;aVR&#39;, &#39;ABP&#39;, &#39;Pleth&#39;, &#39;Resp&#39;],
- &#39;skew&#39;: [None, None, None, None, None, None],
- &#39;units&#39;: [&#39;mV&#39;, &#39;mV&#39;, &#39;mV&#39;, &#39;mmHg&#39;, &#39;NU&#39;, &#39;Ohm&#39;]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Local WFDB record names: [&#39;0274ff212eab782d3a29b533b78a051984a04469844659e3cab48bab230e2e1d_ppg&#39;]
 </pre></div>
 </div>
+<img alt="../../_images/data-exploration4_14_1.png" src="../../_images/data-exploration4_14_1.png" />
+<img alt="../../_images/data-exploration4_14_2.png" src="../../_images/data-exploration4_14_2.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -719,6 +612,24 @@ They last for 52.4 minutes
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="data-exploration3.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Exploring MIMIC-III</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="signal-filtering.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Filtering Signals</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
